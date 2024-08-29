@@ -69,10 +69,13 @@ String GDExample::_get_function_arg_name(String input_str, int arg_index) {
   std::string text;
   if (CALCULATOR->getFunction(input_str.utf8().get_data())
           ->getArgumentDefinition(arg_index)) {
-
     text = CALCULATOR->getFunction(input_str.utf8().get_data())
                ->getArgumentDefinition(arg_index)
                ->name();
+    if (text.empty()) {
+      text = "Value ";
+      text += std::to_string(arg_index);
+    }
   } else {
     text = "Argument ";
     text += std::to_string(arg_index);
