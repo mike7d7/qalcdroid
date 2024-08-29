@@ -1,0 +1,40 @@
+# Documentation
+This document explains the basic structure of the code.
+
+Button connection
+==================
+
+Most buttons are connected using a gdscript with the same name. Notable exceptions are Numbers, which connect to `button0.gd`, and certain functions that spawn parenthesis after their text (ex. ln, √, trig functions) which connect to `name_then_parenthesis.gd`. 
+
+Units
+==================
+
+The unit list is generated using the `units.gd` script. It parses the `/usr/share/qalculate/units.xml` file to get the names and the categories, then using the `_unit_abbreviation()` function from the cpp code, it gets the name/symbol that qalculate understands when using it as input, it's stored in the TreeItem of the unit as metadata in column 0. the `_unit_abbreviation()` function is called through the enter button, since instancing the gdextension class again causes issues like [#1](https://gitlab.com/mike7d7/calculator/-/issues/1#).
+
+Android
+==================
+
+Building for android takes some extra steps:
+- Install dependencies, on Void Linux `intltool m4 autoconf libtool automake patch cmake swig`
+- `git clone https://github.com/mike7d7/libqalculate-android.git`
+- `cd libqalculate-android`
+- `./gradlew build`
+- Find the cxx output folder with all library folders for each ABI with the *.so files
+> TODO: add cxx output folder path
+- Copy all the ABI folders to `calculator/src/libs/` and `calculator/android/build/src/main/jniLibs/`
+
+Build c++ binds with scons, don't forget to set the Android SDK
+- `ANDROID_HOME=/path/to/Android/SDK/`
+- `cd calculator`
+- `scons platform=android`
+
+Now just export to Android from Godot
+
+Icons
+==================
+
+Icons used are modified versions of Cosmic Icons
+Modifications:
+- Change color to #f5f5f5
+- Change size to be the same as font size
+"[Cosmic Icons](http://github.com/pop-os/cosmic-icons)" by [System76](http://system76.com/) is licensed under [CC-SA-4.0](http://creativecommons.org/licenses/by-sa/4.0/)

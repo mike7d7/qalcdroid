@@ -1,0 +1,628 @@
+[gd_scene load_steps=25 format=3 uid="uid://cadhc63l4phn7"]
+
+[ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
+[ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
+[ext_resource type="Theme" uid="uid://dijyvgyshdkqj" path="res://fontsize40.tres" id="1_xbuye"]
+[ext_resource type="Script" path="res://button_scripts/clear.gd" id="2_ltflc"]
+[ext_resource type="Script" path="res://button_scripts/delete.gd" id="3_1veor"]
+[ext_resource type="Script" path="res://button_scripts/move_left.gd" id="3_1343i"]
+[ext_resource type="Texture2D" uid="uid://bgk42bvlenvkf" path="res://assets/pan-start-symbolic.svg" id="3_rf4oa"]
+[ext_resource type="Script" path="res://button_scripts/move_right.gd" id="4_mgs5p"]
+[ext_resource type="Script" path="res://button_scripts/enter.gd" id="4_qdnla"]
+[ext_resource type="Script" path="res://button_scripts/answer.gd" id="4_t5poh"]
+[ext_resource type="Texture2D" uid="uid://b2tynr2ibjxde" path="res://assets/pan-end-symbolic.svg" id="5_45h5p"]
+[ext_resource type="Texture2D" uid="uid://v7o6h3f5uawn" path="res://assets/edit-clear-symbolic.svg" id="7_t6dja"]
+[ext_resource type="Script" path="res://button_scripts/exponent.gd" id="10_855gx"]
+[ext_resource type="Script" path="res://button_scripts/name_then_parenthesis.gd" id="12_nag7n"]
+[ext_resource type="Script" path="res://button_scripts/2_param_parenthesis.gd" id="13_utar4"]
+[ext_resource type="Script" path="res://button_scripts/sum_popup.gd" id="14_d0bkj"]
+[ext_resource type="Theme" uid="uid://ct6wbh7pmtv76" path="res://popup_fontsize.tres" id="15_6v4ak"]
+[ext_resource type="Script" path="res://button_scripts/units.gd" id="15_hi52x"]
+[ext_resource type="Script" path="res://button_scripts/ignore_first_char.gd" id="15_ot4g3"]
+[ext_resource type="Script" path="res://button_scripts/sum_popup/cancel.gd" id="16_52w8q"]
+[ext_resource type="Script" path="res://button_scripts/sum_popup/insert.gd" id="17_b0v8h"]
+[ext_resource type="Script" path="res://button_scripts/functions.gd" id="19_5ly0p"]
+[ext_resource type="Texture2D" uid="uid://bvjlxishyorn" path="res://assets/system-search-symbolic.svg" id="19_8hrvw"]
+[ext_resource type="Script" path="res://button_scripts/insert_function.gd" id="24_jwiw4"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="input" type="TextEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 280)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+virtual_keyboard_enabled = false
+wrap_mode = 1
+caret_blink = true
+caret_blink_interval = 0.5
+caret_mid_grapheme = true
+caret_multiple = false
+script = ExtResource("1_cdgn3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 150
+text = "resultado"
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="numbers" type="GridContainer" parent="VBoxContainer/TabContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+columns = 5
+metadata/_tab_index = 0
+
+[node name="move_left" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+icon = ExtResource("3_rf4oa")
+icon_alignment = 1
+script = ExtResource("3_1343i")
+
+[node name="move_right" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+icon = ExtResource("5_45h5p")
+icon_alignment = 1
+script = ExtResource("4_mgs5p")
+
+[node name="left_parenthesis" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+text = "("
+script = ExtResource("1_totml")
+
+[node name="right_parenthesis2" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+text = ")"
+script = ExtResource("1_totml")
+
+[node name="clear" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+text = "C"
+script = ExtResource("2_ltflc")
+
+[node name="Button7" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+theme_override_font_sizes/font_size = 0
+text = "7"
+script = ExtResource("1_totml")
+
+[node name="Button8" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "8"
+script = ExtResource("1_totml")
+
+[node name="Button9" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "9"
+script = ExtResource("1_totml")
+
+[node name="Divide" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "/"
+script = ExtResource("1_totml")
+
+[node name="delete" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+theme_override_font_sizes/font_size = 0
+icon = ExtResource("7_t6dja")
+icon_alignment = 1
+script = ExtResource("3_1veor")
+
+[node name="Button4" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "4"
+script = ExtResource("1_totml")
+
+[node name="Button5" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "5"
+script = ExtResource("1_totml")
+
+[node name="Button6" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "6"
+script = ExtResource("1_totml")
+
+[node name="Multiply" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "*"
+script = ExtResource("1_totml")
+
+[node name="answer" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+text = "ans"
+script = ExtResource("4_t5poh")
+
+[node name="Button1" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "1"
+script = ExtResource("1_totml")
+
+[node name="Button2" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "2"
+script = ExtResource("1_totml")
+
+[node name="Button3" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "3"
+script = ExtResource("1_totml")
+
+[node name="Minus" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "-"
+script = ExtResource("1_totml")
+
+[node name="percent" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "%"
+script = ExtResource("1_totml")
+
+[node name="comma" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = ","
+script = ExtResource("1_totml")
+
+[node name="Button0" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "0"
+script = ExtResource("1_totml")
+
+[node name="Dot" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "."
+script = ExtResource("1_totml")
+
+[node name="sum" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+text = "+"
+script = ExtResource("1_totml")
+
+[node name="GDExample" type="GDExample" parent="VBoxContainer/TabContainer/numbers"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "="
+script = ExtResource("4_qdnla")
+
+[node name="numbers2" type="GridContainer" parent="VBoxContainer/TabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+columns = 4
+metadata/_tab_index = 1
+
+[node name="move_left2" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+icon = ExtResource("3_rf4oa")
+icon_alignment = 1
+script = ExtResource("3_1343i")
+
+[node name="move_right2" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+icon = ExtResource("5_45h5p")
+icon_alignment = 1
+script = ExtResource("4_mgs5p")
+
+[node name="exponent" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+text = "xʸ"
+script = ExtResource("10_855gx")
+
+[node name="clear" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+text = "C"
+script = ExtResource("2_ltflc")
+
+[node name="factorial" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+theme_override_font_sizes/font_size = 0
+text = "x!"
+script = ExtResource("15_ot4g3")
+
+[node name="nat_log" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "ln"
+script = ExtResource("12_nag7n")
+
+[node name="sqrt" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "√"
+script = ExtResource("12_nag7n")
+
+[node name="base_nat_log" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "e"
+script = ExtResource("1_totml")
+
+[node name="modulus" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "mod"
+script = ExtResource("13_utar4")
+
+[node name="mean" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "x̄"
+script = ExtResource("12_nag7n")
+
+[node name="sum5" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "Σ"
+script = ExtResource("14_d0bkj")
+
+[node name="pi" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "π"
+script = ExtResource("1_totml")
+
+[node name="sin" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "sin"
+script = ExtResource("12_nag7n")
+
+[node name="cos" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "cos"
+script = ExtResource("12_nag7n")
+
+[node name="tan" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "tan"
+script = ExtResource("12_nag7n")
+
+[node name="i" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "i"
+script = ExtResource("1_totml")
+
+[node name="x" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+text = "x"
+script = ExtResource("1_totml")
+
+[node name="y" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "y"
+script = ExtResource("1_totml")
+
+[node name="z" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "z"
+script = ExtResource("1_totml")
+
+[node name="equality" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xbuye")
+text = "x="
+script = ExtResource("15_ot4g3")
+
+[node name="unit" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+text = "u"
+script = ExtResource("15_hi52x")
+
+[node name="kg" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+text = "kg"
+script = ExtResource("1_totml")
+
+[node name="dollar" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+text = "$"
+script = ExtResource("1_totml")
+
+[node name="conversion" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+text = "x→"
+script = ExtResource("15_ot4g3")
+
+[node name="Functions" type="Tree" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+hide_root = true
+script = ExtResource("19_5ly0p")
+metadata/_tab_index = 2
+
+[node name="sum_popup" type="PopupPanel" parent="."]
+initial_position = 2
+size = Vector2i(858, 655)
+theme = ExtResource("15_6v4ak")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="sum_popup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 854.0
+offset_bottom = 651.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="sum_popup/VBoxContainer"]
+layout_mode = 2
+text = "Summation"
+
+[node name="GridContainer" type="GridContainer" parent="sum_popup/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+columns = 2
+
+[node name="Label2" type="Label" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Term expression"
+
+[node name="expression" type="LineEdit" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Label3" type="Label" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Lower limit (i)"
+
+[node name="low_limit" type="SpinBox" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label4" type="Label" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upper limit (n)"
+
+[node name="up_limit" type="SpinBox" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label5" type="Label" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Index variable"
+
+[node name="variable" type="LineEdit" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "optional"
+
+[node name="cancel" type="Button" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+script = ExtResource("16_52w8q")
+metadata/node = NodePath("../../..")
+
+[node name="insert" type="Button" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Insert
+"
+script = ExtResource("17_b0v8h")
+
+[node name="sum_popup2" type="PopupPanel" parent="."]
+initial_position = 2
+size = Vector2i(858, 655)
+theme = ExtResource("15_6v4ak")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="sum_popup2"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 854.0
+offset_bottom = 651.0
+
+[node name="Label" type="Label" parent="sum_popup2/VBoxContainer"]
+layout_mode = 2
+text = "Search:"
+
+[node name="LineEdit" type="LineEdit" parent="sum_popup2/VBoxContainer"]
+layout_mode = 2
+right_icon = ExtResource("19_8hrvw")
+
+[node name="VScrollBar" type="ScrollContainer" parent="sum_popup2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Tree" type="Tree" parent="sum_popup2/VBoxContainer/VScrollBar"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+allow_search = false
+hide_root = true
+scroll_horizontal_enabled = false
+
+[node name="cancel" type="Button" parent="sum_popup2/VBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+script = ExtResource("16_52w8q")
+metadata/node = NodePath("../..")
+
+[node name="fn_popup" type="PopupPanel" parent="."]
+auto_translate_mode = 1
+initial_position = 2
+size = Vector2i(858, 655)
+theme = ExtResource("15_6v4ak")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="fn_popup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 854.0
+offset_bottom = 651.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="fn_popup/VBoxContainer"]
+layout_mode = 2
+text = "Function"
+
+[node name="GridContainer" type="GridContainer" parent="fn_popup/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+columns = 2
+
+[node name="cancel" type="Button" parent="fn_popup/VBoxContainer/GridContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+script = ExtResource("16_52w8q")
+metadata/node = NodePath("../../..")
+
+[node name="insert" type="Button" parent="fn_popup/VBoxContainer/GridContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Insert
+"
+script = ExtResource("24_jwiw4")
+
+[connection signal="item_activated" from="VBoxContainer/TabContainer/Functions" to="VBoxContainer/input" method="_on_functions_item_activated"]
+[connection signal="text_changed" from="sum_popup2/VBoxContainer/LineEdit" to="VBoxContainer/TabContainer/numbers2/unit" method="_on_line_edit_text_changed"]
+[connection signal="item_activated" from="sum_popup2/VBoxContainer/VScrollBar/Tree" to="VBoxContainer/input" method="_on_tree_item_activated"]
