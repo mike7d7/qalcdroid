@@ -23,7 +23,7 @@ func get_functions_from_xml():
 				var current_sub_item: TreeItem = self.create_item(current_item)
 				current_sub_item.set_text(0, j.children[0].content)
 				for k in j.children:
-					if k.name == "builtin_function":
+					if k.name == "builtin_function" || k.name == "function":
 						var current_sub_sub_item: TreeItem = self.create_item(current_sub_item)
 						current_sub_sub_item.set_text(0, k.children[0].content)
 						for l in k.children:
