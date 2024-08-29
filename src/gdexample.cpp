@@ -43,9 +43,16 @@ int GDExample::_get_function_max_args(String input_str) {
 }
 
 int GDExample::_get_function_arg_type(String input_str, int arg_index) {
-  int arg_type = CALCULATOR->getFunction(input_str.utf8().get_data())
-                     ->getArgumentDefinition(arg_index)
-                     ->type();
+  int arg_type;
+  if (CALCULATOR->getFunction(input_str.utf8().get_data())
+          ->getArgumentDefinition(arg_index)) {
+    arg_type = CALCULATOR->getFunction(input_str.utf8().get_data())
+                   ->getArgumentDefinition(arg_index)
+                   ->type();
+  } else {
+    arg_type = 0;
+  }
+
   switch (arg_type) {
   case ARGUMENT_TYPE_BOOLEAN:
     return 1;
@@ -59,11 +66,18 @@ int GDExample::_get_function_arg_type(String input_str, int arg_index) {
 }
 
 String GDExample::_get_function_arg_name(String input_str, int arg_index) {
-  return godot::String::utf8(
-      CALCULATOR->getFunction(input_str.utf8().get_data())
-          ->getArgumentDefinition(arg_index)
-          ->name()
-          .c_str());
+  std::string text;
+  if (CALCULATOR->getFunction(input_str.utf8().get_data())
+          ->getArgumentDefinition(arg_index)) {
+
+    text = CALCULATOR->getFunction(input_str.utf8().get_data())
+               ->getArgumentDefinition(arg_index)
+               ->name();
+  } else {
+    text = "Argument ";
+    text += std::to_string(arg_index);
+  }
+  return godot::String::utf8(text.c_str());
 }
 
 String GDExample::_get_function_arg_def_val(String input_str, int arg_index) {
