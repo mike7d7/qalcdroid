@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 func get_functions_from_xml():
-	var xml_doc = XML.parse_file("/usr/share/qalculate/functions.xml")
+	var xml_doc = XML.parse_file("res://functions.xml")
 	xml_doc = xml_doc.root
 	
 	var root: TreeItem = self.create_item()

@@ -3,5 +3,7 @@
 android/
 bin/
 .sconsign.dblite
-src/register_types.os
 src/gdexample.os
+src/register_types.os
+functions.xml
+units.xml

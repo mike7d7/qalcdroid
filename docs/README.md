@@ -1,5 +1,8 @@
 # Documentation
-This document explains the basic structure of the code.
+
+Building
+==================
+Before building, run the `prepare-build.sh` script, to copy the xmls provided by libqalculate
 
 Button connection
 ==================
@@ -38,3 +41,4 @@ Modifications:
 - Change color to #f5f5f5
 - Change size to be the same as font size
 "[Cosmic Icons](http://github.com/pop-os/cosmic-icons)" by [System76](http://system76.com/) is licensed under [CC-SA-4.0](http://creativecommons.org/licenses/by-sa/4.0/)
+
