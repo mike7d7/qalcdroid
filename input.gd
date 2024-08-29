@@ -56,6 +56,7 @@ func _on_functions_item_activated() -> void:
 			
 		popup.move_child(popup.get_child(1), popup.get_child_count() - 1)
 		popup.move_child(popup.get_child(0), popup.get_child_count() - 2)
+		$"../../fn_popup/VBoxContainer/Label".set_text(item.get_text(0))
 		$"../../fn_popup".size = $"../../../Control".size
 		$"../../fn_popup".show()
 	else:
