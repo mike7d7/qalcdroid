@@ -30,7 +30,7 @@ func get_functions_from_xml():
 							if l.name == "names" && not l.attributes:
 								current_sub_sub_item.set_metadata(0, l.content.get_slice(":", 1).get_slice(",", 0))
 				
-			if j.name == "builtin_function":
+			if j.name == "builtin_function" || j.name == "function":
 				var current_sub_item: TreeItem = self.create_item(current_item)
 				current_sub_item.set_text(0, j.children[0].content)
 				for k in j.children:
