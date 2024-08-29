@@ -6,9 +6,9 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _button_pressed():
-	var item = $"../../../../VBoxContainer/TabContainer/Functions".get_selected()
+	var item = $"../../../../../../VBoxContainer/TabContainer/Functions".get_selected()
 	var text = item.get_metadata(0) + "("
-	for i in $"../../../../fn_popup/VBoxContainer/GridContainer".get_children():
+	for i in $"../../../../../../fn_popup/ScrollContainer/VBoxContainer/GridContainer".get_children():
 		match i.get_class():
 			"LineEdit":
 				text += i.text + ","
@@ -24,5 +24,5 @@ func _button_pressed():
 					text += "false" + ","
 	text = text.left(-1)
 	text += ")"
-	$"../../../../VBoxContainer/input".insert_text_at_caret(text, -1)
-	$"../../../../fn_popup".hide();
+	$"../../../../../../VBoxContainer/input".insert_text_at_caret(text, -1)
+	$"../../../../../../fn_popup".hide();

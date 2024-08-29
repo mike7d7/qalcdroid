@@ -1,6 +1,6 @@
 extends TextEdit
 @onready var cpp_code = $"../../VBoxContainer/TabContainer/numbers/GDExample"
-@onready var popup = $"../../fn_popup/VBoxContainer/GridContainer"
+@onready var popup = $"../../fn_popup/ScrollContainer/VBoxContainer/GridContainer"
 
 func _ready():
 	grab_focus()
@@ -16,7 +16,7 @@ func _on_tree_item_activated():
 
 
 func _on_functions_item_activated() -> void:
-	while popup.get_child_count() > 2:
+	while popup.get_child_count() > 1:
 		popup.get_child(0).free()
 	var item = $"../../VBoxContainer/TabContainer/Functions".get_selected()
 	if item.get_metadata(0):
@@ -53,10 +53,12 @@ func _on_functions_item_activated() -> void:
 					input = OptionButton.new()
 					#TODO add working combobox
 			popup.add_child(input)
+			var separator = HSeparator.new()
+			popup.add_child(separator)
 			
-		popup.move_child(popup.get_child(1), popup.get_child_count() - 1)
-		popup.move_child(popup.get_child(0), popup.get_child_count() - 2)
-		$"../../fn_popup/VBoxContainer/Label".set_text(item.get_text(0))
+		#popup.move_child(popup.get_child(1), popup.get_child_count() - 1)
+		popup.move_child(popup.get_child(0), popup.get_child_count() - 1)
+		$"../../fn_popup/ScrollContainer/VBoxContainer/Label".set_text(item.get_text(0))
 		$"../../fn_popup".size = $"../../../Control".size
 		$"../../fn_popup".show()
 	else:

@@ -2,3 +2,4 @@
 
 [resource]
 default_font_size = 70
+HSeparator/constants/separation = 50

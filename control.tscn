@@ -590,32 +590,40 @@ initial_position = 2
 size = Vector2i(858, 655)
 theme = ExtResource("15_6v4ak")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="fn_popup"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 854.0
-offset_bottom = 651.0
+[node name="ScrollContainer" type="ScrollContainer" parent="fn_popup"]
+offset_right = 40.0
+offset_bottom = 40.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="fn_popup/ScrollContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="fn_popup/VBoxContainer"]
+[node name="Label" type="Label" parent="fn_popup/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "Function"
+clip_text = true
 
-[node name="GridContainer" type="GridContainer" parent="fn_popup/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="fn_popup/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="VBoxContainer" parent="fn_popup/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
-columns = 2
 
-[node name="cancel" type="Button" parent="fn_popup/VBoxContainer/GridContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="fn_popup/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="cancel" type="Button" parent="fn_popup/ScrollContainer/VBoxContainer/GridContainer/HBoxContainer"]
 layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cancel"
 script = ExtResource("16_52w8q")
-metadata/node = NodePath("../../..")
+metadata/node = NodePath("../../../../..")
 
-[node name="insert" type="Button" parent="fn_popup/VBoxContainer/GridContainer"]
+[node name="insert" type="Button" parent="fn_popup/ScrollContainer/VBoxContainer/GridContainer/HBoxContainer"]
 layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 3
