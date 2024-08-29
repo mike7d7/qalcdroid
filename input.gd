@@ -45,8 +45,8 @@ func _on_functions_item_activated() -> void:
 					input = CheckButton.new()
 				2:
 					input = SpinBox.new()
-					input.min_value = -1
-					input.max_value = INF
+					input.set_allow_lesser(true)
+					input.set_allow_greater(true)
 					if default_value:
 						input.set_value_no_signal(default_value.to_float())
 				3:
