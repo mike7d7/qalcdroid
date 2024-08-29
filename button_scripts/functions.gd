@@ -36,3 +36,4 @@ func get_functions_from_xml():
 				for k in j.children:
 					if k.name == "names" && not k.attributes:
 						current_sub_item.set_metadata(0, k.content.get_slice(":", 1).get_slice(",", 0))
+		current_item.set_collapsed_recursive(true)
