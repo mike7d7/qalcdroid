@@ -567,12 +567,9 @@ offset_top = 4.0
 offset_right = 854.0
 offset_bottom = 651.0
 
-[node name="Label" type="Label" parent="sum_popup2/VBoxContainer"]
-layout_mode = 2
-text = "Search:"
-
 [node name="LineEdit" type="LineEdit" parent="sum_popup2/VBoxContainer"]
 layout_mode = 2
+placeholder_text = "Search:"
 right_icon = ExtResource("19_8hrvw")
 
 [node name="VScrollBar" type="ScrollContainer" parent="sum_popup2/VBoxContainer"]
