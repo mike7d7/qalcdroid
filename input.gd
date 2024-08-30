@@ -6,15 +6,15 @@ func _ready():
 	grab_focus()
 	
 
+#code for units
 func _on_tree_item_activated():
-	var item = $"../../sum_popup2/VBoxContainer/VScrollBar/Tree".get_selected()
+	var item = $"../../VBoxContainer/TabContainer/Units/Tree".get_selected()
 	if item.get_metadata(0):
 		self.insert_text_at_caret(item.get_metadata(0), -1)
-		$"../../sum_popup2".hide()
 	else:
 		item.set_collapsed_recursive(!item.collapsed)
 
-
+#code for functions
 func _on_functions_item_activated() -> void:
 	while popup.get_child_count() > 1:
 		popup.get_child(0).free()

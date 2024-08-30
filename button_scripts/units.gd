@@ -1,23 +1,16 @@
-extends Button
+extends Tree
 	
 @onready var cpp_code = $"../../../../VBoxContainer/TabContainer/numbers/GDExample"
-@onready var tree = $"../../../../sum_popup2/VBoxContainer/VScrollBar/Tree"
+@onready var tree = $"../../../../VBoxContainer/TabContainer/Units/Tree"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_units()
-	self.pressed.connect(self._button_pressed.bind())
-	pass # Replace with function body.
-
-func _button_pressed():
-	$"../../../../sum_popup2".size = $"../../../../../Control/".size;
-	$"../../../../sum_popup2".show()
 
 func get_units():
 	var xml_doc = XML.parse_file("res://units.xml")
 	xml_doc = xml_doc.root
 	var current_sub_sub_item: TreeItem
 	
-	tree.clear()
 	var root: TreeItem = tree.create_item()
 	root.set_text(0, "All")
 	for i in xml_doc.children:
