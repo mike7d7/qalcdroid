@@ -477,10 +477,12 @@ size_flags_vertical = 3
 layout_mode = 2
 text = "Summation"
 
-[node name="GridContainer" type="GridContainer" parent="sum_popup/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="sum_popup/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="VBoxContainer" parent="sum_popup/VBoxContainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
-columns = 2
 
 [node name="Label2" type="Label" parent="sum_popup/VBoxContainer/GridContainer"]
 layout_direction = 2
@@ -489,10 +491,11 @@ size_flags_horizontal = 3
 text = "Term expression"
 
 [node name="expression" type="LineEdit" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 3
-alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_mode = 2
 
 [node name="Label3" type="Label" parent="sum_popup/VBoxContainer/GridContainer"]
 layout_direction = 2
@@ -501,9 +504,11 @@ size_flags_horizontal = 3
 text = "Lower limit (i)"
 
 [node name="low_limit" type="SpinBox" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_mode = 2
 
 [node name="Label4" type="Label" parent="sum_popup/VBoxContainer/GridContainer"]
 layout_direction = 2
@@ -512,9 +517,11 @@ size_flags_horizontal = 3
 text = "Upper limit (n)"
 
 [node name="up_limit" type="SpinBox" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="HSeparator3" type="HSeparator" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_mode = 2
 
 [node name="Label5" type="Label" parent="sum_popup/VBoxContainer/GridContainer"]
 layout_direction = 2
@@ -523,20 +530,25 @@ size_flags_horizontal = 3
 text = "Index variable"
 
 [node name="variable" type="LineEdit" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "optional"
 
-[node name="cancel" type="Button" parent="sum_popup/VBoxContainer/GridContainer"]
+[node name="HSeparator4" type="HSeparator" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="sum_popup/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="cancel" type="Button" parent="sum_popup/VBoxContainer/GridContainer/HBoxContainer"]
 layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cancel"
 script = ExtResource("16_52w8q")
-metadata/node = NodePath("../../..")
+metadata/node = NodePath("../../../..")
 
-[node name="insert" type="Button" parent="sum_popup/VBoxContainer/GridContainer"]
+[node name="insert" type="Button" parent="sum_popup/VBoxContainer/GridContainer/HBoxContainer"]
 layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 3
@@ -591,8 +603,10 @@ size = Vector2i(858, 655)
 theme = ExtResource("15_6v4ak")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="fn_popup"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 854.0
+offset_bottom = 651.0
 horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="fn_popup/ScrollContainer"]
