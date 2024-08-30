@@ -467,7 +467,9 @@ right_icon = ExtResource("19_8hrvw")
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 70
+allow_search = false
 hide_root = true
+scroll_horizontal_enabled = false
 script = ExtResource("19_5ly0p")
 
 [node name="sum_popup" type="PopupPanel" parent="."]
