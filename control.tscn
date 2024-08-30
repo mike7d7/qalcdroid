@@ -452,13 +452,23 @@ theme = ExtResource("1_xbuye")
 text = "x→"
 script = ExtResource("15_ot4g3")
 
-[node name="Functions" type="Tree" parent="VBoxContainer/TabContainer"]
+[node name="Functions" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/TabContainer/Functions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+placeholder_text = "Search:"
+right_icon = ExtResource("19_8hrvw")
+
+[node name="Functions" type="Tree" parent="VBoxContainer/TabContainer/Functions"]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 70
 hide_root = true
 script = ExtResource("19_5ly0p")
-metadata/_tab_index = 2
 
 [node name="sum_popup" type="PopupPanel" parent="."]
 initial_position = 2
@@ -642,6 +652,7 @@ text = "Insert
 "
 script = ExtResource("24_jwiw4")
 
-[connection signal="item_activated" from="VBoxContainer/TabContainer/Functions" to="VBoxContainer/input" method="_on_functions_item_activated"]
+[connection signal="text_changed" from="VBoxContainer/TabContainer/Functions/LineEdit" to="VBoxContainer/TabContainer/Functions/Functions" method="_on_line_edit_text_changed"]
+[connection signal="item_activated" from="VBoxContainer/TabContainer/Functions/Functions" to="VBoxContainer/input" method="_on_functions_item_activated"]
 [connection signal="text_changed" from="sum_popup2/VBoxContainer/LineEdit" to="VBoxContainer/TabContainer/numbers2/unit" method="_on_line_edit_text_changed"]
 [connection signal="item_activated" from="sum_popup2/VBoxContainer/VScrollBar/Tree" to="VBoxContainer/input" method="_on_tree_item_activated"]

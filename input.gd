@@ -18,7 +18,7 @@ func _on_tree_item_activated():
 func _on_functions_item_activated() -> void:
 	while popup.get_child_count() > 1:
 		popup.get_child(0).free()
-	var item = $"../../VBoxContainer/TabContainer/Functions".get_selected()
+	var item = $"../../VBoxContainer/TabContainer/Functions/Functions".get_selected()
 	if item.get_metadata(0):
 		var max_args = cpp_code.get_max_args(item.get_metadata(0))
 		if max_args == -1:
