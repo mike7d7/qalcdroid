@@ -63,3 +63,11 @@ func _on_functions_item_activated() -> void:
 		$"../../fn_popup".show()
 	else:
 		item.set_collapsed_recursive(!item.collapsed)
+
+#code for variables
+func _on_variable_tree_item_activated() -> void:
+	var item = $"../../VBoxContainer/TabContainer/Variables/VariableTree".get_selected()
+	if item.get_metadata(0):
+		self.insert_text_at_caret(item.get_metadata(0), -1)
+	else:
+		item.set_collapsed_recursive(!item.collapsed)

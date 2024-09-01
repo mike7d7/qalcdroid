@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=26 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://button_scripts/sum_popup/insert.gd" id="17_b0v8h"]
 [ext_resource type="Script" path="res://button_scripts/functions.gd" id="19_5ly0p"]
 [ext_resource type="Texture2D" uid="uid://bvjlxishyorn" path="res://assets/system-search-symbolic.svg" id="19_8hrvw"]
+[ext_resource type="Script" path="res://button_scripts/variable_tree.gd" id="21_aqxwa"]
 [ext_resource type="Script" path="res://button_scripts/insert_function.gd" id="24_jwiw4"]
 
 [node name="Control" type="Control"]
@@ -69,11 +70,10 @@ text = "resultado"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 2
+current_tab = 0
 
 [node name="numbers" type="GridContainer" parent="VBoxContainer/TabContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 columns = 5
@@ -453,6 +453,7 @@ text = "x→"
 script = ExtResource("15_ot4g3")
 
 [node name="Functions" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -496,6 +497,29 @@ hide_root = true
 scroll_horizontal_enabled = false
 script = ExtResource("15_hi52x")
 
+[node name="Variables" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/TabContainer/Variables"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+theme_override_icons/clear = ExtResource("7_t6dja")
+placeholder_text = "Search:"
+clear_button_enabled = true
+right_icon = ExtResource("19_8hrvw")
+
+[node name="VariableTree" type="Tree" parent="VBoxContainer/TabContainer/Variables"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
+allow_search = false
+hide_root = true
+scroll_horizontal_enabled = false
+script = ExtResource("21_aqxwa")
+
 [node name="sum_popup" type="PopupPanel" parent="."]
 initial_position = 2
 size = Vector2i(858, 655)
@@ -505,7 +529,7 @@ theme = ExtResource("15_6v4ak")
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 854.0
-offset_bottom = 651.0
+offset_bottom = 1170.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -682,5 +706,7 @@ script = ExtResource("24_jwiw4")
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Functions/Functions" to="VBoxContainer/input" method="_on_functions_item_activated"]
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Units/LineEdit" to="VBoxContainer/TabContainer/Units/Tree" method="_on_line_edit_text_changed"]
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Units/Tree" to="VBoxContainer/input" method="_on_tree_item_activated"]
+[connection signal="text_changed" from="VBoxContainer/TabContainer/Variables/LineEdit" to="VBoxContainer/TabContainer/Variables/VariableTree" method="_on_line_edit_text_changed"]
+[connection signal="item_activated" from="VBoxContainer/TabContainer/Variables/VariableTree" to="VBoxContainer/input" method="_on_variable_tree_item_activated"]
 [connection signal="text_changed" from="sum_popup2/VBoxContainer/LineEdit" to="VBoxContainer/TabContainer/numbers2/unit" method="_on_line_edit_text_changed"]
 [connection signal="item_activated" from="sum_popup2/VBoxContainer/VScrollBar/Tree" to="VBoxContainer/input" method="_on_tree_item_activated"]
