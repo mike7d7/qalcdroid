@@ -8,3 +8,4 @@ src/register_types.os
 functions.xml
 units.xml
 variables.xml
+extension_api.json

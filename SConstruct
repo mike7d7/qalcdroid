@@ -22,7 +22,9 @@ if env["platform"] == "android":
     env.Append(LIBPATH=["src/libs/arm64-v8a"])
     # env.Append(LINKFLAGS=["-v"])
 else:
-    env.Append(LIBPATH=["/usr/lib"]) 
+    env.Append(LIBPATH=["/usr/lib"])
+    # TODO: don't hard-link share path in nix
+    env.Append(LIBPATH=["/nix/store/g95m2qgx2zy4pddjxv0q09z4p23wd2gr-libqalculate-5.2.0/lib"]) 
 
 if env["platform"] == "macos":
     library = env.SharedLibrary(

@@ -1,5 +1,11 @@
 #!/bin/sh
 
-cp /usr/share/qalculate/functions.xml functions.xml
-cp /usr/share/qalculate/units.xml units.xml
-cp /usr/share/qalculate/variables.xml variables.xml
+if [ -d "/usr/share/" ]; then
+  DIR="/usr/share/qalculate"
+else
+  # TODO: don't hard-link share path in nix
+  DIR="/nix/store/g95m2qgx2zy4pddjxv0q09z4p23wd2gr-libqalculate-5.2.0/share/qalculate"
+fi
+cp $DIR/functions.xml functions.xml
+cp $DIR/units.xml units.xml
+cp $DIR/variables.xml variables.xml
