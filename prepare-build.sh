@@ -9,3 +9,13 @@ fi
 cp $DIR/functions.xml functions.xml
 cp $DIR/units.xml units.xml
 cp $DIR/variables.xml variables.xml
+
+# Initialize godot-cpp submodule and build C++ bindings
+cd godot-cpp/
+git submodule update --init
+godot --dump-extension-api
+scons custom_api_file=extension_api.json
+
+# Build gdextension code
+cd ..
+scons
