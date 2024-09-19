@@ -35,6 +35,9 @@ pkgs.mkShell {
   libPath = pkgs.lib.makeLibraryPath [
     pkgs.libqalculate
   ];
+  shellHook = ''
+    alias godot="godot4"
+  '';
 }
 
 
