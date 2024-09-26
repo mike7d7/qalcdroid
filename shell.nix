@@ -33,6 +33,7 @@ pkgs.mkShell {
     libqalculate
     jdk17
     pkg-config
+    android-udev-rules
   ];
   libPath = pkgs.lib.makeLibraryPath [
     pkgs.libqalculate
