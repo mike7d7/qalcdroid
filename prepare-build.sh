@@ -19,3 +19,4 @@ scons custom_api_file=extension_api.json
 # Build gdextension code
 cd ..
 scons
+scons platform=android
