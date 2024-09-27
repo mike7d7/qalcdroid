@@ -31,11 +31,12 @@ func get_functions_from_xml():
 								current_sub_sub_item.set_metadata(0, l.content.get_slice(":", 1).get_slice(",", 0))
 				
 			if j.name == "builtin_function" || j.name == "function":
-				var current_sub_item: TreeItem = self.create_item(current_item)
-				current_sub_item.set_text(0, j.children[0].content)
-				for k in j.children:
-					if k.name == "names" && not k.attributes:
-						current_sub_item.set_metadata(0, k.content.get_slice(":", 1).get_slice(",", 0))
+				if j.children[0].name != "hidden":
+					var current_sub_item: TreeItem = self.create_item(current_item)
+					current_sub_item.set_text(0, j.children[0].content)
+					for k in j.children:
+						if k.name == "names" && not k.attributes:
+							current_sub_item.set_metadata(0, k.content.get_slice(":", 1).get_slice(",", 0))
 		current_item.set_collapsed_recursive(true)
 
 var previous_search_text = ""
