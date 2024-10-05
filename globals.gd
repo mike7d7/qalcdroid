@@ -14,7 +14,7 @@ func calcSwipe(swipe_end):
 	if swipe_start == null:
 		return
 	var swipe = swipe_end - swipe_start
-	if abs(swipe.x) > 150:
+	if abs(swipe.x) > 250:
 		if swipe.x > 0:
 			get_tree().current_scene.get_node("%TabContainer").select_next_available()
 		else:
