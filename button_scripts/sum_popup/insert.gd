@@ -6,12 +6,12 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _button_pressed():
-	var text = "Σ(" + $"../../expression".text + "," + "%d" + "," + "%d"
-	text = text % [$"../../low_limit".value, $"../../up_limit".value]
+	var expression = "Σ(" + $"../../expression".text + "," + "%d" + "," + "%d"
+	expression = expression % [$"../../low_limit".value, $"../../up_limit".value]
 	if ($"../../variable".text != ""):
-		text += "," + $"../../variable".text
-	text += ")"
+		expression += "," + $"../../variable".text
+	expression += ")"
 	$"../../../../../sum_popup".hide();
-	$"../../../../../VBoxContainer/input".insert_text_at_caret(text, -1)
+	$"../../../../../VBoxContainer/input".insert_text_at_caret(expression, -1)
 	$"../../../../../VBoxContainer/input".scroll_vertical = $"../../../../../VBoxContainer/input".get_line_wrap_count(0) - 1
 	$"../../../../../VBoxContainer/input".grab_focus()

@@ -7,22 +7,22 @@ func _ready() -> void:
 
 func _button_pressed():
 	var item = $"../../../../../../VBoxContainer/TabContainer/Functions/Functions".get_selected()
-	var text = item.get_metadata(0) + "("
+	var expression = item.get_metadata(0) + "("
 	for i in $"../../../../../../fn_popup/ScrollContainer/VBoxContainer/GridContainer".get_children():
 		match i.get_class():
 			"LineEdit":
-				text += i.text + ","
+				expression += i.text + ","
 			"SpinBox":
-				text += "%d" + ","
-				text = text % [i.value]
+				expression += "%d" + ","
+				expression = expression % [i.value]
 			"OptionButton":
-				text += i.get_selected() + ","
+				expression += i.get_selected() + ","
 			"CheckButton":
 				if i.is_pressed():
-					text += "true" + ","
+					expression += "true" + ","
 				else:
-					text += "false" + ","
-	text = text.left(-1)
-	text += ")"
-	$"../../../../../../VBoxContainer/input".insert_text_at_caret(text, -1)
+					expression += "false" + ","
+	expression = expression.left(-1)
+	expression += ")"
+	$"../../../../../../VBoxContainer/input".insert_text_at_caret(expression, -1)
 	$"../../../../../../fn_popup".hide();

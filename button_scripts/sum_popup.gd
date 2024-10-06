@@ -5,6 +5,6 @@ func _ready() -> void:
 	self.pressed.connect(self._button_pressed.bind(self.text))
 	pass # Replace with function body.
 
-func _button_pressed(arg):
+func _button_pressed(_arg):
 	$"../../../../sum_popup".size = $"../../../../../Control/".size;
 	$"../../../../sum_popup".show();

@@ -10,20 +10,20 @@ func _button_pressed():
 	$"../../../ScrollContainer/Label".text = Globals.answer
 	$"../../../input".grab_focus()
 
-func get_unit(name):
-	return _unit_abbreviation(name)
+func get_unit(input):
+	return _unit_abbreviation(input)
 
-func get_max_args(name):
-	return _get_function_max_args(name)
+func get_max_args(input):
+	return _get_function_max_args(input)
 
-func get_arg_type(name, index):
-	return _get_function_arg_type(name, index)
+func get_arg_type(input, index):
+	return _get_function_arg_type(input, index)
 
-func get_arg_name(name, index):
-	return _get_function_arg_name(name, index)
+func get_arg_name(input, index):
+	return _get_function_arg_name(input, index)
 
-func get_arg_def_val(name, index):
-	return _get_function_arg_def_val(name, index)
+func get_arg_def_val(input, index):
+	return _get_function_arg_def_val(input, index)
 
-func get_min_args(name):
-	return _get_function_min_args(name)
+func get_min_args(input):
+	return _get_function_min_args(input)
