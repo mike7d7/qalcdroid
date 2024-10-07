@@ -28,6 +28,7 @@ protected:
   static void _bind_methods();
 
 private:
+  EvaluationOptions eo;
   PrintOptions po;
   Calculator *calc;
 };

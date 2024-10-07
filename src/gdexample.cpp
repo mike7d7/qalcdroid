@@ -1,4 +1,5 @@
 #include "gdexample.h"
+#include "libqalculate/includes.h"
 #include <godot_cpp/variant/utility_functions.hpp>
 #include <godot_cpp/variant/variant.hpp>
 
@@ -9,6 +10,7 @@
 using namespace godot;
 
 GDExample::GDExample() {
+  eo = default_user_evaluation_options;
   po = default_print_options;
   po.interval_display = INTERVAL_DISPLAY_SIGNIFICANT_DIGITS;
   po.use_unicode_signs = true;
@@ -20,8 +22,7 @@ GDExample::GDExample() {
 
 String GDExample::_fun1(String input_str) {
   std::string result_str =
-      calc->calculateAndPrint(input_str.utf8().get_data(), 0,
-                              default_user_evaluation_options, po, NULL);
+      calc->calculateAndPrint(input_str.utf8().get_data(), 0, eo, po, NULL);
   return godot::String::utf8(result_str.c_str());
 }
 
