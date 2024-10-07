@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=27 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -26,6 +26,11 @@
 [ext_resource type="Script" path="res://button_scripts/variable_tree.gd" id="21_aqxwa"]
 [ext_resource type="Script" path="res://button_scripts/insert_function.gd" id="24_jwiw4"]
 
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_on5hf"]
+number_color = Color(1, 1, 1, 1)
+symbol_color = Color(0.823529, 0.0588235, 0.223529, 1)
+function_color = Color(0.117647, 0.4, 0.960784, 1)
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -42,7 +47,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="input" type="TextEdit" parent="VBoxContainer"]
+[node name="input" type="CodeEdit" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 280)
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
@@ -52,6 +57,9 @@ caret_blink = true
 caret_blink_interval = 0.5
 caret_mid_grapheme = true
 caret_multiple = false
+syntax_highlighter = SubResource("CodeHighlighter_on5hf")
+highlight_all_occurrences = true
+auto_brace_completion_highlight_matching = true
 script = ExtResource("1_cdgn3")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
