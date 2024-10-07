@@ -12,6 +12,7 @@ GDExample::GDExample() {
   po = default_print_options;
   po.interval_display = INTERVAL_DISPLAY_SIGNIFICANT_DIGITS;
   po.use_unicode_signs = true;
+  po.number_fraction_format = FRACTION_DECIMAL_EXACT;
   calc = new Calculator();
   calc->loadGlobalDefinitions();
   calc->loadLocalDefinitions();
