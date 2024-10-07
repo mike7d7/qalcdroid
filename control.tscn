@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=28 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://button_scripts/enter.gd" id="4_qdnla"]
 [ext_resource type="Script" path="res://button_scripts/answer.gd" id="4_t5poh"]
 [ext_resource type="Texture2D" uid="uid://b2tynr2ibjxde" path="res://assets/pan-end-symbolic.svg" id="5_45h5p"]
+[ext_resource type="Script" path="res://button_scripts/parenthesis.gd" id="7_ivjdx"]
 [ext_resource type="Texture2D" uid="uid://v7o6h3f5uawn" path="res://assets/edit-clear-symbolic.svg" id="7_t6dja"]
 [ext_resource type="Script" path="res://button_scripts/exponent.gd" id="10_855gx"]
 [ext_resource type="Script" path="res://button_scripts/name_then_parenthesis.gd" id="12_nag7n"]
@@ -107,15 +108,15 @@ script = ExtResource("4_mgs5p")
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_xbuye")
-text = "("
-script = ExtResource("1_totml")
+text = "(x)"
+script = ExtResource("7_ivjdx")
 
-[node name="right_parenthesis2" type="Button" parent="VBoxContainer/TabContainer/numbers"]
+[node name="exponent" type="Button" parent="VBoxContainer/TabContainer/numbers"]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_xbuye")
-text = ")"
-script = ExtResource("1_totml")
+text = "xʸ"
+script = ExtResource("10_855gx")
 
 [node name="clear" type="Button" parent="VBoxContainer/TabContainer/numbers"]
 layout_mode = 2
@@ -325,12 +326,11 @@ icon = ExtResource("5_45h5p")
 icon_alignment = 1
 script = ExtResource("4_mgs5p")
 
-[node name="exponent" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+[node name="unit2" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_xbuye")
-text = "xʸ"
-script = ExtResource("10_855gx")
+text = "u"
 
 [node name="clear" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
