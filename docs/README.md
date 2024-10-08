@@ -9,6 +9,10 @@ Button connection
 
 Most buttons are connected using a gdscript with the same name. Notable exceptions are Numbers, which connect to `button0.gd`, and certain functions that spawn parenthesis after their text (ex. ln, √, trig functions) which connect to `name_then_parenthesis.gd`. 
 
+Functions
+==================
+Functions are retrieved from the functions.xml, then added to the Tree as TreeItems. When a TreeItem is activated it calls the `_on_functions_item_activated` function from the `input` with 3 arguments, the name of the function in libqalculate, the title for the popup, and the TreeItem. This is written in this way so that we're able to reuse the same function for the logarithm and summation buttons on tab 2, those buttons use null as third argument, as it isn't a TreeItem.
+
 Units
 ==================
 
