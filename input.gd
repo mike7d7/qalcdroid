@@ -15,24 +15,23 @@ func _on_tree_item_activated():
 		item.set_collapsed_recursive(!item.collapsed)
 
 #code for functions
-func _on_functions_item_activated() -> void:
+func _on_functions_item_activated(item, title, treeitem) -> void:
 	while popup.get_child_count() > 1:
 		popup.get_child(0).free()
-	var item = $"../../VBoxContainer/TabContainer/Functions/Functions".get_selected()
-	if item.get_metadata(0):
-		var max_args = cpp_code.get_max_args(item.get_metadata(0))
+	if item:
+		var max_args = cpp_code.get_max_args(item)
 		if max_args == -1:
-			max_args = cpp_code.get_min_args(item.get_metadata(0))
+			max_args = cpp_code.get_min_args(item)
 		if max_args == 0:
 			max_args = 1
 		for i in range(max_args):
 			var label = Label.new()
 			popup.add_child(label)
-			label.set_text(cpp_code.get_arg_name(item.get_metadata(0), i + 1))
+			label.set_text(cpp_code.get_arg_name(item, i + 1))
 			
-			var default_value = cpp_code.get_arg_def_val(item.get_metadata(0), i + 1)
+			var default_value = cpp_code.get_arg_def_val(item, i + 1)
 			
-			var input_type = cpp_code.get_arg_type(item.get_metadata(0), i + 1)
+			var input_type = cpp_code.get_arg_type(item, i + 1)
 			var input
 			match input_type:
 				0:
@@ -58,11 +57,12 @@ func _on_functions_item_activated() -> void:
 			
 		#popup.move_child(popup.get_child(1), popup.get_child_count() - 1)
 		popup.move_child(popup.get_child(0), popup.get_child_count() - 1)
-		$"../../fn_popup/ScrollContainer/VBoxContainer/Label".set_text(item.get_text(0))
+		$"../../fn_popup/ScrollContainer/VBoxContainer/Label".set_text(title)
+		$"../../fn_popup/ScrollContainer/VBoxContainer/Label".set_meta("metadata", item)
 		$"../../fn_popup".size = $"../../../Control".size
 		$"../../fn_popup".show()
 	else:
-		item.set_collapsed_recursive(!item.collapsed)
+		treeitem.set_collapsed_recursive(!treeitem.collapsed)
 
 #code for variables
 func _on_variable_tree_item_activated() -> void:

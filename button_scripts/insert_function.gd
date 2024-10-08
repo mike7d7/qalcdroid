@@ -6,8 +6,9 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _button_pressed():
-	var item = $"../../../../../../VBoxContainer/TabContainer/Functions/Functions".get_selected()
-	var expression = item.get_metadata(0) + "("
+	#var item = $"../../../../../../VBoxContainer/TabContainer/Functions/Functions".get_selected()
+	var item = $"../../../Label".get_meta("metadata")
+	var expression = item + "("
 	for i in $"../../../../../../fn_popup/ScrollContainer/VBoxContainer/GridContainer".get_children():
 		match i.get_class():
 			"LineEdit":

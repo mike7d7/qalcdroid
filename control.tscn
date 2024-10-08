@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=27 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -16,12 +16,10 @@
 [ext_resource type="Script" path="res://button_scripts/exponent.gd" id="10_855gx"]
 [ext_resource type="Script" path="res://button_scripts/name_then_parenthesis.gd" id="12_nag7n"]
 [ext_resource type="Script" path="res://button_scripts/2_param_parenthesis.gd" id="13_utar4"]
-[ext_resource type="Script" path="res://button_scripts/sum_popup.gd" id="14_d0bkj"]
 [ext_resource type="Theme" uid="uid://ct6wbh7pmtv76" path="res://popup_fontsize.tres" id="15_6v4ak"]
+[ext_resource type="Script" path="res://button_scripts/insert_function_shortcut.gd" id="15_a7ulm"]
 [ext_resource type="Script" path="res://button_scripts/units.gd" id="15_hi52x"]
 [ext_resource type="Script" path="res://button_scripts/ignore_first_char.gd" id="15_ot4g3"]
-[ext_resource type="Script" path="res://button_scripts/sum_popup/cancel.gd" id="16_52w8q"]
-[ext_resource type="Script" path="res://button_scripts/sum_popup/insert.gd" id="17_b0v8h"]
 [ext_resource type="Script" path="res://button_scripts/functions.gd" id="19_5ly0p"]
 [ext_resource type="Texture2D" uid="uid://bvjlxishyorn" path="res://assets/system-search-symbolic.svg" id="19_8hrvw"]
 [ext_resource type="Script" path="res://button_scripts/variable_tree.gd" id="21_aqxwa"]
@@ -31,6 +29,18 @@
 number_color = Color(1, 1, 1, 1)
 symbol_color = Color(0.823529, 0.0588235, 0.223529, 1)
 function_color = Color(0.117647, 0.4, 0.960784, 1)
+
+[sub_resource type="GDScript" id="GDScript_q47po"]
+script/source = "extends Button
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	self.pressed.connect(self._button_pressed.bind(self.get_meta(\"node\")))
+	pass # Replace with function body.
+
+func _button_pressed(node):
+	get_node(node).hide();
+"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -326,11 +336,14 @@ icon = ExtResource("5_45h5p")
 icon_alignment = 1
 script = ExtResource("4_mgs5p")
 
-[node name="unit2" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+[node name="log" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_xbuye")
-text = "u"
+text = "logₓ"
+script = ExtResource("15_a7ulm")
+metadata/item = "log"
+metadata/title = "Base-N Logarithm"
 
 [node name="clear" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
@@ -401,7 +414,9 @@ size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 text = "Σ"
-script = ExtResource("14_d0bkj")
+script = ExtResource("15_a7ulm")
+metadata/item = "Σ"
+metadata/title = "Summation"
 
 [node name="pi" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
@@ -482,11 +497,12 @@ theme = ExtResource("1_xbuye")
 text = "x="
 script = ExtResource("15_ot4g3")
 
-[node name="unit" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+[node name="meter" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_xbuye")
-text = "u"
+text = "m"
+script = ExtResource("1_totml")
 
 [node name="kg" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
@@ -583,102 +599,6 @@ hide_root = true
 scroll_horizontal_enabled = false
 script = ExtResource("21_aqxwa")
 
-[node name="sum_popup" type="PopupPanel" parent="."]
-initial_position = 2
-size = Vector2i(858, 655)
-theme = ExtResource("15_6v4ak")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="sum_popup"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 854.0
-offset_bottom = 1170.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="sum_popup/VBoxContainer"]
-layout_mode = 2
-text = "Summation"
-
-[node name="HSeparator" type="HSeparator" parent="sum_popup/VBoxContainer"]
-layout_mode = 2
-
-[node name="GridContainer" type="VBoxContainer" parent="sum_popup/VBoxContainer"]
-layout_mode = 2
-size_flags_stretch_ratio = 0.0
-
-[node name="Label2" type="Label" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_direction = 2
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Term expression"
-
-[node name="expression" type="LineEdit" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HSeparator" type="HSeparator" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_mode = 2
-
-[node name="Label3" type="Label" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_direction = 2
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Lower limit (i)"
-
-[node name="low_limit" type="SpinBox" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HSeparator2" type="HSeparator" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_mode = 2
-
-[node name="Label4" type="Label" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_direction = 2
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Upper limit (n)"
-
-[node name="up_limit" type="SpinBox" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HSeparator3" type="HSeparator" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_mode = 2
-
-[node name="Label5" type="Label" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_direction = 2
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Index variable"
-
-[node name="variable" type="LineEdit" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "optional"
-
-[node name="HSeparator4" type="HSeparator" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="sum_popup/VBoxContainer/GridContainer"]
-layout_mode = 2
-
-[node name="cancel" type="Button" parent="sum_popup/VBoxContainer/GridContainer/HBoxContainer"]
-layout_direction = 2
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Cancel"
-script = ExtResource("16_52w8q")
-metadata/node = NodePath("../../../..")
-
-[node name="insert" type="Button" parent="sum_popup/VBoxContainer/GridContainer/HBoxContainer"]
-layout_direction = 3
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Insert
-"
-script = ExtResource("17_b0v8h")
-
 [node name="sum_popup2" type="PopupPanel" parent="."]
 initial_position = 2
 size = Vector2i(858, 655)
@@ -713,7 +633,7 @@ layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cancel"
-script = ExtResource("16_52w8q")
+script = SubResource("GDScript_q47po")
 metadata/node = NodePath("../..")
 
 [node name="fn_popup" type="PopupPanel" parent="."]
@@ -738,6 +658,7 @@ size_flags_vertical = 3
 layout_mode = 2
 text = "Function"
 clip_text = true
+metadata/metadata = ""
 
 [node name="HSeparator" type="HSeparator" parent="fn_popup/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -754,7 +675,7 @@ layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cancel"
-script = ExtResource("16_52w8q")
+script = SubResource("GDScript_q47po")
 metadata/node = NodePath("../../../../..")
 
 [node name="insert" type="Button" parent="fn_popup/ScrollContainer/VBoxContainer/GridContainer/HBoxContainer"]
@@ -766,10 +687,10 @@ text = "Insert
 script = ExtResource("24_jwiw4")
 
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Functions/LineEdit" to="VBoxContainer/TabContainer/Functions/Functions" method="_on_line_edit_text_changed"]
-[connection signal="item_activated" from="VBoxContainer/TabContainer/Functions/Functions" to="VBoxContainer/input" method="_on_functions_item_activated"]
+[connection signal="item_activated" from="VBoxContainer/TabContainer/Functions/Functions" to="VBoxContainer/TabContainer/Functions/Functions" method="_on_item_activated"]
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Units/LineEdit" to="VBoxContainer/TabContainer/Units/Tree" method="_on_line_edit_text_changed"]
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Units/Tree" to="VBoxContainer/input" method="_on_tree_item_activated"]
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Variables/LineEdit" to="VBoxContainer/TabContainer/Variables/VariableTree" method="_on_line_edit_text_changed"]
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Variables/VariableTree" to="VBoxContainer/input" method="_on_variable_tree_item_activated"]
-[connection signal="text_changed" from="sum_popup2/VBoxContainer/LineEdit" to="VBoxContainer/TabContainer/numbers2/unit" method="_on_line_edit_text_changed"]
+[connection signal="text_changed" from="sum_popup2/VBoxContainer/LineEdit" to="VBoxContainer/TabContainer/numbers2/meter" method="_on_line_edit_text_changed"]
 [connection signal="item_activated" from="sum_popup2/VBoxContainer/VScrollBar/Tree" to="VBoxContainer/input" method="_on_tree_item_activated"]
