@@ -13,7 +13,8 @@ env = SConscript("godot-cpp/SConstruct")
 # - LINKFLAGS are for linking flags
 
 # tweak this if you want to use different folders, or more folders, to store your source code in.
-env.Append(CPPPATH=["src/"])
+# TODO: don't hard-link share path in nix, add path for standard linux
+env.Append(CPPPATH=["src/", "/nix/store/gg6icgbbz5zmil4adph44aidrn0x2182-libqalculate-5.3.0-dev/include/"])
 sources = Glob("src/*.cpp")
 
 env.Append(LIBS=["libqalculate"])
@@ -24,7 +25,7 @@ if env["platform"] == "android":
 else:
     env.Append(LIBPATH=["/usr/lib"])
     # TODO: don't hard-link share path in nix
-    env.Append(LIBPATH=["/nix/store/g95m2qgx2zy4pddjxv0q09z4p23wd2gr-libqalculate-5.2.0/lib"]) 
+    env.Append(LIBPATH=["/nix/store/njvc8mzv3gp8a6g1k2d3rvd8rgzhivsb-libqalculate-5.3.0/lib"]) 
 
 if env["platform"] == "macos":
     library = env.SharedLibrary(
