@@ -599,43 +599,6 @@ hide_root = true
 scroll_horizontal_enabled = false
 script = ExtResource("21_aqxwa")
 
-[node name="sum_popup2" type="PopupPanel" parent="."]
-initial_position = 2
-size = Vector2i(858, 655)
-theme = ExtResource("15_6v4ak")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="sum_popup2"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 854.0
-offset_bottom = 651.0
-
-[node name="LineEdit" type="LineEdit" parent="sum_popup2/VBoxContainer"]
-layout_mode = 2
-placeholder_text = "Search:"
-right_icon = ExtResource("19_8hrvw")
-
-[node name="VScrollBar" type="ScrollContainer" parent="sum_popup2/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Tree" type="Tree" parent="sum_popup2/VBoxContainer/VScrollBar"]
-clip_contents = false
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-allow_search = false
-hide_root = true
-scroll_horizontal_enabled = false
-
-[node name="cancel" type="Button" parent="sum_popup2/VBoxContainer"]
-layout_direction = 2
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Cancel"
-script = SubResource("GDScript_q47po")
-metadata/node = NodePath("../..")
-
 [node name="fn_popup" type="PopupPanel" parent="."]
 auto_translate_mode = 1
 initial_position = 2
@@ -692,5 +655,3 @@ script = ExtResource("24_jwiw4")
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Units/Tree" to="VBoxContainer/input" method="_on_tree_item_activated"]
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Variables/LineEdit" to="VBoxContainer/TabContainer/Variables/VariableTree" method="_on_line_edit_text_changed"]
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Variables/VariableTree" to="VBoxContainer/input" method="_on_variable_tree_item_activated"]
-[connection signal="text_changed" from="sum_popup2/VBoxContainer/LineEdit" to="VBoxContainer/TabContainer/numbers2/meter" method="_on_line_edit_text_changed"]
-[connection signal="item_activated" from="sum_popup2/VBoxContainer/VScrollBar/Tree" to="VBoxContainer/input" method="_on_tree_item_activated"]
