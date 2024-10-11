@@ -14,7 +14,12 @@ env = SConscript("godot-cpp/SConstruct")
 
 # tweak this if you want to use different folders, or more folders, to store your source code in.
 # TODO: don't hard-link share path in nix, add path for standard linux
-env.Append(CPPPATH=["src/", "/nix/store/gg6icgbbz5zmil4adph44aidrn0x2182-libqalculate-5.3.0-dev/include/"])
+env.Append(CPPPATH=[
+                    "src/",
+                    "/nix/store/gg6icgbbz5zmil4adph44aidrn0x2182-libqalculate-5.3.0-dev/include/",
+                    "/nix/store/lra2jxa2793339iv0yxyw14i31i85p8l-gmp-with-cxx-6.3.0-dev/include/",
+                    "/nix/store/1jkw2qskmmz46apmzi6h30bjx7j12nxb-mpfr-4.2.1-dev/include/"
+                    ])
 sources = Glob("src/*.cpp")
 
 env.Append(LIBS=["libqalculate"])
