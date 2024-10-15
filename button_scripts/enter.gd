@@ -27,3 +27,9 @@ func get_arg_def_val(input, index):
 
 func get_min_args(input):
 	return _get_function_min_args(input)
+
+func change_precision(input):
+	_change_precision(input.get_meta("index"))
+
+func change_fraction(input):
+	_change_fraction(input.get_meta("index"))

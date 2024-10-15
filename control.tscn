@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=29 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -23,12 +23,16 @@
 [ext_resource type="Script" path="res://button_scripts/functions.gd" id="19_5ly0p"]
 [ext_resource type="Texture2D" uid="uid://bvjlxishyorn" path="res://assets/system-search-symbolic.svg" id="19_8hrvw"]
 [ext_resource type="Script" path="res://button_scripts/variable_tree.gd" id="21_aqxwa"]
+[ext_resource type="ButtonGroup" uid="uid://ccpmcte5qugm6" path="res://approximation-button-group.tres" id="23_cutfi"]
 [ext_resource type="Script" path="res://button_scripts/insert_function.gd" id="24_jwiw4"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_on5hf"]
 number_color = Color(1, 1, 1, 1)
 symbol_color = Color(0.823529, 0.0588235, 0.223529, 1)
 function_color = Color(0.117647, 0.4, 0.960784, 1)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_xfdp8"]
+resource_name = "Fractions"
 
 [sub_resource type="GDScript" id="GDScript_q47po"]
 script/source = "extends Button
@@ -89,10 +93,11 @@ text = "resultado"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
+current_tab = 5
 
 [node name="numbers" type="GridContainer" parent="VBoxContainer/TabContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 columns = 5
@@ -304,6 +309,7 @@ text = "+"
 script = ExtResource("1_totml")
 
 [node name="GDExample" type="GDExample" parent="VBoxContainer/TabContainer/numbers"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -598,6 +604,69 @@ allow_search = false
 hide_root = true
 scroll_horizontal_enabled = false
 script = ExtResource("21_aqxwa")
+
+[node name="Settings" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_xbuye")
+metadata/_tab_index = 5
+
+[node name="ScrollContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Settings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+layout_mode = 2
+text = "Approximation"
+
+[node name="Button" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+layout_mode = 2
+button_group = ExtResource("23_cutfi")
+text = "Always Exact"
+metadata/index = 0
+
+[node name="Button2" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+layout_mode = 2
+button_group = ExtResource("23_cutfi")
+text = "Try Exact"
+metadata/index = 1
+
+[node name="Button3" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+layout_mode = 2
+button_group = ExtResource("23_cutfi")
+text = "Approximate"
+metadata/index = 2
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+layout_mode = 2
+text = "Interval Arithmetic"
+
+[node name="Fractions" type="Label" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+layout_mode = 2
+text = "Fractions Type"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_xfdp8")
+text = "Decimal"
+metadata/index = 0
+
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_xfdp8")
+text = "Decimal Exact"
+metadata/index = 1
+
+[node name="CheckBox3" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_xfdp8")
+text = "Fractional"
+metadata/index = 2
+
+[node name="CheckBox4" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_xfdp8")
+text = "Fractional Combined"
+metadata/index = 3
 
 [node name="fn_popup" type="PopupPanel" parent="."]
 auto_translate_mode = 1

@@ -3,6 +3,14 @@ var answer = '';
 var swipe_start;
 @onready var result_string = get_tree().current_scene.get_node("%Label")
 
+func _ready() -> void:
+	var cppcode = get_tree().current_scene.get_node("%GDExample")
+	
+	#Change approximation type configuration
+	get_tree().current_scene.get_node("%Settings/ScrollContainer/Button").get("button_group").connect("pressed", Callable(cppcode, "change_precision"))
+	get_tree().current_scene.get_node("%Settings/ScrollContainer/CheckBox").get("button_group").connect("pressed", Callable(cppcode, "change_fraction"))
+
+
 func _input(event):
 	if event is InputEventScreenTouch && event.position.y > result_string.global_position.y + result_string.size.y:
 		if event.pressed:

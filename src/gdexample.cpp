@@ -11,6 +11,7 @@ using namespace godot;
 
 /*Function to output to godot console*/
 /*UtilityFunctions::print();*/
+
 GDExample::GDExample() {
   eo = default_user_evaluation_options;
   po = default_print_options;
@@ -98,6 +99,47 @@ int GDExample::_get_function_min_args(String input_str) {
   return CALCULATOR->getFunction(input_str.utf8().get_data())->minargs();
 }
 
+void GDExample::_change_precision(int precision) {
+  switch (precision) {
+  case 0:
+    eo.approximation = APPROXIMATION_EXACT;
+    break;
+  case 1:
+    eo.approximation = APPROXIMATION_TRY_EXACT;
+    break;
+  case 2:
+    eo.approximation = APPROXIMATION_APPROXIMATE;
+    break;
+  default:
+    eo.approximation = APPROXIMATION_TRY_EXACT;
+    break;
+  }
+  return;
+}
+
+void GDExample::_change_fraction(int fraction_type) {
+  UtilityFunctions::print(fraction_type);
+  switch (fraction_type) {
+  case 0:
+    po.number_fraction_format = FRACTION_DECIMAL;
+    break;
+  case 1:
+    po.number_fraction_format = FRACTION_DECIMAL_EXACT;
+    break;
+  case 2:
+    po.number_fraction_format = FRACTION_FRACTIONAL;
+    break;
+  case 3:
+    po.number_fraction_format = FRACTION_COMBINED;
+    break;
+  default:
+    po.number_fraction_format = FRACTION_DECIMAL_EXACT;
+    break;
+  }
+
+  return;
+}
+
 void GDExample::_bind_methods() {
   ClassDB::bind_method(D_METHOD("_fun1"), &GDExample::_fun1);
   ClassDB::bind_method(D_METHOD("_unit_abbreviation"),
@@ -112,5 +154,9 @@ void GDExample::_bind_methods() {
                        &GDExample::_get_function_arg_def_val);
   ClassDB::bind_method(D_METHOD("_get_function_min_args"),
                        &GDExample::_get_function_min_args);
+  ClassDB::bind_method(D_METHOD("_change_precision"),
+                       &GDExample::_change_precision);
+  ClassDB::bind_method(D_METHOD("_change_fraction"),
+                       &GDExample::_change_fraction);
   /*ADD_SIGNAL(MethodInfo("signal1"))*/
 }
