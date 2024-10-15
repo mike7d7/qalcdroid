@@ -611,64 +611,64 @@ layout_mode = 2
 theme = ExtResource("1_xbuye")
 metadata/_tab_index = 5
 
-[node name="ScrollContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Settings"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Settings"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
 text = "Approximation"
 
-[node name="Button" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+[node name="Button" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
 button_group = ExtResource("23_cutfi")
 text = "Always Exact"
 metadata/index = 0
 
-[node name="Button2" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+[node name="Button2" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
 button_group = ExtResource("23_cutfi")
 text = "Try Exact"
 metadata/index = 1
 
-[node name="Button3" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+[node name="Button3" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
 button_group = ExtResource("23_cutfi")
 text = "Approximate"
 metadata/index = 2
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
 text = "Interval Arithmetic"
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Fractions" type="Label" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+[node name="Fractions" type="Label" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
 text = "Fractions Type"
 
-[node name="CheckBox" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
 button_group = SubResource("ButtonGroup_xfdp8")
 text = "Decimal"
 metadata/index = 0
 
-[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
 button_group = SubResource("ButtonGroup_xfdp8")
 text = "Decimal Exact"
 metadata/index = 1
 
-[node name="CheckBox3" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+[node name="CheckBox3" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
 button_group = SubResource("ButtonGroup_xfdp8")
 text = "Fractional"
 metadata/index = 2
 
-[node name="CheckBox4" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+[node name="CheckBox4" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
 button_group = SubResource("ButtonGroup_xfdp8")
 text = "Fractional Combined"

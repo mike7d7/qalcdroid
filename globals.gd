@@ -7,8 +7,8 @@ func _ready() -> void:
 	var cppcode = get_tree().current_scene.get_node("%GDExample")
 	
 	#Change approximation type configuration
-	get_tree().current_scene.get_node("%Settings/ScrollContainer/Button").get("button_group").connect("pressed", Callable(cppcode, "change_precision"))
-	get_tree().current_scene.get_node("%Settings/ScrollContainer/CheckBox").get("button_group").connect("pressed", Callable(cppcode, "change_fraction"))
+	get_tree().current_scene.get_node("%Settings/VBoxContainer/Button").get("button_group").connect("pressed", Callable(cppcode, "change_precision"))
+	get_tree().current_scene.get_node("%Settings/VBoxContainer/CheckBox").get("button_group").connect("pressed", Callable(cppcode, "change_fraction"))
 
 
 func _input(event):
