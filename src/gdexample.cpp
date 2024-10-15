@@ -117,6 +117,15 @@ void GDExample::_change_precision(int precision) {
   return;
 }
 
+void GDExample::_change_interval(bool interval) {
+  if (interval) {
+    eo.interval_calculation = INTERVAL_CALCULATION_SIMPLE_INTERVAL_ARITHMETIC;
+  } else {
+    eo.interval_calculation = INTERVAL_CALCULATION_NONE;
+  }
+  return;
+}
+
 void GDExample::_change_fraction(int fraction_type) {
   UtilityFunctions::print(fraction_type);
   switch (fraction_type) {
@@ -156,6 +165,8 @@ void GDExample::_bind_methods() {
                        &GDExample::_get_function_min_args);
   ClassDB::bind_method(D_METHOD("_change_precision"),
                        &GDExample::_change_precision);
+  ClassDB::bind_method(D_METHOD("_change_interval"),
+                       &GDExample::_change_interval);
   ClassDB::bind_method(D_METHOD("_change_fraction"),
                        &GDExample::_change_fraction);
   /*ADD_SIGNAL(MethodInfo("signal1"))*/

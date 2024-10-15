@@ -24,6 +24,7 @@ public:
   String _get_function_arg_def_val(String input_str, int arg_index);
   int _get_function_min_args(String input_str);
   void _change_precision(int precision);
+  void _change_interval(bool interval);
   void _change_fraction(int fraction_type);
 
 

@@ -31,5 +31,8 @@ func get_min_args(input):
 func change_precision(input):
 	_change_precision(input.get_meta("index"))
 
+func change_interval(input):
+	_change_interval(input)
+
 func change_fraction(input):
 	_change_fraction(input.get_meta("index"))

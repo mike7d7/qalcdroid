@@ -8,6 +8,7 @@ func _ready() -> void:
 	
 	#Change approximation type configuration
 	get_tree().current_scene.get_node("%Settings/VBoxContainer/Button").get("button_group").connect("pressed", Callable(cppcode, "change_precision"))
+	get_tree().current_scene.get_node("%Settings/VBoxContainer/CheckButton").connect("toggled", Callable(cppcode, "change_interval"))
 	get_tree().current_scene.get_node("%Settings/VBoxContainer/CheckBox").get("button_group").connect("pressed", Callable(cppcode, "change_fraction"))
 
 
