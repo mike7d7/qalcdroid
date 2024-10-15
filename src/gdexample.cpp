@@ -9,6 +9,8 @@
 
 using namespace godot;
 
+/*Function to output to godot console*/
+/*UtilityFunctions::print();*/
 GDExample::GDExample() {
   eo = default_user_evaluation_options;
   po = default_print_options;
