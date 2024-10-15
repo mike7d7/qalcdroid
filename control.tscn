@@ -93,11 +93,10 @@ text = "resultado"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 5
+current_tab = 0
 
 [node name="numbers" type="GridContainer" parent="VBoxContainer/TabContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 columns = 5
@@ -607,12 +606,15 @@ script = ExtResource("21_aqxwa")
 
 [node name="Settings" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme = ExtResource("1_xbuye")
 metadata/_tab_index = 5
 
 [node name="ScrollContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Settings"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
 layout_mode = 2
@@ -639,6 +641,10 @@ metadata/index = 2
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
 layout_mode = 2
 text = "Interval Arithmetic"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="Fractions" type="Label" parent="VBoxContainer/TabContainer/Settings/ScrollContainer"]
 layout_mode = 2
