@@ -16,9 +16,9 @@ env = SConscript("godot-cpp/SConstruct")
 # TODO: don't hard-link share path in nix, add path for standard linux
 env.Append(CPPPATH=[
                     "src/",
-                    "/nix/store/gg6icgbbz5zmil4adph44aidrn0x2182-libqalculate-5.3.0-dev/include/",
-                    "/nix/store/lra2jxa2793339iv0yxyw14i31i85p8l-gmp-with-cxx-6.3.0-dev/include/",
-                    "/nix/store/1jkw2qskmmz46apmzi6h30bjx7j12nxb-mpfr-4.2.1-dev/include/"
+                    "/nix/store/i7pqadn9f4ajas6v3r6b41bb51yy7cch-libqalculate-5.3.0-dev/include/",
+                    "/nix/store/chb5mlvm8kq7lkb8cpkmpr7qdl31jayf-gmp-with-cxx-6.3.0-dev/include/",
+                    "/nix/store/hcq5ha2jb7an23p7f1gl3bjvj98i2kls-mpfr-4.2.1-dev/include/"
                     ])
 sources = Glob("src/*.cpp")
 
@@ -30,7 +30,7 @@ if env["platform"] == "android":
 else:
     env.Append(LIBPATH=["/usr/lib"])
     # TODO: don't hard-link share path in nix
-    env.Append(LIBPATH=["/nix/store/njvc8mzv3gp8a6g1k2d3rvd8rgzhivsb-libqalculate-5.3.0/lib"]) 
+    env.Append(LIBPATH=["/nix/store/f5pp1svgak2fq94zjsjap5crm73qd7v2-libqalculate-5.3.0/lib"]) 
 
 if env["platform"] == "macos":
     library = env.SharedLibrary(
