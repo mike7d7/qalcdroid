@@ -127,7 +127,6 @@ void GDExample::_change_interval(bool interval) {
 }
 
 void GDExample::_change_fraction(int fraction_type) {
-  UtilityFunctions::print(fraction_type);
   switch (fraction_type) {
   case 0:
     po.number_fraction_format = FRACTION_DECIMAL;
