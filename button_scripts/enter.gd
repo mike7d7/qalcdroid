@@ -1,8 +1,10 @@
 extends GDExample
 
+var user_prefs: UserPreferences
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.pressed.connect(self._button_pressed)
+	user_prefs = Globals.user_prefs
 	pass # Replace with function body.
 
 func _button_pressed():
@@ -28,11 +30,18 @@ func get_arg_def_val(input, index):
 func get_min_args(input):
 	return _get_function_min_args(input)
 
+#Functions for setting user preferences
 func change_precision(input):
+	user_prefs.precision = input.get_meta("index")
+	user_prefs.save()
 	_change_precision(input.get_meta("index"))
 
 func change_interval(input):
+	user_prefs.interval = input
+	user_prefs.save()
 	_change_interval(input)
 
 func change_fraction(input):
+	user_prefs.fraction = input.get_meta("index")
+	user_prefs.save()
 	_change_fraction(input.get_meta("index"))
