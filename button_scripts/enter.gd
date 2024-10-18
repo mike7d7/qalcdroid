@@ -5,6 +5,7 @@ var user_prefs: UserPreferences
 func _ready() -> void:
 	self.pressed.connect(self._button_pressed)
 	user_prefs = Globals.user_prefs
+	self.load_settings()
 	pass # Replace with function body.
 
 func _button_pressed():
@@ -32,9 +33,11 @@ func get_min_args(input):
 
 #Functions for setting user preferences
 func change_precision(input):
-	user_prefs.precision = input.get_meta("index")
-	user_prefs.save()
-	_change_precision(input.get_meta("index"))
+	if typeof(input) != TYPE_INT:
+		input = input.get_meta("index")
+		user_prefs.precision = input
+		user_prefs.save()
+	_change_precision(input)
 
 func change_interval(input):
 	user_prefs.interval = input
@@ -42,6 +45,13 @@ func change_interval(input):
 	_change_interval(input)
 
 func change_fraction(input):
-	user_prefs.fraction = input.get_meta("index")
-	user_prefs.save()
-	_change_fraction(input.get_meta("index"))
+	if typeof(input) != TYPE_INT:
+		input = input.get_meta("index")
+		user_prefs.fraction = input
+		user_prefs.save()
+	_change_fraction(input)
+
+func load_settings():
+	self.change_precision(user_prefs.precision)
+	self.change_interval(user_prefs.interval)
+	self.change_fraction(user_prefs.fraction)
