@@ -1,7 +1,7 @@
 extends Tree
 	
-@onready var cpp_code = $"../../../../VBoxContainer/TabContainer/numbers/GDExample"
-@onready var tree = $"../../../../VBoxContainer/TabContainer/Units/Tree"
+@onready var cpp_code = get_node("%TabContainer/numbers/GDExample")
+@onready var tree = get_node("%TabContainer/Units/Tree")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_units()
