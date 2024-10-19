@@ -9,7 +9,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _button_pressed():
-	Globals.answer = _fun1($"../../../input".text)
+	Globals.answer = _calculate_and_print($"../../../input".text)
 	$"../../../ScrollContainer/Label".text = Globals.answer
 	$"../../../input".grab_focus()
 

@@ -16,7 +16,7 @@ class GDExample : public Button {
 
 public:
   GDExample();
-  String _fun1(String input_str);
+  String _calculate_and_print(String input_str);
   String _unit_abbreviation(String input_str);
   int _get_function_max_args(String input_str);
   int _get_function_arg_type(String input_str, int arg_index);

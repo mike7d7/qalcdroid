@@ -23,7 +23,7 @@ GDExample::GDExample() {
   calc->loadLocalDefinitions();
 }
 
-String GDExample::_fun1(String input_str) {
+String GDExample::_calculate_and_print(String input_str) {
   std::string result_str =
       calc->calculateAndPrint(input_str.utf8().get_data(), 0, eo, po, NULL);
   return godot::String::utf8(result_str.c_str());
@@ -149,7 +149,7 @@ void GDExample::_change_fraction(int fraction_type) {
 }
 
 void GDExample::_bind_methods() {
-  ClassDB::bind_method(D_METHOD("_fun1"), &GDExample::_fun1);
+  ClassDB::bind_method(D_METHOD("_calculate_and_print"), &GDExample::_calculate_and_print);
   ClassDB::bind_method(D_METHOD("_unit_abbreviation"),
                        &GDExample::_unit_abbreviation);
   ClassDB::bind_method(D_METHOD("_get_function_max_args"),
