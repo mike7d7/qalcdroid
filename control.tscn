@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=31 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -30,6 +30,30 @@
 number_color = Color(1, 1, 1, 1)
 symbol_color = Color(0.823529, 0.0588235, 0.223529, 1)
 function_color = Color(0.117647, 0.4, 0.960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3js0"]
+bg_color = Color(0.117647, 0.4, 0.960784, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.117647, 0.4, 0.960784, 0)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afa52"]
+bg_color = Color(0.0431373, 0.333333, 0.917647, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.117647, 0.4, 0.960784, 0)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_xfdp8"]
 resource_name = "Fractions"
@@ -122,6 +146,9 @@ script = ExtResource("4_mgs5p")
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_xbuye")
+theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_color = Color(0.117647, 0.4, 0.960784, 1)
 text = "(x)"
 script = ExtResource("7_ivjdx")
 
@@ -129,6 +156,9 @@ script = ExtResource("7_ivjdx")
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_xbuye")
+theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_color = Color(0.117647, 0.4, 0.960784, 1)
 text = "xʸ"
 script = ExtResource("10_855gx")
 
@@ -136,6 +166,9 @@ script = ExtResource("10_855gx")
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_xbuye")
+theme_override_colors/font_hover_color = Color(0.823529, 0.0588235, 0.223529, 1)
+theme_override_colors/font_pressed_color = Color(0.823529, 0.0588235, 0.223529, 1)
+theme_override_colors/font_color = Color(0.823529, 0.0588235, 0.223529, 1)
 text = "C"
 script = ExtResource("2_ltflc")
 
@@ -173,6 +206,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
+theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_color = Color(0.117647, 0.4, 0.960784, 1)
 text = "/"
 script = ExtResource("1_totml")
 
@@ -180,6 +216,9 @@ script = ExtResource("1_totml")
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_xbuye")
+theme_override_colors/icon_normal_color = Color(0.823529, 0.0588235, 0.223529, 1)
+theme_override_colors/icon_pressed_color = Color(0.823529, 0.0588235, 0.223529, 1)
+theme_override_colors/icon_hover_color = Color(0.823529, 0.0588235, 0.223529, 1)
 theme_override_font_sizes/font_size = 0
 icon = ExtResource("7_t6dja")
 icon_alignment = 1
@@ -218,6 +257,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
+theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_color = Color(0.117647, 0.4, 0.960784, 1)
 text = "*"
 script = ExtResource("1_totml")
 
@@ -261,6 +303,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
+theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_color = Color(0.117647, 0.4, 0.960784, 1)
 text = "-"
 script = ExtResource("1_totml")
 
@@ -304,6 +349,9 @@ script = ExtResource("1_totml")
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_xbuye")
+theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_color = Color(0.117647, 0.4, 0.960784, 1)
 text = "+"
 script = ExtResource("1_totml")
 
@@ -314,6 +362,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m3js0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_afa52")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m3js0")
 text = "="
 script = ExtResource("4_qdnla")
 
@@ -350,10 +401,13 @@ script = ExtResource("15_a7ulm")
 metadata/item = "log"
 metadata/title = "Base-N Logarithm"
 
-[node name="clear" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
+[node name="clear2" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_xbuye")
+theme_override_colors/font_hover_color = Color(0.823529, 0.0588235, 0.223529, 1)
+theme_override_colors/font_pressed_color = Color(0.823529, 0.0588235, 0.223529, 1)
+theme_override_colors/font_color = Color(0.823529, 0.0588235, 0.223529, 1)
 text = "C"
 script = ExtResource("2_ltflc")
 
@@ -608,7 +662,6 @@ script = ExtResource("21_aqxwa")
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-theme = ExtResource("1_xbuye")
 metadata/_tab_index = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Settings"]
