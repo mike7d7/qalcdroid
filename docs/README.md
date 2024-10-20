@@ -46,3 +46,7 @@ Modifications:
 - Change size to be the same as font size
 "[Cosmic Icons](http://github.com/pop-os/cosmic-icons)" by [System76](http://system76.com/) is licensed under [CC-SA-4.0](http://creativecommons.org/licenses/by-sa/4.0/)
 
+Colors
+==================
+
+Colors are based on [Catppuccin's](https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md#language-defaults) color's for code editors.
