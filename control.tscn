@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=35 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -23,8 +23,11 @@
 [ext_resource type="Script" path="res://button_scripts/functions.gd" id="19_5ly0p"]
 [ext_resource type="Texture2D" uid="uid://bvjlxishyorn" path="res://assets/system-search-symbolic.svg" id="19_8hrvw"]
 [ext_resource type="Script" path="res://button_scripts/variable_tree.gd" id="21_aqxwa"]
+[ext_resource type="FontFile" uid="uid://blonl5kirx1f0" path="res://DejaVuSans.ttf" id="23_003s0"]
 [ext_resource type="ButtonGroup" uid="uid://ccpmcte5qugm6" path="res://approximation-button-group.tres" id="23_cutfi"]
+[ext_resource type="Texture2D" uid="uid://cyd0n8xx4ydb5" path="res://assets/radio-button-checked.svg" id="24_hm0ur"]
 [ext_resource type="Script" path="res://button_scripts/insert_function.gd" id="24_jwiw4"]
+[ext_resource type="Texture2D" uid="uid://6kdk2exijwwi" path="res://assets/radio-button-unchecked.svg" id="25_25ml6"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_on5hf"]
 number_color = Color(1, 1, 1, 1)
@@ -54,6 +57,12 @@ corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
+
+[sub_resource type="Theme" id="Theme_q0u4s"]
+default_font_size = 90
+Button/fonts/font = ExtResource("23_003s0")
+CheckBox/icons/radio_checked = ExtResource("24_hm0ur")
+CheckBox/icons/radio_unchecked = ExtResource("25_25ml6")
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_xfdp8"]
 resource_name = "Fractions"
@@ -662,6 +671,7 @@ script = ExtResource("21_aqxwa")
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+theme = SubResource("Theme_q0u4s")
 metadata/_tab_index = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Settings"]
