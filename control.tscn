@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=38 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -60,11 +60,27 @@ corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5idky"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.129412, 0.129412, 0.129412, 0)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
 [sub_resource type="Theme" id="Theme_q0u4s"]
 default_font_size = 90
 Button/fonts/font = ExtResource("23_003s0")
 CheckBox/icons/radio_checked = ExtResource("24_hm0ur")
 CheckBox/icons/radio_unchecked = ExtResource("25_25ml6")
+CheckBox/styles/hover = SubResource("StyleBoxFlat_5idky")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_5idky")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_5idky")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_5idky")
 CheckButton/icons/checked = ExtResource("26_ikp2g")
 CheckButton/icons/unchecked = ExtResource("27_i8hii")
 
@@ -728,10 +744,12 @@ text = "Interval Arithmetic"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
+focus_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Fractions" type="Label" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
+focus_mode = 2
 text = "Fractions Type"
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
