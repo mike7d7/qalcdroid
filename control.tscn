@@ -130,11 +130,10 @@ text = "resultado"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 5
+current_tab = 0
 
 [node name="numbers" type="GridContainer" parent="VBoxContainer/TabContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 columns = 5
@@ -142,6 +141,7 @@ metadata/_tab_index = 0
 
 [node name="move_left" type="Button" parent="VBoxContainer/TabContainer/numbers"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 icon = ExtResource("3_rf4oa")
@@ -150,6 +150,7 @@ script = ExtResource("3_1343i")
 
 [node name="move_right" type="Button" parent="VBoxContainer/TabContainer/numbers"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 icon = ExtResource("5_45h5p")
@@ -158,6 +159,7 @@ script = ExtResource("4_mgs5p")
 
 [node name="left_parenthesis" type="Button" parent="VBoxContainer/TabContainer/numbers"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
@@ -168,6 +170,7 @@ script = ExtResource("7_ivjdx")
 
 [node name="exponent" type="Button" parent="VBoxContainer/TabContainer/numbers"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
@@ -178,6 +181,7 @@ script = ExtResource("10_855gx")
 
 [node name="clear" type="Button" parent="VBoxContainer/TabContainer/numbers"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 theme_override_colors/font_hover_color = Color(0.823529, 0.0588235, 0.223529, 1)
@@ -228,6 +232,7 @@ script = ExtResource("1_totml")
 
 [node name="delete" type="Button" parent="VBoxContainer/TabContainer/numbers"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 theme_override_colors/icon_normal_color = Color(0.823529, 0.0588235, 0.223529, 1)
@@ -279,6 +284,7 @@ script = ExtResource("1_totml")
 
 [node name="answer" type="Button" parent="VBoxContainer/TabContainer/numbers"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 text = "ans"
@@ -361,6 +367,7 @@ script = ExtResource("1_totml")
 
 [node name="sum" type="Button" parent="VBoxContainer/TabContainer/numbers"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
@@ -392,6 +399,7 @@ metadata/_tab_index = 1
 
 [node name="move_left2" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 icon = ExtResource("3_rf4oa")
@@ -400,6 +408,7 @@ script = ExtResource("3_1343i")
 
 [node name="move_right2" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 icon = ExtResource("5_45h5p")
@@ -408,6 +417,7 @@ script = ExtResource("4_mgs5p")
 
 [node name="log" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 text = "logₓ"
@@ -417,6 +427,7 @@ metadata/title = "Base-N Logarithm"
 
 [node name="clear2" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 theme_override_colors/font_hover_color = Color(0.823529, 0.0588235, 0.223529, 1)
@@ -538,6 +549,7 @@ script = ExtResource("1_totml")
 
 [node name="x" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 text = "x"
@@ -572,6 +584,7 @@ script = ExtResource("15_ot4g3")
 
 [node name="meter" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 text = "m"
@@ -579,6 +592,7 @@ script = ExtResource("1_totml")
 
 [node name="kg" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 text = "kg"
@@ -586,6 +600,7 @@ script = ExtResource("1_totml")
 
 [node name="dollar" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 text = "$"
@@ -593,6 +608,7 @@ script = ExtResource("1_totml")
 
 [node name="conversion" type="Button" parent="VBoxContainer/TabContainer/numbers2"]
 layout_mode = 2
+size_flags_vertical = 3
 focus_mode = 0
 theme = ExtResource("1_xbuye")
 text = "x→"
@@ -674,6 +690,7 @@ script = ExtResource("21_aqxwa")
 
 [node name="Settings" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme = SubResource("Theme_q0u4s")
 metadata/_tab_index = 5
