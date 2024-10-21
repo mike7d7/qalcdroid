@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=37 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -28,6 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://cyd0n8xx4ydb5" path="res://assets/radio-button-checked.svg" id="24_hm0ur"]
 [ext_resource type="Script" path="res://button_scripts/insert_function.gd" id="24_jwiw4"]
 [ext_resource type="Texture2D" uid="uid://6kdk2exijwwi" path="res://assets/radio-button-unchecked.svg" id="25_25ml6"]
+[ext_resource type="Texture2D" uid="uid://kvs6qpjg8cmk" path="res://assets/toggle-on.svg" id="26_ikp2g"]
+[ext_resource type="Texture2D" uid="uid://dkx35bsujgoet" path="res://assets/toggle-off.svg" id="27_i8hii"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_on5hf"]
 number_color = Color(1, 1, 1, 1)
@@ -63,6 +65,8 @@ default_font_size = 90
 Button/fonts/font = ExtResource("23_003s0")
 CheckBox/icons/radio_checked = ExtResource("24_hm0ur")
 CheckBox/icons/radio_unchecked = ExtResource("25_25ml6")
+CheckButton/icons/checked = ExtResource("26_ikp2g")
+CheckButton/icons/unchecked = ExtResource("27_i8hii")
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_xfdp8"]
 resource_name = "Fractions"
@@ -126,10 +130,11 @@ text = "resultado"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
+current_tab = 5
 
 [node name="numbers" type="GridContainer" parent="VBoxContainer/TabContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 columns = 5
@@ -669,7 +674,6 @@ script = ExtResource("21_aqxwa")
 
 [node name="Settings" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme = SubResource("Theme_q0u4s")
 metadata/_tab_index = 5
