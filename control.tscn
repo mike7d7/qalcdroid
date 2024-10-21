@@ -722,56 +722,62 @@ text = "Approximation"
 
 [node name="Button" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 button_group = ExtResource("23_cutfi")
 text = "Always Exact"
 metadata/index = 0
 
 [node name="Button2" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 button_group = ExtResource("23_cutfi")
 text = "Try Exact"
 metadata/index = 1
 
 [node name="Button3" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 button_group = ExtResource("23_cutfi")
 text = "Approximate"
 metadata/index = 2
 
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Interval Arithmetic"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
-focus_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Fractions" type="Label" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
-focus_mode = 2
 text = "Fractions Type"
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 button_group = SubResource("ButtonGroup_xfdp8")
 text = "Decimal"
 metadata/index = 0
 
 [node name="CheckBox2" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 button_group = SubResource("ButtonGroup_xfdp8")
 text = "Decimal Exact"
 metadata/index = 1
 
 [node name="CheckBox3" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 button_group = SubResource("ButtonGroup_xfdp8")
 text = "Fractional"
 metadata/index = 2
 
 [node name="CheckBox4" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 button_group = SubResource("ButtonGroup_xfdp8")
 text = "Fractional Combined"
 metadata/index = 3
