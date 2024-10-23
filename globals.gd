@@ -7,9 +7,9 @@ var swipe_start;
 func _ready() -> void:
 	var cppcode = get_tree().current_scene.get_node("%GDExample")
 	
-	var approximation_group = get_tree().current_scene.get_node("%Settings/VBoxContainer/Button").get("button_group")
-	var interval_switch = get_tree().current_scene.get_node("%Settings/VBoxContainer/CheckButton")
-	var fractions_group = get_tree().current_scene.get_node("%Settings/VBoxContainer/CheckBox").get("button_group")
+	var approximation_group = get_tree().current_scene.get_node("%Settings/VBoxContainer/PanelContainer/VBoxContainer/Button").get("button_group")
+	var interval_switch = get_tree().current_scene.get_node("%Settings/VBoxContainer/PanelContainer/VBoxContainer/CheckButton")
+	var fractions_group = get_tree().current_scene.get_node("%Settings/VBoxContainer/PanelContainer2/VBoxContainer/CheckBox").get("button_group")
 	
 	#Change approximation type configuration
 	approximation_group.connect("pressed", Callable(cppcode, "change_precision"))
