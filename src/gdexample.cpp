@@ -148,6 +148,23 @@ void GDExample::_change_fraction(int fraction_type) {
   return;
 }
 
+void GDExample::_change_angle_unit(int angle_unit) {
+  switch (angle_unit) {
+  case 0:
+    eo.parse_options.angle_unit = ANGLE_UNIT_DEGREES;
+    break;
+  case 1:
+    eo.parse_options.angle_unit = ANGLE_UNIT_RADIANS;
+    break;
+  case 2:
+    eo.parse_options.angle_unit = ANGLE_UNIT_GRADIANS;
+    break;
+  default:
+    eo.parse_options.angle_unit = ANGLE_UNIT_NONE;
+    break;
+  }
+}
+
 void GDExample::_bind_methods() {
   ClassDB::bind_method(D_METHOD("_calculate_and_print"), &GDExample::_calculate_and_print);
   ClassDB::bind_method(D_METHOD("_unit_abbreviation"),
@@ -168,5 +185,7 @@ void GDExample::_bind_methods() {
                        &GDExample::_change_interval);
   ClassDB::bind_method(D_METHOD("_change_fraction"),
                        &GDExample::_change_fraction);
+  ClassDB::bind_method(D_METHOD("_change_angle_unit"),
+                       &GDExample::_change_angle_unit);
   /*ADD_SIGNAL(MethodInfo("signal1"))*/
 }
