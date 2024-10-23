@@ -51,6 +51,14 @@ func change_fraction(input):
 		user_prefs.save()
 	_change_fraction(input)
 
+func change_angle_unit(input):
+	if typeof(input) != TYPE_INT:
+		input = input.get_meta("index")
+		user_prefs.angle_unit = input
+		user_prefs.save()
+	_change_angle_unit(input)
+		
+
 func load_settings():
 	self.change_precision(user_prefs.precision)
 	self.change_interval(user_prefs.interval)

@@ -4,6 +4,7 @@ class_name UserPreferences extends Resource
 @export var precision: int = 1
 @export var interval: bool = true
 @export var fraction: int = 1
+@export var angle_unit: int = 1
 
 func save() -> void:
 	ResourceSaver.save(self, "user://user_prefs.tres")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=47 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -165,6 +165,8 @@ grow_end = -40.0
 [sub_resource type="ButtonGroup" id="ButtonGroup_xfdp8"]
 resource_name = "Fractions"
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_tjgd1"]
+
 [sub_resource type="GDScript" id="GDScript_q47po"]
 script/source = "extends Button
 
@@ -224,10 +226,11 @@ text = "resultado"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
+current_tab = 5
 
 [node name="numbers" type="GridContainer" parent="VBoxContainer/TabContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 columns = 5
@@ -784,10 +787,9 @@ script = ExtResource("21_aqxwa")
 
 [node name="Settings" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme = SubResource("Theme_q0u4s")
-vertical_scroll_mode = 3
+vertical_scroll_mode = 2
 metadata/_tab_index = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Settings"]
@@ -966,6 +968,76 @@ text = "Fract. Combined"
 metadata/index = 3
 
 [node name="invisible2" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ltcac")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3"]
+layout_mode = 2
+
+[node name="invisible" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="Angle_unit" type="Label" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+text = "Angle Unit"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+button_group = SubResource("ButtonGroup_tjgd1")
+text = "Degrees"
+metadata/index = 0
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+button_group = SubResource("ButtonGroup_tjgd1")
+text = "Radians"
+metadata/index = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="CheckBox3" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+button_group = SubResource("ButtonGroup_tjgd1")
+text = "Gradians"
+metadata/index = 2
+
+[node name="invisible2" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
