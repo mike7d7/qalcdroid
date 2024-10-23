@@ -789,7 +789,8 @@ script = ExtResource("21_aqxwa")
 unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_q0u4s")
-vertical_scroll_mode = 2
+vertical_scroll_mode = 3
+scroll_deadzone = 10
 metadata/_tab_index = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Settings"]
@@ -801,12 +802,14 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ltcac")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="invisible" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -815,6 +818,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
 
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
 text = "Approximation"
 
@@ -825,6 +829,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
 [node name="Button" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
@@ -841,6 +846,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
 [node name="Button2" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
@@ -857,6 +863,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
 [node name="Button3" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
@@ -873,6 +880,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_styles/focus = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
@@ -888,10 +896,12 @@ theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ltcac")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer2"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="invisible" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
@@ -900,6 +910,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
 
 [node name="Fractions" type="Label" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
 text = "Fractions Type"
 
@@ -910,6 +921,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
@@ -926,6 +938,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
 [node name="CheckBox2" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
@@ -942,6 +955,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
 [node name="CheckBox3" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
@@ -958,6 +972,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
 [node name="CheckBox4" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
@@ -974,10 +989,12 @@ theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
 
 [node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ltcac")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="invisible" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3/VBoxContainer"]
 layout_mode = 2
@@ -986,6 +1003,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
 
 [node name="Angle_unit" type="Label" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
 text = "Angle Unit"
 
@@ -996,6 +1014,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
@@ -1012,6 +1031,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
 [node name="CheckBox2" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
@@ -1028,6 +1048,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
 [node name="CheckBox3" type="CheckBox" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/PanelContainer3/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
