@@ -38,11 +38,15 @@ func change_precision(input):
 		user_prefs.precision = input
 		user_prefs.save()
 	_change_precision(input)
+	if $"../../../input".text:
+		_button_pressed()
 
 func change_interval(input):
 	user_prefs.interval = input
 	user_prefs.save()
 	_change_interval(input)
+	if $"../../../input".text:
+		_button_pressed()
 
 func change_fraction(input):
 	if typeof(input) != TYPE_INT:
@@ -50,6 +54,8 @@ func change_fraction(input):
 		user_prefs.fraction = input
 		user_prefs.save()
 	_change_fraction(input)
+	if $"../../../input".text:
+		_button_pressed()
 
 func change_angle_unit(input):
 	if typeof(input) != TYPE_INT:
@@ -57,6 +63,8 @@ func change_angle_unit(input):
 		user_prefs.angle_unit = input
 		user_prefs.save()
 	_change_angle_unit(input)
+	if $"../../../input".text:
+		_button_pressed()
 		
 
 func load_settings():
