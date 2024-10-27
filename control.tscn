@@ -1,8 +1,10 @@
 [gd_scene load_steps=47 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=48 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
 [ext_resource type="Theme" uid="uid://dijyvgyshdkqj" path="res://fontsize40.tres" id="1_xbuye"]
+[ext_resource type="Script" path="res://addons/BetterTabContainer/BetterTabContainer.gd" id="2_iopcd"]
 [ext_resource type="Script" path="res://button_scripts/clear.gd" id="2_ltflc"]
 [ext_resource type="Script" path="res://button_scripts/delete.gd" id="3_1veor"]
 [ext_resource type="Script" path="res://button_scripts/move_left.gd" id="3_1343i"]
