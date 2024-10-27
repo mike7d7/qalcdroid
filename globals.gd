@@ -1,6 +1,5 @@
 extends Node
 var answer = '';
-var swipe_start;
 @onready var result_string = get_tree().current_scene.get_node("%Label")
 @onready var user_prefs: UserPreferences = UserPreferences.load_or_create()
 
