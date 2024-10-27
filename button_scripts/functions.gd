@@ -77,4 +77,4 @@ func _on_line_edit_text_changed(search_text):
 
 func _on_item_activated():
 	var item = self.get_selected()
-	$"../../../input"._on_functions_item_activated(item.get_metadata(0), item.get_text(0), item)
+	get_tree().current_scene.get_node("%input")._on_functions_item_activated(item.get_metadata(0), item.get_text(0), item)

@@ -7,4 +7,4 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _button_pressed():
-	$"../../../input"._on_functions_item_activated(self.get_meta("item"), self.get_meta("title"), null)
+	get_tree().current_scene.get_node("%input")._on_functions_item_activated(self.get_meta("item"), self.get_meta("title"), null)

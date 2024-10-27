@@ -1,6 +1,7 @@
 extends TextEdit
 @onready var cpp_code = $"../../VBoxContainer/TabContainer/numbers/GDExample"
 @onready var popup = $"../../fn_popup/ScrollContainer/VBoxContainer/GridContainer"
+@onready var tree_node = $"../../VBoxContainer/TabContainer/Units/Tree"
 
 func _ready():
 	grab_focus()
@@ -8,7 +9,7 @@ func _ready():
 
 #code for units
 func _on_tree_item_activated():
-	var item = $"../../VBoxContainer/TabContainer/Units/Tree".get_selected()
+	var item = tree_node.get_selected()
 	if item.get_metadata(0):
 		self.insert_text_at_caret(item.get_metadata(0), -1)
 	else:
@@ -65,8 +66,9 @@ func _on_functions_item_activated(item, title, treeitem) -> void:
 		treeitem.set_collapsed_recursive(!treeitem.collapsed)
 
 #code for variables
+@onready var variable_tree_node = $"../../VBoxContainer/TabContainer/Variables/VariableTree"
 func _on_variable_tree_item_activated() -> void:
-	var item = $"../../VBoxContainer/TabContainer/Variables/VariableTree".get_selected()
+	var item = variable_tree_node.get_selected()
 	if item.get_metadata(0):
 		self.insert_text_at_caret(item.get_metadata(0), -1)
 	else:

@@ -1,5 +1,6 @@
 extends GDExample
 
+@onready var input_node = get_tree().current_scene.get_node("%input")
 var user_prefs: UserPreferences
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,9 +10,9 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _button_pressed():
-	Globals.answer = _calculate_and_print($"../../../input".text)
-	$"../../../ScrollContainer/Label".text = Globals.answer
-	$"../../../input".grab_focus()
+	Globals.answer = _calculate_and_print(input_node.text)
+	$"../../../../ScrollContainer/Label".text = Globals.answer
+	input_node.grab_focus()
 
 func get_unit(input):
 	return _unit_abbreviation(input)
@@ -38,14 +39,14 @@ func change_precision(input):
 		user_prefs.precision = input
 		user_prefs.save()
 	_change_precision(input)
-	if $"../../../input".text:
+	if input_node.text:
 		_button_pressed()
 
 func change_interval(input):
 	user_prefs.interval = input
 	user_prefs.save()
 	_change_interval(input)
-	if $"../../../input".text:
+	if input_node.text:
 		_button_pressed()
 
 func change_fraction(input):
@@ -54,7 +55,7 @@ func change_fraction(input):
 		user_prefs.fraction = input
 		user_prefs.save()
 	_change_fraction(input)
-	if $"../../../input".text:
+	if input_node.text:
 		_button_pressed()
 
 func change_angle_unit(input):
@@ -63,7 +64,7 @@ func change_angle_unit(input):
 		user_prefs.angle_unit = input
 		user_prefs.save()
 	_change_angle_unit(input)
-	if $"../../../input".text:
+	if input_node.text:
 		_button_pressed()
 		
 

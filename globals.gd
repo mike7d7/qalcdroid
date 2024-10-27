@@ -25,11 +25,12 @@ func _ready() -> void:
 
 
 func _input(event):
-	if event is InputEventScreenTouch && event.position.y > result_string.global_position.y + result_string.size.y:
-		if event.pressed:
-			swipe_start = event.position
-		else:
-			calcSwipe(event.position)
+	pass
+	#if event is InputEventScreenTouch && event.position.y > result_string.global_position.y + result_string.size.y:
+		#if event.pressed:
+			#swipe_start = event.position
+		#else:
+			#calcSwipe(event.position)
 
 func calcSwipe(swipe_end):
 	if swipe_start == null:
