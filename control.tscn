@@ -228,6 +228,7 @@ text = "resultado"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+scroll_deadzone = 10
 script = ExtResource("2_iopcd")
 
 [node name="numbers" type="GridContainer" parent="VBoxContainer/TabContainer"]
