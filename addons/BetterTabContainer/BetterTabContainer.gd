@@ -132,3 +132,10 @@ func switch_tab(tab:int=-1) -> void:
 		scrolled_with_wheel = false
 	update_target_scroll(!smooth_switch)
 	emit_signal("tab_switched", current_tab)
+	
+#Same as switch_tab() but without emitting a signal
+func switch_tab_silent(tab:int=-1) -> void:
+	if tab >= 0: 
+		current_tab = tab
+		scrolled_with_wheel = false
+	update_target_scroll(!smooth_switch)
