@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=55 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -31,6 +31,13 @@
 [ext_resource type="Texture2D" uid="uid://6kdk2exijwwi" path="res://assets/radio-button-unchecked.svg" id="25_25ml6"]
 [ext_resource type="Texture2D" uid="uid://kvs6qpjg8cmk" path="res://assets/toggle-on.svg" id="26_ikp2g"]
 [ext_resource type="Texture2D" uid="uid://dkx35bsujgoet" path="res://assets/toggle-off.svg" id="27_i8hii"]
+[ext_resource type="Texture2D" uid="uid://bnihwboli7y8m" path="res://assets/numbers.svg" id="30_84j1t"]
+[ext_resource type="Texture2D" uid="uid://ko16gghkmr44" path="res://assets/numbers2.svg" id="31_oo1l3"]
+[ext_resource type="Texture2D" uid="uid://iq7yq1n6m3ih" path="res://assets/functions.svg" id="32_vmmvh"]
+[ext_resource type="Texture2D" uid="uid://cgmruef6w7mtu" path="res://assets/units.svg" id="33_ausu2"]
+[ext_resource type="Texture2D" uid="uid://c3klormftndvu" path="res://assets/variable.svg" id="34_x6s3r"]
+[ext_resource type="Texture2D" uid="uid://brvlxj72euhfj" path="res://assets/settings.svg" id="35_j76cm"]
+[ext_resource type="Script" path="res://button_scripts/tab_bar.gd" id="36_ae7b7"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_on5hf"]
 number_color = Color(1, 1, 1, 1)
@@ -1106,6 +1113,19 @@ layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
 
+[node name="TabBar" type="TabBar" parent="VBoxContainer"]
+layout_mode = 2
+current_tab = 0
+clip_tabs = false
+tab_count = 6
+tab_0/icon = ExtResource("30_84j1t")
+tab_1/icon = ExtResource("31_oo1l3")
+tab_2/icon = ExtResource("32_vmmvh")
+tab_3/icon = ExtResource("33_ausu2")
+tab_4/icon = ExtResource("34_x6s3r")
+tab_5/icon = ExtResource("35_j76cm")
+script = ExtResource("36_ae7b7")
+
 [node name="fn_popup" type="PopupPanel" parent="."]
 auto_translate_mode = 1
 initial_position = 2
@@ -1162,3 +1182,4 @@ script = ExtResource("24_jwiw4")
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Units/Tree" to="VBoxContainer/input" method="_on_tree_item_activated"]
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Variables/LineEdit" to="VBoxContainer/TabContainer/Variables/VariableTree" method="_on_line_edit_text_changed"]
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Variables/VariableTree" to="VBoxContainer/input" method="_on_variable_tree_item_activated"]
+[connection signal="tab_clicked" from="VBoxContainer/TabBar" to="VBoxContainer/TabBar" method="_on_tab_clicked"]
