@@ -1116,6 +1116,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
 [node name="TabBar" type="TabBar" parent="VBoxContainer"]
 layout_mode = 2
 current_tab = 0
+tab_alignment = 1
 clip_tabs = false
 tab_count = 6
 tab_0/icon = ExtResource("30_84j1t")
