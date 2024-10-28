@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=56 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -174,6 +174,9 @@ grow_end = -40.0
 resource_name = "Fractions"
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_tjgd1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qtkx"]
+bg_color = Color(1, 1, 1, 0)
 
 [sub_resource type="GDScript" id="GDScript_q47po"]
 script/source = "extends Button
@@ -1116,6 +1119,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
 
 [node name="TabBar" type="TabBar" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_styles/tab_focus = SubResource("StyleBoxFlat_5qtkx")
 current_tab = 0
 tab_alignment = 1
 clip_tabs = false
