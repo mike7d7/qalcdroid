@@ -9,6 +9,7 @@ fi
 cp $DIR/functions.xml functions.xml
 cp $DIR/units.xml units.xml
 cp $DIR/variables.xml variables.xml
+cp $DIR/currencies.xml currencies.xml
 
 # Initialize godot-cpp submodule and build C++ bindings
 cd godot-cpp/
