@@ -1,5 +1,12 @@
 <h1 align="center">calculator2</h1>
 
+<div style="display: flex; justify-content: center; gap: 10px;">
+  <img src="https://i.ibb.co/JyTJhkd/Screenshot-20241104-204148-calculator.png" width="22%" />
+  <img src="https://i.ibb.co/dG3TFW5/Screenshot-20241104-204216-calculator.png" width="22%" />
+  <img src="https://i.ibb.co/mTZ21n6/Screenshot-20241104-204239-calculator.png" width="22%" />
+  <img src="https://i.ibb.co/4d0GSMg/Screenshot-20241104-204254-calculator.png" width="22%" />
+</div>
+
 ## About
 
 calculator2 is an Android GUI for the incredible calculator
