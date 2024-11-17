@@ -44,6 +44,11 @@ pkgs.mkShell {
   libPath = pkgs.lib.makeLibraryPath [
     pkgs.libqalculate
   ];
+  includePath = pkgs.lib.makeIncludePath [
+    pkgs.libqalculate
+    pkgs.gmp
+    pkgs.mpfr
+  ];
   shellHook = ''
     alias godot="godot4"
     export ANDROID_HOME="${androidComposition.androidsdk}/libexec/android-sdk";
