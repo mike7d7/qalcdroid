@@ -238,6 +238,7 @@ text = "0"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+horizontal_scroll_mode = 3
 scroll_deadzone = 10
 script = ExtResource("2_iopcd")
 switch_power = 4.0
