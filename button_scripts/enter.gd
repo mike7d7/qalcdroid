@@ -72,3 +72,4 @@ func load_settings():
 	self.change_precision(user_prefs.precision)
 	self.change_interval(user_prefs.interval)
 	self.change_fraction(user_prefs.fraction)
+	self.change_angle_unit(user_prefs.angle_unit)
