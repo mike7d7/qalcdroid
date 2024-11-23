@@ -73,3 +73,10 @@ func _on_variable_tree_item_activated() -> void:
 		self.insert_text_at_caret(item.get_metadata(0), -1)
 	else:
 		item.set_collapsed_recursive(!item.collapsed)
+		
+
+func _on_gui_input(event: InputEvent) -> void:
+	# Use DisplayServer instead of virtual keyboard attribute in CodeEdit because it would show
+	# keyboard when pressing any button that writes to the input CodeEdit.
+	if DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):
+		DisplayServer.virtual_keyboard_show("")

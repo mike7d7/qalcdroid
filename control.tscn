@@ -212,6 +212,7 @@ custom_minimum_size = Vector2(0, 280)
 layout_mode = 2
 focus_mode = 1
 theme_override_font_sizes/font_size = 100
+virtual_keyboard_enabled = false
 wrap_mode = 1
 caret_blink = true
 caret_blink_interval = 0.5
@@ -1186,6 +1187,8 @@ text = "Insert
 "
 script = ExtResource("24_jwiw4")
 
+[connection signal="focus_entered" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_focus_entered"]
+[connection signal="gui_input" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_gui_input"]
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Functions/LineEdit" to="VBoxContainer/TabContainer/Functions/Functions" method="_on_line_edit_text_changed"]
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Functions/Functions" to="VBoxContainer/TabContainer/Functions/Functions" method="_on_item_activated"]
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Units/LineEdit" to="VBoxContainer/TabContainer/Units/Tree" method="_on_line_edit_text_changed"]
