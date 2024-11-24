@@ -1,4 +1,4 @@
-extends TextEdit
+extends CodeEdit
 @onready var cpp_code = $"../../VBoxContainer/TabContainer/numbers/GDExample"
 @onready var popup = $"../../fn_popup/ScrollContainer/VBoxContainer/GridContainer"
 @onready var tree_node = $"../../VBoxContainer/TabContainer/Units/Tree"
@@ -76,7 +76,9 @@ func _on_variable_tree_item_activated() -> void:
 		
 
 func _on_gui_input(_event: InputEvent) -> void:
-	# Use DisplayServer instead of virtual keyboard attribute in CodeEdit because it would show
-	# keyboard when pressing any button that writes to the input CodeEdit.
-	if DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):
-		DisplayServer.virtual_keyboard_show("")
+	self.set_virtual_keyboard_enabled(true)
+
+# Need to disable virtual keyboard property because multible buttons set focus to
+# input and that would make the keyboard show in unwanted situations.
+func _on_focus_exited() -> void:
+	self.set_virtual_keyboard_enabled(false)

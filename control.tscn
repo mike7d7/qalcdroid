@@ -1228,6 +1228,7 @@ text = "Insert
 script = ExtResource("24_jwiw4")
 
 [connection signal="focus_entered" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_focus_exited"]
 [connection signal="gui_input" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_gui_input"]
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Functions/LineEdit" to="VBoxContainer/TabContainer/Functions/Functions" method="_on_line_edit_text_changed"]
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Functions/Functions" to="VBoxContainer/TabContainer/Functions/Functions" method="_on_item_activated"]
