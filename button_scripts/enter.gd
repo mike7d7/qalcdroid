@@ -69,9 +69,9 @@ func change_angle_unit(input):
 		
 func change_tab_swipe(input):
 	if input:
-		get_tree().current_scene.get_node("%TabContainer").mouse_filter = 1
+		get_tree().current_scene.get_node("%TabContainer").swipe_threshold = 128
 	else:
-		get_tree().current_scene.get_node("%TabContainer").mouse_filter = 2
+		get_tree().current_scene.get_node("%TabContainer").swipe_threshold = 9223372036854775807
 	user_prefs.tab_swipe = input
 	user_prefs.save()
 

@@ -78,6 +78,10 @@ func resize() -> void:
 	update_target_scroll(true)
 	
 func _manage_input(event: InputEvent) -> void:
+	if swipe_threshold == 9223372036854775807:
+		scroll_velocity = Vector2.ZERO
+		scrolling = false
+		return
 	if event is InputEventMouseButton:
 		# when the drag is stopped, end scrolling
 		if event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN, MOUSE_BUTTON_WHEEL_LEFT, MOUSE_BUTTON_WHEEL_RIGHT]:
@@ -139,3 +143,4 @@ func switch_tab_silent(tab:int=-1) -> void:
 		current_tab = tab
 		scrolled_with_wheel = false
 	update_target_scroll(!smooth_switch)
+	
