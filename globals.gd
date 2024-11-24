@@ -1,6 +1,5 @@
 extends Node
 var answer = '';
-@onready var result_string = get_tree().current_scene.get_node("%Label")
 @onready var user_prefs: UserPreferences = UserPreferences.load_or_create()
 
 func _ready() -> void:
