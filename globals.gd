@@ -1,15 +1,15 @@
 extends Node
-var answer = '';
+var answer: String = '';
 @onready var user_prefs: UserPreferences = UserPreferences.load_or_create()
 
 func _ready() -> void:
-	var cppcode = get_tree().current_scene.get_node("%GDExample")
+	var cppcode: Node = get_tree().current_scene.get_node("%GDExample")
 	
-	var approximation_group = get_tree().current_scene.get_node("%Settings/VBoxContainer/PanelContainer/VBoxContainer/Button").get("button_group")
-	var interval_switch = get_tree().current_scene.get_node("%Settings/VBoxContainer/PanelContainer/VBoxContainer/CheckButton")
-	var fractions_group = get_tree().current_scene.get_node("%Settings/VBoxContainer/PanelContainer2/VBoxContainer/CheckBox").get("button_group")
-	var angle_unit_group = get_tree().current_scene.get_node("%Settings/VBoxContainer/PanelContainer3/VBoxContainer/CheckBox").get("button_group")
-	var tab_swipe = get_tree().current_scene.get_node("%Settings/VBoxContainer/Customization/VBoxContainer/CheckButton")
+	var approximation_group: ButtonGroup = get_tree().current_scene.get_node("%Settings/VBoxContainer/PanelContainer/VBoxContainer/Button").get("button_group")
+	var interval_switch: Node = get_tree().current_scene.get_node("%Settings/VBoxContainer/PanelContainer/VBoxContainer/CheckButton")
+	var fractions_group: ButtonGroup = get_tree().current_scene.get_node("%Settings/VBoxContainer/PanelContainer2/VBoxContainer/CheckBox").get("button_group")
+	var angle_unit_group: ButtonGroup = get_tree().current_scene.get_node("%Settings/VBoxContainer/PanelContainer3/VBoxContainer/CheckBox").get("button_group")
+	var tab_swipe: Node = get_tree().current_scene.get_node("%Settings/VBoxContainer/Customization/VBoxContainer/CheckButton")
 	
 	#Change approximation type configuration
 	approximation_group.connect("pressed", Callable(cppcode, "change_precision"))
