@@ -67,9 +67,18 @@ func change_angle_unit(input):
 	if input_node.text:
 		_button_pressed()
 		
+func change_tab_swipe(input):
+	if input:
+		get_tree().current_scene.get_node("%TabContainer").mouse_filter = 1
+	else:
+		get_tree().current_scene.get_node("%TabContainer").mouse_filter = 2
+	user_prefs.tab_swipe = input
+	user_prefs.save()
+
 
 func load_settings():
 	self.change_precision(user_prefs.precision)
 	self.change_interval(user_prefs.interval)
 	self.change_fraction(user_prefs.fraction)
 	self.change_angle_unit(user_prefs.angle_unit)
+	self.change_tab_swipe(user_prefs.tab_swipe)
