@@ -46,8 +46,8 @@ func _on_line_edit_text_changed(search_text: String) -> void:
 	#var child2
 	
 	#Workaround, simply goes to the end of the tree
-	var child: Node = tree.get_root().get_next_in_tree()
-	var child2: Node
+	var child: TreeItem = tree.get_root().get_next_in_tree()
+	var child2: TreeItem
 	while child != null:
 		if previous_search_text.length() > search_text.length():
 			child.set_visible(true)
