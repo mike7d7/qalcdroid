@@ -1,10 +1,9 @@
 extends Button
-@onready var cpp_code = $"../../../../VBoxContainer/TabContainer/numbers/GDExample"
-@onready var popup = $"../../../../fn_popup/ScrollContainer/VBoxContainer/GridContainer"
-# Called when the node enters the scene tree for the first time.
+@onready var cpp_code: Node = $"../../../../VBoxContainer/TabContainer/numbers/GDExample"
+@onready var popup: Node = $"../../../../fn_popup/ScrollContainer/VBoxContainer/GridContainer"
+
 func _ready() -> void:
 	self.pressed.connect(self._button_pressed.bind())
-	pass # Replace with function body.
 
-func _button_pressed():
+func _button_pressed() -> void:
 	get_tree().current_scene.get_node("%input")._on_functions_item_activated(self.get_meta("item"), self.get_meta("title"), null)
