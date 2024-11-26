@@ -1,20 +1,20 @@
 extends Tree
 	
-@onready var cpp_code = get_node("%TabContainer/numbers/GDExample")
-@onready var tree = get_node("%TabContainer/Units/Tree")
-# Called when the node enters the scene tree for the first time.
+@onready var cpp_code: Node = get_node("%TabContainer/numbers/GDExample")
+@onready var tree: Node = get_node("%TabContainer/Units/Tree")
+
 func _ready() -> void:
 	get_units()
 	get_currencies()
 
 @onready var root: TreeItem = tree.create_item()
-func get_units():
-	var xml_doc = XML.parse_file("res://units.xml")
-	xml_doc = xml_doc.root
+func get_units() -> void:
+	var xml_doc: XMLDocument = XML.parse_file("res://units.xml")
+	var xml_root: XMLNode = xml_doc.root
 	var current_sub_sub_item: TreeItem
 	
 	root.set_text(0, "All")
-	for i in xml_doc.children:
+	for i in xml_root.children:
 		var current_item: TreeItem = tree.create_item()
 		current_item.set_text(0, i.children[0].content.get_slice("!", 2))
 		
@@ -49,13 +49,13 @@ func get_units():
 						current_sub_sub_item.set_metadata(0, cpp_code.get_unit(k.content.get_slice(":", 1).get_slice(",", 0)))
 		current_item.set_collapsed_recursive(true)
 
-func get_currencies():
-	var xml_doc = XML.parse_file("res://currencies.xml")
-	xml_doc = xml_doc.root
+func get_currencies() -> void:
+	var xml_doc: XMLDocument = XML.parse_file("res://currencies.xml")
+	var xml_root: XMLNode = xml_doc.root
 	var current_sub_sub_item: TreeItem
 	
 	root.set_text(0, "All")
-	for i in xml_doc.children:
+	for i in xml_root.children:
 		var current_item: TreeItem = tree.create_item()
 		current_item.set_text(0, i.children[0].content.get_slice("!", 2))
 		
@@ -90,8 +90,8 @@ func get_currencies():
 						current_sub_sub_item.set_metadata(0, cpp_code.get_unit(k.content.get_slice(":", 1).get_slice(",", 0)))
 		current_item.set_collapsed_recursive(true)
 
-var previous_search_text = ""
-func _on_line_edit_text_changed(search_text):
+var previous_search_text: String = ""
+func _on_line_edit_text_changed(search_text: String) -> void:
 	#Have to start from the end so children are hidden before parent
 	
 	#This code should work, but there's a bug in Godot (probably #85032), where get_prev_visible() doesnt work correctly with warp, so we use a workaround
@@ -100,8 +100,8 @@ func _on_line_edit_text_changed(search_text):
 	#var child2
 	
 	#Workaround, simply goes to the end of the tree
-	var child = tree.get_root().get_next_in_tree()
-	var child2
+	var child: TreeItem = tree.get_root().get_next_in_tree()
+	var child2: TreeItem
 	while child != null:
 		if previous_search_text.length() > search_text.length():
 			child.set_visible(true)
@@ -116,8 +116,8 @@ func _on_line_edit_text_changed(search_text):
 			if child.get_text(0).to_lower().find(search_text.to_lower()) == -1:
 				child.set_visible(false)
 		else:
-			var children_array = child.get_children()
-			var can_delete = false
+			var children_array: Array = child.get_children()
+			var can_delete: bool = false
 			for i in children_array:
 				can_delete = can_delete || i.is_visible()
 			if !can_delete:
