@@ -5,7 +5,6 @@ extends Tree
 
 func _ready() -> void:
 	get_units()
-	get_currencies()
 
 @onready var root: TreeItem = tree.create_item()
 func get_units() -> void:
