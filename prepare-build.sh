@@ -14,7 +14,17 @@ cp $DIR/currencies.xml currencies.xml
 # Initialize godot-cpp submodule and build C++ bindings
 cd godot-cpp/
 git submodule update --init
-godot --dump-extension-api
+
+# Binary is named 'godot4' in NixOS, in other distros is 'godot'
+if command -v godot4 >/dev/null 2>&1; then
+    GODOT_CMD="godot4"
+elif command -v godot >/dev/null 2>&1; then
+    GODOT_CMD="godot"
+else
+    echo "Godot executable not found"
+    exit 1
+fi
+$GODOT_CMD --dump-extension-api
 scons custom_api_file=extension_api.json
 
 # Build gdextension code
