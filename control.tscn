@@ -1,8 +1,9 @@
-[gd_scene load_steps=56 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=57 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
 [ext_resource type="Theme" uid="uid://dijyvgyshdkqj" path="res://fontsize40.tres" id="1_xbuye"]
+[ext_resource type="Script" path="res://button_scripts/result_label.gd" id="2_5bv7m"]
 [ext_resource type="Script" path="res://addons/BetterTabContainer/BetterTabContainer.gd" id="2_iopcd"]
 [ext_resource type="Script" path="res://button_scripts/clear.gd" id="2_ltflc"]
 [ext_resource type="Script" path="res://button_scripts/delete.gd" id="3_1veor"]
@@ -232,8 +233,10 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 0
 theme_override_font_sizes/font_size = 150
 text = "0"
+script = ExtResource("2_5bv7m")
 
 [node name="TabContainer" type="ScrollContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
@@ -1230,6 +1233,7 @@ script = ExtResource("24_jwiw4")
 [connection signal="focus_entered" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_focus_exited"]
 [connection signal="gui_input" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_gui_input"]
+[connection signal="gui_input" from="VBoxContainer/ScrollContainer/Label" to="VBoxContainer/ScrollContainer/Label" method="_on_gui_input"]
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Functions/LineEdit" to="VBoxContainer/TabContainer/Functions/Functions" method="_on_line_edit_text_changed"]
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Functions/Functions" to="VBoxContainer/TabContainer/Functions/Functions" method="_on_item_activated"]
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Units/LineEdit" to="VBoxContainer/TabContainer/Units/Tree" method="_on_line_edit_text_changed"]
