@@ -40,6 +40,11 @@ pkgs.mkShell {
     jdk17
     pkg-config
     android-udev-rules
+    intltool
+    autoconf
+    libtool
+    automake
+    gnupatch
   ];
   libPath = pkgs.lib.makeLibraryPath [
     pkgs.libqalculate
@@ -53,7 +58,7 @@ pkgs.mkShell {
     alias godot="godot4"
     export ANDROID_HOME="${androidComposition.androidsdk}/libexec/android-sdk";
     export ANDROID_NDK_ROOT="$ANDROID_HOME/ndk/23.2.8568313";
-    export ANDROID_SDK_ROOT="$ANDROID_HOME"
+    export ANDROID_SDK_ROOT="$ANDROID_HOME";
     export GRADLE_OPTS="-Dorg.gradle.project.android.aapt2FromMavenOverride=$ANDROID_HOME/build-tools/34.0.0/aapt2";
   '';
 }

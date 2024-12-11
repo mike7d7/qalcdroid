@@ -15,3 +15,4 @@ src/gdexample.linux.template_debug.x86_64.o
 src/libs/*
 src/register_types.android.template_debug.arm64.o
 src/register_types.linux.template_debug.x86_64.o
+libs-build/outputs

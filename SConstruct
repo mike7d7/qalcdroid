@@ -22,7 +22,7 @@ sources = Glob("src/*.cpp")
 
 if env["platform"] == "android":
     env.Append(LIBS=[":libssl.a", ":libcrypto.a", ":libcurl.a", ":libgmp.a", ":libmpfr.a", ":liblzma.a", ":libiconv.a", ":libcharset.a", ":libxml2.a", ":libqalculate.a"])
-    env.Append(LIBPATH=["src/libs"])
+    env.Append(LIBPATH=["libs-build/outputs"])
     # env.Append(LINKFLAGS=["-v"])
 else:
     env.Append(LIBS=["libqalculate"])
