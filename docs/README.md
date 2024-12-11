@@ -21,21 +21,8 @@ The unit list is generated using the `units.gd` script. It parses the `/usr/shar
 Android
 ==================
 
-Building for android takes some extra steps:
-- Install dependencies, on Void Linux `intltool m4 autoconf libtool automake patch cmake swig`
-- `git clone https://github.com/mike7d7/libqalculate-android.git`
-- `cd libqalculate-android`
-- `./gradlew build`
-- Find the cxx output folder with all library folders for each ABI with the *.so files
-> TODO: add cxx output folder path
-- Copy all the ABI folders to `calculator/src/libs/` and `calculator/android/build/src/main/jniLibs/`
-
-Build c++ binds with scons, don't forget to set the Android SDK
-- `ANDROID_HOME=/path/to/Android/SDK/`
-- `cd calculator`
-- `scons platform=android`
-
-Now just export to Android from Godot
+In the `libs-build/` folder, there's the `build-libs-android.sh` script, which compiles all native libraries for Android.
+You shouldn't have to manually run this script, as it is run by `prepare-build.sh`.
 
 Icons
 ==================
