@@ -228,14 +228,19 @@ script = ExtResource("1_cdgn3")
 layout_mode = 2
 vertical_scroll_mode = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer"]
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-mouse_filter = 0
-theme_override_font_sizes/font_size = 150
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
 text = "0"
+fit_content = true
+autowrap_mode = 0
+meta_underlined = false
+hint_underlined = false
 script = ExtResource("2_5bv7m")
 
 [node name="TabContainer" type="ScrollContainer" parent="VBoxContainer"]
@@ -1232,7 +1237,7 @@ script = ExtResource("24_jwiw4")
 
 [connection signal="focus_exited" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_focus_exited"]
 [connection signal="gui_input" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_gui_input"]
-[connection signal="gui_input" from="VBoxContainer/ScrollContainer/Label" to="VBoxContainer/ScrollContainer/Label" method="_on_gui_input"]
+[connection signal="meta_clicked" from="VBoxContainer/ScrollContainer/Label" to="VBoxContainer/ScrollContainer/Label" method="_on_meta_clicked"]
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Functions/LineEdit" to="VBoxContainer/TabContainer/Functions/Functions" method="_on_line_edit_text_changed"]
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Functions/Functions" to="VBoxContainer/TabContainer/Functions/Functions" method="_on_item_activated"]
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Units/LineEdit" to="VBoxContainer/TabContainer/Units/Tree" method="_on_line_edit_text_changed"]

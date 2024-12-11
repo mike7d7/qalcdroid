@@ -1,5 +1,4 @@
-extends Label
+extends RichTextLabel
 
-func _on_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		DisplayServer.clipboard_set(self.text)
+func _on_meta_clicked(meta: String) -> void:
+	DisplayServer.clipboard_set(meta)

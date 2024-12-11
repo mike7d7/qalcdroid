@@ -9,7 +9,7 @@ func _ready() -> void:
 	self.load_settings()
 
 func _button_pressed() -> void:
-	Globals.answer = _calculate_and_print(input_node.text)
+	Globals.answer = '[url]' + _calculate_and_print(input_node.text) + '[/url]'
 	$"../../../../ScrollContainer/Label".text = Globals.answer
 	input_node.grab_focus()
 
