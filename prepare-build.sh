@@ -26,8 +26,14 @@ else
 fi
 $GODOT_CMD --dump-extension-api
 scons custom_api_file=extension_api.json
+cd ..
+
+# Build libraries for Android
+cd libs-build/
+./build-libs-android.sh
+cd ..
 
 # Build gdextension code
-cd ..
 scons
 scons platform=android
+
