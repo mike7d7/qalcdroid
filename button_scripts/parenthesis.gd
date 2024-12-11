@@ -3,7 +3,7 @@ extends Button
 @onready var input_node: Node = get_tree().current_scene.get_node("%input")
 
 func _ready() -> void:
-	self.pressed.connect(self._button_pressed.bind(self.text))
+	self.pressed.connect(self._button_pressed.bind())
 
 func _button_pressed() -> void:
 	input_node.insert_text_at_caret("()", -1)
