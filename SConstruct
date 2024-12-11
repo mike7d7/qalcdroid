@@ -20,12 +20,12 @@ env.Append(CPPPATH=[
                     ])
 sources = Glob("src/*.cpp")
 
-env.Append(LIBS=["libqalculate"])
-
 if env["platform"] == "android":
-    env.Append(LIBPATH=["src/libs/arm64-v8a"])
+    env.Append(LIBS=[":libssl.a", ":libcrypto.a", ":libcurl.a", ":libgmp.a", ":libmpfr.a", ":liblzma.a", ":libiconv.a", ":libcharset.a", ":libxml2.a", ":libqalculate.a"])
+    env.Append(LIBPATH=["src/libs"])
     # env.Append(LINKFLAGS=["-v"])
 else:
+    env.Append(LIBS=["libqalculate"])
     env.Append(LIBPATH=["/usr/lib"])
     #TODO verify that os.getenv() doesn't error out outside NixOS
     env.Append(LIBPATH=[os.getenv("libPath")]) 
