@@ -4,7 +4,7 @@ if [ -d "/usr/share/" ]; then
   DIR="/usr/share/qalculate"
 else
   # TODO: don't hard-link share path in nix
-  DIR="/nix/store/llcplfymihwym88ly7sr6lajrllcqdr5-libqalculate-5.3.0/share/qalculate"
+  DIR="/nix/store/dqn07hwdxnlqls5bx89mmi3ddzprargh-libqalculate-5.4.0/share/qalculate"
 fi
 cp $DIR/functions.xml functions.xml
 cp $DIR/units.xml units.xml
