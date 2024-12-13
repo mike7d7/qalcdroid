@@ -19,6 +19,8 @@ GDExample::GDExample() {
   po.use_unicode_signs = true;
   po.number_fraction_format = FRACTION_DECIMAL_EXACT;
   calc = new Calculator();
+  calc->loadExchangeRates();
+  calc->loadGlobalCurrencies();
   calc->loadGlobalDefinitions();
   calc->loadLocalDefinitions();
 }
@@ -165,8 +167,11 @@ void GDExample::_change_angle_unit(int angle_unit) {
   }
 }
 
+bool GDExample::_fetch_exchange_rates() { return calc->fetchExchangeRates(); }
+
 void GDExample::_bind_methods() {
-  ClassDB::bind_method(D_METHOD("_calculate_and_print"), &GDExample::_calculate_and_print);
+  ClassDB::bind_method(D_METHOD("_calculate_and_print"),
+                       &GDExample::_calculate_and_print);
   ClassDB::bind_method(D_METHOD("_unit_abbreviation"),
                        &GDExample::_unit_abbreviation);
   ClassDB::bind_method(D_METHOD("_get_function_max_args"),
@@ -187,5 +192,7 @@ void GDExample::_bind_methods() {
                        &GDExample::_change_fraction);
   ClassDB::bind_method(D_METHOD("_change_angle_unit"),
                        &GDExample::_change_angle_unit);
+  ClassDB::bind_method(D_METHOD("_fetch_exchange_rates"),
+                       &GDExample::_fetch_exchange_rates);
   /*ADD_SIGNAL(MethodInfo("signal1"))*/
 }
