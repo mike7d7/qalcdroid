@@ -1170,6 +1170,44 @@ layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
 
+[node name="Exchanges" type="PanelContainer" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ltcac")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="invisible" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="Exchanges" type="Label" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+text = "Exchange Rates"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="Fetch" type="Button" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_xbuye")
+text = "Fetch Rates"
+
+[node name="invisible2" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
 [node name="TabBar" type="TabBar" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_styles/tab_focus = SubResource("StyleBoxFlat_5qtkx")
