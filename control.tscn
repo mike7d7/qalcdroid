@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=59 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://c3klormftndvu" path="res://assets/variable.svg" id="34_x6s3r"]
 [ext_resource type="Texture2D" uid="uid://brvlxj72euhfj" path="res://assets/settings.svg" id="35_j76cm"]
 [ext_resource type="Script" path="res://button_scripts/tab_bar.gd" id="36_ae7b7"]
+[ext_resource type="PackedScene" uid="uid://nh8crhstsjw1" path="res://exchange_rate_fetch_popup.tscn" id="41_5ki2o"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_on5hf"]
 number_color = Color(1, 1, 1, 1)
@@ -189,6 +190,19 @@ func _ready() -> void:
 
 func _button_pressed(node):
 	get_node(node).hide();
+"
+
+[sub_resource type="GDScript" id="GDScript_i850m"]
+script/source = "extends PopupPanel
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+func _on_fetch_pressed() -> void:
+	self.show()
+	pass # Replace with function body.
 "
 
 [node name="Control" type="Control"]
@@ -1273,6 +1287,11 @@ text = "Insert
 "
 script = ExtResource("24_jwiw4")
 
+[node name="rates_popup" parent="." instance=ExtResource("41_5ki2o")]
+unique_name_in_owner = true
+visible = false
+script = SubResource("GDScript_i850m")
+
 [connection signal="focus_exited" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_focus_exited"]
 [connection signal="gui_input" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_gui_input"]
 [connection signal="meta_clicked" from="VBoxContainer/ScrollContainer/Label" to="VBoxContainer/ScrollContainer/Label" method="_on_meta_clicked"]
@@ -1282,4 +1301,5 @@ script = ExtResource("24_jwiw4")
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Units/Tree" to="VBoxContainer/input" method="_on_tree_item_activated"]
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Variables/LineEdit" to="VBoxContainer/TabContainer/Variables/VariableTree" method="_on_line_edit_text_changed"]
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Variables/VariableTree" to="VBoxContainer/input" method="_on_variable_tree_item_activated"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges/VBoxContainer/Fetch" to="rates_popup" method="_on_fetch_pressed"]
 [connection signal="tab_clicked" from="VBoxContainer/TabBar" to="VBoxContainer/TabBar" method="_on_tab_clicked"]
