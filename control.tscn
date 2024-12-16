@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://kvs6qpjg8cmk" path="res://assets/toggle-on.svg" id="26_ikp2g"]
 [ext_resource type="Texture2D" uid="uid://dkx35bsujgoet" path="res://assets/toggle-off.svg" id="27_i8hii"]
 [ext_resource type="Texture2D" uid="uid://bnihwboli7y8m" path="res://assets/numbers.svg" id="30_84j1t"]
+[ext_resource type="Script" path="res://button_scripts/exchange_rate/button_fetch.gd" id="31_6w7md"]
 [ext_resource type="Texture2D" uid="uid://ko16gghkmr44" path="res://assets/numbers2.svg" id="31_oo1l3"]
 [ext_resource type="Texture2D" uid="uid://iq7yq1n6m3ih" path="res://assets/functions.svg" id="32_vmmvh"]
 [ext_resource type="Texture2D" uid="uid://cgmruef6w7mtu" path="res://assets/units.svg" id="33_ausu2"]
@@ -190,19 +191,6 @@ func _ready() -> void:
 
 func _button_pressed(node):
 	get_node(node).hide();
-"
-
-[sub_resource type="GDScript" id="GDScript_i850m"]
-script/source = "extends PopupPanel
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-func _on_fetch_pressed() -> void:
-	self.show()
-	pass # Replace with function body.
 "
 
 [node name="Control" type="Control"]
@@ -1216,6 +1204,7 @@ focus_mode = 0
 mouse_filter = 1
 theme = ExtResource("1_xbuye")
 text = "Fetch Rates"
+script = ExtResource("31_6w7md")
 
 [node name="invisible2" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges/VBoxContainer"]
 layout_mode = 2
@@ -1290,7 +1279,6 @@ script = ExtResource("24_jwiw4")
 [node name="rates_popup" parent="." instance=ExtResource("41_5ki2o")]
 unique_name_in_owner = true
 visible = false
-script = SubResource("GDScript_i850m")
 
 [connection signal="focus_exited" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_focus_exited"]
 [connection signal="gui_input" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_gui_input"]
@@ -1301,5 +1289,4 @@ script = SubResource("GDScript_i850m")
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Units/Tree" to="VBoxContainer/input" method="_on_tree_item_activated"]
 [connection signal="text_changed" from="VBoxContainer/TabContainer/Variables/LineEdit" to="VBoxContainer/TabContainer/Variables/VariableTree" method="_on_line_edit_text_changed"]
 [connection signal="item_activated" from="VBoxContainer/TabContainer/Variables/VariableTree" to="VBoxContainer/input" method="_on_variable_tree_item_activated"]
-[connection signal="pressed" from="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges/VBoxContainer/Fetch" to="rates_popup" method="_on_fetch_pressed"]
 [connection signal="tab_clicked" from="VBoxContainer/TabBar" to="VBoxContainer/TabBar" method="_on_tab_clicked"]
