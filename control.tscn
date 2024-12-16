@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=61 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -41,6 +41,8 @@
 [ext_resource type="Texture2D" uid="uid://brvlxj72euhfj" path="res://assets/settings.svg" id="35_j76cm"]
 [ext_resource type="Script" path="res://button_scripts/tab_bar.gd" id="36_ae7b7"]
 [ext_resource type="PackedScene" uid="uid://nh8crhstsjw1" path="res://exchange_rate_fetch_popup.tscn" id="41_5ki2o"]
+[ext_resource type="PackedScene" uid="uid://bbfqxffrcipan" path="res://successful_exchange_rate_fetch.tscn" id="42_k1rp2"]
+[ext_resource type="PackedScene" uid="uid://ci2hd3djpmtc4" path="res://error_exchange_rate_fetch.tscn" id="43_1u2on"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_on5hf"]
 number_color = Color(1, 1, 1, 1)
@@ -1278,6 +1280,13 @@ script = ExtResource("24_jwiw4")
 
 [node name="rates_popup" parent="." instance=ExtResource("41_5ki2o")]
 unique_name_in_owner = true
+visible = false
+
+[node name="success_exchange_rate" parent="." instance=ExtResource("42_k1rp2")]
+size = Vector2i(1724, 3950)
+visible = false
+
+[node name="error_exchange_rate" parent="." instance=ExtResource("43_1u2on")]
 visible = false
 
 [connection signal="focus_exited" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_focus_exited"]

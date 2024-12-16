@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci2hd3djpmtc4"]
+
+[ext_resource type="Theme" uid="uid://dijyvgyshdkqj" path="res://fontsize40.tres" id="1_5xx4m"]
+[ext_resource type="Script" path="res://button_scripts/exchange_rate/close_popup.gd" id="2_ou5ul"]
+
+[node name="PopupPanel" type="PopupPanel"]
+auto_translate_mode = 1
+size = Vector2i(1724, 3950)
+visible = true
+theme = ExtResource("1_5xx4m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 1720.0
+offset_bottom = 3946.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "Error While Updating Exchange Rates"
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Ok"
+script = ExtResource("2_ou5ul")
