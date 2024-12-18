@@ -167,7 +167,15 @@ void GDExample::_change_angle_unit(int angle_unit) {
   }
 }
 
-bool GDExample::_fetch_exchange_rates() { return calc->fetchExchangeRates(); }
+bool GDExample::_fetch_exchange_rates() {
+    if (calc->canFetch()) {
+        UtilityFunctions::print("can fetch");
+        return calc->fetchExchangeRates();
+    } else {
+        UtilityFunctions::print("cannot fetch");
+        return false;
+    }
+}
 
 void GDExample::_bind_methods() {
   ClassDB::bind_method(D_METHOD("_calculate_and_print"),
