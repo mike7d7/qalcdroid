@@ -1283,7 +1283,6 @@ unique_name_in_owner = true
 visible = false
 
 [node name="success_exchange_rate" parent="." instance=ExtResource("42_k1rp2")]
-size = Vector2i(1724, 3950)
 visible = false
 
 [node name="error_exchange_rate" parent="." instance=ExtResource("43_1u2on")]

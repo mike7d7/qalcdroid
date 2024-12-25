@@ -5,15 +5,16 @@
 
 [node name="PopupPanel" type="PopupPanel"]
 auto_translate_mode = 1
-size = Vector2i(1724, 3950)
+initial_position = 2
+size = Vector2i(648, 1770)
 visible = true
 theme = ExtResource("1_5xx4m")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 1720.0
-offset_bottom = 3946.0
+offset_right = 644.0
+offset_bottom = 1766.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 custom_minimum_size = Vector2(1, 1)
