@@ -7,13 +7,17 @@ extends Button
 
 var thread: Thread = Thread.new()
 signal fetch_complete(result: bool)
+var http_request = HTTPRequest.new()
 
 func _ready() -> void:
+	http_request.request_completed.connect(self._http_request_completed)
+	add_child(http_request)
 	self.pressed.connect(self._button_pressed)
+	http_request.set_download_file("user://eurofxref-daily.xml")
 
 func _button_pressed() -> void:
 	rates_popup.show()
-	thread.start(fetch_exchange_rates_in_background)
+	fetch_exchange_rates_in_background()
 	
 	var result: bool = await Signal(fetch_complete)
 	
@@ -24,8 +28,20 @@ func _button_pressed() -> void:
 		error_popup.show()
 
 func fetch_exchange_rates_in_background() -> void:
-	var result: bool = cpp_code.fetch_exchange_rates()
-	call_deferred("emit_signal", "fetch_complete", result)
+	var error = http_request.request("https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml")
+	if error != OK:
+		push_error("An error occurred in the HTTP request.")
+		call_deferred("emit_signal", "fetch_complete", false)
+	
+	
+func _http_request_completed(result, response_code, headers, body):
+	if result != HTTPRequest.RESULT_SUCCESS:
+		push_error("Image couldn't be downloaded. Try a different image.")
+		call_deferred("emit_signal", "fetch_complete", false)
+	
+	call_deferred("emit_signal", "fetch_complete", true)
+	print(headers)
+	print(body)
 
 func _exit_tree():
 	if thread.is_started():
