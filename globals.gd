@@ -3,6 +3,8 @@ var answer: String = '';
 @onready var user_prefs: UserPreferences = UserPreferences.load_or_create()
 
 func _ready() -> void:
+	# print(ProjectSettings.globalize_path("user://variables.xml"))
+
 	var cppcode: Node = get_tree().current_scene.get_node("%GDExample")
 	
 	var approximation_group: ButtonGroup = get_tree().current_scene.get_node("%Settings/VBoxContainer/PanelContainer/VBoxContainer/Button").get("button_group")
