@@ -20,9 +20,9 @@ func _button_pressed() -> void:
 	fetch_exchange_rates_in_background()
 	
 	var result: bool = await Signal(fetch_complete)
-	
+	var reload: bool = cpp_code.reload_exchange_rates()
 	rates_popup.hide()
-	if result:
+	if result && reload:
 		success_popup.show()
 	else:
 		error_popup.show()
