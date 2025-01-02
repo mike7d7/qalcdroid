@@ -34,6 +34,9 @@ func get_min_args(input: String) -> int:
 func fetch_exchange_rates() -> bool:
 	return _fetch_exchange_rates()
 
+func reload_exchange_rates() -> bool:
+	return _reload_exchange_rates()
+
 #Functions for setting user preferences
 func change_precision(input) -> void:
 	if typeof(input) != TYPE_INT:
