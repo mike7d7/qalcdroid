@@ -21,14 +21,14 @@ env.Append(CPPPATH=[
 sources = Glob("src/*.cpp")
 
 if env["platform"] == "android":
-    env.Append(LIBS=[":libssl.a", ":libcrypto.a", ":libcurl.a", ":libgmp.a", ":libmpfr.a", ":liblzma.a", ":libiconv.a", ":libcharset.a", ":libxml2.a", ":libqalculate.a"])
+    env.Append(LIBS=[":libgmp.a", ":libmpfr.a", ":liblzma.a", ":libiconv.a", ":libcharset.a", ":libxml2.a", ":libqalculate.a"])
     env.Append(LIBPATH=["libs-build/outputs"])
     # env.Append(LINKFLAGS=["-v"])
 else:
     env.Append(LIBS=["libqalculate"])
     env.Append(LIBPATH=["/usr/lib"])
     #TODO verify that os.getenv() doesn't error out outside NixOS
-    env.Append(LIBPATH=[os.getenv("libPath")]) 
+    env.Append(LIBPATH=[os.getenv("libPath")])
 
 if env["platform"] == "macos":
     library = env.SharedLibrary(

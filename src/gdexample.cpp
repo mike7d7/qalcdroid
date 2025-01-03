@@ -1,5 +1,7 @@
 #include "gdexample.h"
 #include "libqalculate/includes.h"
+#include <godot_cpp/classes/dir_access.hpp>
+#include <godot_cpp/classes/file_access.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
 #include <godot_cpp/variant/variant.hpp>
 
@@ -13,12 +15,20 @@ using namespace godot;
 /*UtilityFunctions::print();*/
 
 GDExample::GDExample() {
+#ifdef __ANDROID_API__
+  if (!FileAccess::file_exists("user://eurofxref-daily.xml")) {
+    Ref<godot::DirAccess> dir = DirAccess::open("res://");
+    dir->copy("res://eurofxref-daily.xml", "user://eurofxref-daily.xml");
+  }
+#endif
   eo = default_user_evaluation_options;
   po = default_print_options;
   po.interval_display = INTERVAL_DISPLAY_SIGNIFICANT_DIGITS;
   po.use_unicode_signs = true;
   po.number_fraction_format = FRACTION_DECIMAL_EXACT;
   calc = new Calculator();
+  calc->loadExchangeRates();
+  calc->loadGlobalCurrencies();
   calc->loadGlobalDefinitions();
   calc->loadLocalDefinitions();
 }
@@ -165,8 +175,13 @@ void GDExample::_change_angle_unit(int angle_unit) {
   }
 }
 
+bool GDExample::_reload_exchange_rates() {
+  return calc->loadExchangeRates() && calc->loadGlobalCurrencies();
+}
+
 void GDExample::_bind_methods() {
-  ClassDB::bind_method(D_METHOD("_calculate_and_print"), &GDExample::_calculate_and_print);
+  ClassDB::bind_method(D_METHOD("_calculate_and_print"),
+                       &GDExample::_calculate_and_print);
   ClassDB::bind_method(D_METHOD("_unit_abbreviation"),
                        &GDExample::_unit_abbreviation);
   ClassDB::bind_method(D_METHOD("_get_function_max_args"),
@@ -187,5 +202,7 @@ void GDExample::_bind_methods() {
                        &GDExample::_change_fraction);
   ClassDB::bind_method(D_METHOD("_change_angle_unit"),
                        &GDExample::_change_angle_unit);
+  ClassDB::bind_method(D_METHOD("_reload_exchange_rates"),
+                       &GDExample::_reload_exchange_rates);
   /*ADD_SIGNAL(MethodInfo("signal1"))*/
 }

@@ -3,6 +3,8 @@ var answer: String = '';
 @onready var user_prefs: UserPreferences = UserPreferences.load_or_create()
 
 func _ready() -> void:
+	# print(ProjectSettings.globalize_path("user://variables.xml"))
+
 	var cppcode: Node = get_tree().current_scene.get_node("%GDExample")
 	
 	var approximation_group: ButtonGroup = get_tree().current_scene.get_node("%Settings/VBoxContainer/PanelContainer/VBoxContainer/Button").get("button_group")
@@ -23,3 +25,6 @@ func _ready() -> void:
 	fractions_group.get_buttons()[user_prefs.fraction].set_pressed_no_signal(true)
 	angle_unit_group.get_buttons()[user_prefs.angle_unit].set_pressed_no_signal(true)
 	tab_swipe.set_pressed_no_signal(user_prefs.tab_swipe)
+	
+	get_tree().current_scene.get_node("/root/Control/error_exchange_rate").size = get_tree().current_scene.get_node("/root/Control").size
+	get_tree().current_scene.get_node("/root/Control/success_exchange_rate").size = get_tree().current_scene.get_node("/root/Control").size

@@ -1,0 +1,17 @@
+--- libqalculate/Calculator-definitions.cc	2025-01-02 17:42:58.197139147 -0600
++++ libqalculate/Calculator-definitions.cc	2025-01-02 17:47:18.849916336 -0600
+@@ -3558,12 +3558,10 @@
+ 	if(doc) cur = xmlDocGetRootElement(doc);
+ 	if(!cur) {
+ 		if(doc) xmlFreeDoc(doc);
+-#ifdef COMPILED_DEFINITIONS
+-		doc = xmlParseMemory(eurofxref_daily_xml, strlen(eurofxref_daily_xml));
+-#else
++
+ 		filename = buildPath(getGlobalDefinitionsDir(), "eurofxref-daily.xml");
+ 		doc = xmlParseFile(filename.c_str());
+-#endif
++
+ 		if(!doc) return false;
+ 		cur = xmlDocGetRootElement(doc);
+ 		if(!cur) return false;

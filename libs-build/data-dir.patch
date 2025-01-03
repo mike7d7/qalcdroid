@@ -1,0 +1,35 @@
+--- libqalculate/util.cc	2025-01-02 20:07:23.271943176 -0600
++++ libqalculate/util.cc	2025-01-02 20:37:26.175939591 -0600
+@@ -550,6 +550,10 @@
+ #endif
+ }
+ string getLocalDir() {
++#ifdef __ANDROID_API__
++  string path = "/data/data/com.example.calculator/files";
++  return path;
++#endif
+ 	const char *homedir;
+ 	if((homedir = getenv("QALCULATE_USER_DIR")) != NULL) {
+ 		return homedir;
+@@ -578,6 +582,10 @@
+ #endif
+ }
+ string getLocalDataDir() {
++#ifdef __ANDROID_API__
++  string path = "/data/data/com.example.calculator/files";
++  return path;
++#endif
+ 	const char *homedir;
+ 	if((homedir = getenv("QALCULATE_USER_DIR")) != NULL) {
+ 		return homedir;
+@@ -606,6 +614,10 @@
+ #endif
+ }
+ string getLocalTmpDir() {
++#ifdef __ANDROID_API__
++  string path = "/data/data/com.example.calculator/files";
++  return path;
++#endif
+ 	const char *homedir;
+ 	if((homedir = getenv("QALCULATE_USER_DIR")) != NULL) {
+ 		return homedir;

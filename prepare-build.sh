@@ -10,6 +10,7 @@ cp $DIR/functions.xml functions.xml
 cp $DIR/units.xml units.xml
 cp $DIR/variables.xml variables.xml
 cp $DIR/currencies.xml currencies.xml
+cp $DIR/eurofxref-daily.xml eurofxref-daily.xml
 
 # Initialize godot-cpp submodule and build C++ bindings
 cd godot-cpp/
@@ -36,4 +37,3 @@ cd ..
 # Build gdextension code
 scons
 scons platform=android
-

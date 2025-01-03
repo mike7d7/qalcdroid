@@ -27,6 +27,7 @@ public:
   void _change_interval(bool interval);
   void _change_fraction(int fraction_type);
   void _change_angle_unit(int angle_unit);
+  bool _reload_exchange_rates();
 
 protected:
   static void _bind_methods();
