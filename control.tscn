@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=61 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -33,12 +33,16 @@
 [ext_resource type="Texture2D" uid="uid://kvs6qpjg8cmk" path="res://assets/toggle-on.svg" id="26_ikp2g"]
 [ext_resource type="Texture2D" uid="uid://dkx35bsujgoet" path="res://assets/toggle-off.svg" id="27_i8hii"]
 [ext_resource type="Texture2D" uid="uid://bnihwboli7y8m" path="res://assets/numbers.svg" id="30_84j1t"]
+[ext_resource type="Script" path="res://button_scripts/exchange_rate/button_fetch.gd" id="31_6w7md"]
 [ext_resource type="Texture2D" uid="uid://ko16gghkmr44" path="res://assets/numbers2.svg" id="31_oo1l3"]
 [ext_resource type="Texture2D" uid="uid://iq7yq1n6m3ih" path="res://assets/functions.svg" id="32_vmmvh"]
 [ext_resource type="Texture2D" uid="uid://cgmruef6w7mtu" path="res://assets/units.svg" id="33_ausu2"]
 [ext_resource type="Texture2D" uid="uid://c3klormftndvu" path="res://assets/variable.svg" id="34_x6s3r"]
 [ext_resource type="Texture2D" uid="uid://brvlxj72euhfj" path="res://assets/settings.svg" id="35_j76cm"]
 [ext_resource type="Script" path="res://button_scripts/tab_bar.gd" id="36_ae7b7"]
+[ext_resource type="PackedScene" uid="uid://nh8crhstsjw1" path="res://exchange_rate_fetch_popup.tscn" id="41_5ki2o"]
+[ext_resource type="PackedScene" uid="uid://bbfqxffrcipan" path="res://successful_exchange_rate_fetch.tscn" id="42_k1rp2"]
+[ext_resource type="PackedScene" uid="uid://ci2hd3djpmtc4" path="res://error_exchange_rate_fetch.tscn" id="43_1u2on"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_on5hf"]
 number_color = Color(1, 1, 1, 1)
@@ -1170,6 +1174,45 @@ layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
 
+[node name="Exchanges" type="PanelContainer" parent="VBoxContainer/TabContainer/Settings/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ltcac")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="invisible" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="Exchanges" type="Label" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+text = "Exchange Rates"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="Fetch" type="Button" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_xbuye")
+text = "Fetch Rates"
+script = ExtResource("31_6w7md")
+
+[node name="invisible2" type="HSeparator" parent="VBoxContainer/TabContainer/Settings/VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
 [node name="TabBar" type="TabBar" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_styles/tab_focus = SubResource("StyleBoxFlat_5qtkx")
@@ -1234,6 +1277,16 @@ size_flags_horizontal = 3
 text = "Insert
 "
 script = ExtResource("24_jwiw4")
+
+[node name="rates_popup" parent="." instance=ExtResource("41_5ki2o")]
+unique_name_in_owner = true
+visible = false
+
+[node name="success_exchange_rate" parent="." instance=ExtResource("42_k1rp2")]
+visible = false
+
+[node name="error_exchange_rate" parent="." instance=ExtResource("43_1u2on")]
+visible = false
 
 [connection signal="focus_exited" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_focus_exited"]
 [connection signal="gui_input" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_gui_input"]

@@ -31,6 +31,9 @@ func get_arg_def_val(input: String, index: int) -> String:
 func get_min_args(input: String) -> int:
 	return _get_function_min_args(input)
 
+func reload_exchange_rates() -> bool:
+	return _reload_exchange_rates()
+
 #Functions for setting user preferences
 func change_precision(input) -> void:
 	if typeof(input) != TYPE_INT:

@@ -49,206 +49,6 @@ fi
 mkdir -p "$ROOT_DIR/outputs"
 OUTPUT_DIR="$ROOT_DIR/outputs"
 
-# OpenSSL
-if [ -d "$BUILD_DIR_OPENSSL/tar" ]; then
-  rm -rf "$BUILD_DIR_OPENSSL/tar"
-fi
-if [ -d "$BUILD_DIR_OPENSSL/src" ]; then
-  rm -rf "$BUILD_DIR_OPENSSL/src"
-fi
-if [ -d "$BUILD_DIR_OPENSSL/install" ]; then
-  rm -rf "$BUILD_DIR_OPENSSL/install"
-fi
-
-if [ -f "$LOG_FILE" ]; then
-    rm "$LOG_FILE"
-    touch "$LOG_FILE"
-fi
-
-mkdir -p "$BUILD_DIR_OPENSSL/tar"
-mkdir -p "$BUILD_DIR_OPENSSL/src"
-mkdir -p "$BUILD_DIR_OPENSSL/install"
-
-echo "Downloading OpenSSL..."
-curl -Lo "$BUILD_DIR_OPENSSL/tar/openssl-$OPENSSL_VERSION.tar.gz" "https://www.openssl.org/source/openssl-$OPENSSL_VERSION.tar.gz" >> "$LOG_FILE" 2>&1 || fail "Error Downloading OpenSSL"
-
-echo "Uncompressing OpenSSL..."
-tar xzf "${BUILD_DIR_OPENSSL}/tar/openssl-$OPENSSL_VERSION.tar.gz" -C "$BUILD_DIR_OPENSSL/src" || fail "Error Uncompressing OpenSSL"
-
-cd "$BUILD_DIR_OPENSSL/src/openssl-$OPENSSL_VERSION"
-
-export ANDROID_NDK_HOME="$NDK_ROOT"
-
-for CURRENT_ARCH in "${TARGET_ARCHS[@]}"; do
-    echo "Building OpenSSL for $CURRENT_ARCH build..."
-
-    make clean 1>& /dev/null || true
-
-    echo "-> Configuring OpenSSL for $CURRENT_ARCH build..."
-    case $CURRENT_ARCH in
-        armv7)
-        fail "-> $CURRENT_ARCH is currently unsupported"
-        ;;
-        arm64)
-            export CC="aarch64-linux-android22-clang"
-            export CXX="aarch64-linux-android22-clang++"
-            export AR="llvm-ar"
-            export AS="aarch64-linux-android-as"
-            export LD="ld"
-            export RANLIB="llvm-ranlib"
-            export NM="x86_64-linux-android-nm"
-            export STRIP="llvm-strip"
-
-            ./Configure android-arm64 no-ssl2 no-ssl3 no-comp no-hw no-engine no-shared no-tests no-ui no-deprecated no-zlib -fPIC -DANDROID -D__ANDROID_API__=22 -Os -fuse-ld="$ANDROID_TOOLCHAIN/bin/ld" -static >> "$LOG_FILE" 2>&1 || fail "-> Error Configuring OpenSSL for $CURRENT_ARCH"
-        ;;
-        x86)
-        fail "-> $CURRENT_ARCH is currently unsupported"
-        ;;
-        x86_64)
-        fail "-> $CURRENT_ARCH is currently unsupported"
-        ;;
-    esac
-    # sed -i '' -e "s!-O3!-Os!g" "Makefile" || exit 1
-    echo "-> Configured OpenSSL for $CURRENT_ARCH"
-
-    echo "-> Compiling OpenSSL for $CURRENT_ARCH..."
-    make -j "$WORKER" >> "$LOG_FILE" 2>&1 || fail "-> Error Compiling OpenSSL for $CURRENT_ARCH"
-    echo "-> Compiled OpenSSL for $CURRENT_ARCH"
-
-    echo "-> Installing OpenSSL for $CURRENT_ARCH to $BUILD_DIR_OPENSSL/install/openssl/$CURRENT_ARCH..."
-    make install DESTDIR="$BUILD_DIR_OPENSSL/install/openssl/$CURRENT_ARCH" >> "$LOG_FILE" 2>&1 || fail "-> Error Installing OpenSSL for $CURRENT_ARCH"
-    cp "$BUILD_DIR_OPENSSL/install/openssl/$CURRENT_ARCH/usr/local/lib/libcrypto.a" "$OUTPUT_DIR"
-    cp "$BUILD_DIR_OPENSSL/install/openssl/$CURRENT_ARCH/usr/local/lib/libssl.a" "$OUTPUT_DIR"
-    echo "-> Installed OpenSSL for $CURRENT_ARCH"
-
-    echo "Successfully built OpenSSL for $CURRENT_ARCH"
-done
-
-echo -e "${COLOR_GREEN}OpenSSL Built Successfully for all ARCH targets.$COLOR_END"
-
-# cURL
-cd "$ROOT_DIR" || exit 1
-
-LOG_FILE="$BUILD_DIR_CURL/build.log"
-
-if [ -d "$BUILD_DIR_CURL/tar" ]; then
-  rm -rf "$BUILD_DIR_CURL/tar"
-fi
-if [ -d "$BUILD_DIR_CURL/src" ]; then
-  rm -rf "$BUILD_DIR_CURL/src"
-fi
-if [ -d "$BUILD_DIR_CURL/install" ]; then
-  rm -rf "$BUILD_DIR_CURL/install"
-fi
-
-if [ -f "$LOG_FILE" ]; then
-    rm "$LOG_FILE"
-    touch "$LOG_FILE"
-fi
-
-mkdir -p "$BUILD_DIR_CURL/tar"
-mkdir -p "$BUILD_DIR_CURL/src"
-mkdir -p "$BUILD_DIR_CURL/install"
-
-cd "$ROOT_DIR"
-echo "Downloading curl..."
-curl -Lo "$BUILD_DIR_CURL/tar/curl-$CURL_VERSION.tar.gz" "https://curl.haxx.se/download/curl-$CURL_VERSION.tar.gz" >> "$LOG_FILE" 2>&1 || fail "Error Downloading curl"
-echo "Uncompressing curl..."
-tar xzf "$BUILD_DIR_CURL/tar/curl-$CURL_VERSION.tar.gz" -C "$BUILD_DIR_CURL/src" || fail "Error Uncompressing curl"
-cd "$BUILD_DIR_CURL/src/curl-$CURL_VERSION"
-
-for CURRENT_ARCH in "${TARGET_ARCHS[@]}"; do
-    echo "Building curl for $CURRENT_ARCH build..."
-
-    make clean 1>& /dev/null || true
-
-    echo "-> Configuring curl for $CURRENT_ARCH build..."
-    case $CURRENT_ARCH in
-        armv7)
-        fail "-> $CURRENT_ARCH is currently unsupported"
-        ;;
-        arm64)
-            export HOST="aarch64-linux-android"
-
-            export CC="aarch64-linux-android22-clang"
-            export CXX="aarch64-linux-android22-clang++"
-            export AR="llvm-ar"
-            export AS="aarch64-linux-android-as"
-            export LD="ld"
-            export RANLIB="llvm-ranlib"
-            export NM="aarch64-linux-android-nm"
-            export STRIP="llvm-strip"
-
-            export CFLAGS="--sysroot=$ANDROID_TOOLCHAIN/sysroot -fPIC -DANDROID -D__ANDROID_API__=22 -Os"
-            export CPPFLAGS="$CFLAGS"
-            export CXXFLAGS="$CFLAGS -fno-exceptions -fno-rtti"
-            export LDFLAGS="-static"
-        ;;
-        x86)
-        fail "-> $CURRENT_ARCH is currently unsupported"
-        ;;
-        x86_64)
-        fail "-> $CURRENT_ARCH is currently unsupported"
-        ;;
-    esac
-
-    ./configure --host="$HOST" \
-        --prefix="$BUILD_DIR_CURL/install/curl/$CURRENT_ARCH" \
-        --with-ssl="$BUILD_DIR_OPENSSL/install/openssl/$CURRENT_ARCH/usr/local" \
-        --enable-static \
-        --disable-shared \
-        --disable-debug \
-        --disable-curldebug \
-        --enable-symbol-hiding \
-        --enable-optimize \
-        --disable-ares \
-        --enable-threaded-resolver \
-        --disable-manual \
-        --disable-ipv6 \
-        --enable-proxy \
-        --enable-http \
-        --disable-rtsp \
-        --disable-ftp \
-        --disable-file \
-        --disable-ldap \
-        --disable-ldaps \
-        --disable-rtsp \
-        --disable-dict \
-        --disable-telnet \
-        --disable-tftp \
-        --disable-pop3 \
-        --disable-imap \
-        --disable-smtp \
-        --disable-gopher \
-        --without-libssh2 \
-        --without-librtmp \
-        --without-libidn \
-        --without-ca-bundle \
-        --without-ca-path \
-        --without-winidn \
-        --without-nghttp2 \
-        --without-cyassl \
-        --without-polarssl \
-        --without-gnutls \
-        --without-winssl \
-        --without-zlib >> "$LOG_FILE" 2>&1 || fail "-> Error Configuring curl for $CURRENT_ARCH"
-    # sed -i '' -e 's~#define HAVE_STRDUP~//#define HAVE_STRDUP~g' configure
-    echo "-> Configured curl for $CURRENT_ARCH"
-
-    echo "-> Compiling curl for $CURRENT_ARCH..."
-    make -j "$WORKER" >> "$LOG_FILE" 2>&1 || fail "-> Error Compiling curl for $CURRENT_ARCH"
-    echo "-> Compiled curl for $CURRENT_ARCH"
-
-    echo "-> Installing curl for $CURRENT_ARCH to $BUILD_DIR_CURL/install/curl/$CURRENT_ARCH..."
-    make install >> "$LOG_FILE" 2>&1 || fail "-> Error Installing curl for $CURRENT_ARCH"
-    cp "$BUILD_DIR_CURL/install/curl/$CURRENT_ARCH/lib/libcurl.a" "$OUTPUT_DIR"
-    echo "-> Installed curl for $CURRENT_ARCH"
-
-    echo "Successfully built curl for $CURRENT_ARCH"
-done
-
-echo -e "${COLOR_GREEN}curl built successfully for all ARCH targets.${COLOR_END}"
-
 # gmp
 cd "$ROOT_DIR" || exit 1
 
@@ -711,13 +511,15 @@ for CURRENT_ARCH in "${TARGET_ARCHS[@]}"; do
     make clean 1>& /dev/null || true
 
     echo "-> Configuring QALCULATE for $CURRENT_ARCH build..."
-    patch -u $BUILD_DIR_QALCULATE/src/libqalculate-$QALCULATE_VERSION/libqalculate/util.cc -i $ROOT_DIR/pthread.patch >> "$LOG_FILE" 2>&1 || fail "-> Error Patching QALCULATE for $CURRENT_ARCH"
+    patch -u $BUILD_DIR_QALCULATE/src/libqalculate-$QALCULATE_VERSION/libqalculate/util.cc -i $ROOT_DIR/pthread.patch >> "$LOG_FILE" 2>&1 || fail "-> Error Patching QALCULATE for $CURRENT_ARCH (pthread)"
+    patch -u $BUILD_DIR_QALCULATE/src/libqalculate-$QALCULATE_VERSION/libqalculate/util.cc -i $ROOT_DIR/data-dir.patch >> "$LOG_FILE" 2>&1 || fail "-> Error Patching QALCULATE for $CURRENT_ARCH (data-dir)"
+    patch -u $BUILD_DIR_QALCULATE/src/libqalculate-$QALCULATE_VERSION/libqalculate/Calculator-definitions.cc -i $ROOT_DIR/calc-def.patch >> "$LOG_FILE" 2>&1 || fail "-> Error Patching QALCULATE for $CURRENT_ARCH (calc-def)"
     case $CURRENT_ARCH in
         armv7)
             fail "-> $CURRENT_ARCH is currently unsupported"
         ;;
         arm64)
-            export PKG_CONFIG_PATH="$BUILD_DIR_XML2/install/xml2/arm64/usr/local/lib/pkgconfig:$BUILD_DIR_CURL/install/curl/arm64/lib/pkgconfig"
+            export PKG_CONFIG_PATH="$BUILD_DIR_XML2/install/xml2/arm64/usr/local/lib/pkgconfig"
             export HOST="aarch64-linux-android"
 
             export CC="aarch64-linux-android22-clang"
@@ -733,7 +535,7 @@ for CURRENT_ARCH in "${TARGET_ARCHS[@]}"; do
 
             export CPPFLAGS="-I$BUILD_DIR_GMP/install/gmp/arm64/usr/local/include -I$BUILD_DIR_MPFR/install/mpfr/arm64/usr/local/include -I$BUILD_DIR_ICONV/install/iconv/arm64/usr/local/include -I$BUILD_DIR_XML2/install/xml2/arm64/usr/local/include/libxml2 $CFLAGS"
             export LDFLAGS="-static -L$BUILD_DIR_GMP/install/gmp/arm64/usr/local/lib -L$BUILD_DIR_MPFR/install/mpfr/arm64/usr/local/lib -L$BUILD_DIR_ICONV/install/iconv/arm64/usr/local/lib -L$BUILD_DIR_XML2/install/xml2/arm64/usr/local/lib -Wl,--allow-shlib-undefined"
-            ./autogen.sh --host=$HOST --enable-static --disable-shared --without-icu --without-libintl-prefix --enable-compiled-definitions >> "$LOG_FILE" 2>&1 || fail "-> Error Configuring QALCULATE for $CURRENT_ARCH"
+            ./autogen.sh --host=$HOST --enable-static --disable-shared --without-icu --without-libcurl --without-libintl-prefix --enable-compiled-definitions >> "$LOG_FILE" 2>&1 || fail "-> Error Configuring QALCULATE for $CURRENT_ARCH"
         ;;
         x86)
             fail "-> $CURRENT_ARCH is currently unsupported"
