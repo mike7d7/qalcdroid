@@ -14,8 +14,7 @@ calculator2 is an Android GUI for the incredible calculator
 
 ## Features
 
-Most features from libqalculate are implemented with the exception of:
- - Currency (WIP).
+Most features from libqalculate are implemented with the **exception** of:
  - Entry completion and hints.
  - Calculate-as-you-type mode.
  - Calculation history.
