@@ -1,19 +1,21 @@
-extends Tree
-	
-@onready var cpp_code: Node = get_node("%TabContainer/numbers/GDExample")
-@onready var tree: Node = get_node("%TabContainer/Units/Tree")
+extends VBoxContainer
 
+@onready var cpp_code: Node = get_node("%GDExample")
+var thread: Thread = Thread.new()
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_units()
-	get_currencies()
+	thread.start(get_units)
 
-@onready var root: TreeItem = tree.create_item()
+@onready var input: Node = get_node("%input")
 func get_units() -> void:
+	var tree: Tree = Tree.new()
 	var xml_doc: XMLDocument = XML.parse_file("res://units.xml")
 	var xml_root: XMLNode = xml_doc.root
 	var current_sub_sub_item: TreeItem
 	
+	var root: TreeItem = tree.create_item()
 	root.set_text(0, "All")
+	
 	for i in xml_root.children:
 		var current_item: TreeItem = tree.create_item()
 		current_item.set_text(0, i.children[0].content.get_slice("!", 2))
@@ -48,13 +50,9 @@ func get_units() -> void:
 					if k.name == "names" && not k.attributes:
 						current_sub_sub_item.set_metadata(0, cpp_code.get_unit(k.content.get_slice(":", 1).get_slice(",", 0)))
 		current_item.set_collapsed_recursive(true)
-
-func get_currencies() -> void:
-	var xml_doc: XMLDocument = XML.parse_file("res://currencies.xml")
-	var xml_root: XMLNode = xml_doc.root
-	var current_sub_sub_item: TreeItem
-	
-	root.set_text(0, "All")
+		
+	xml_doc = XML.parse_file("res://currencies.xml")
+	xml_root = xml_doc.root
 	for i in xml_root.children:
 		var current_item: TreeItem = tree.create_item()
 		current_item.set_text(0, i.children[0].content.get_slice("!", 2))
@@ -89,38 +87,20 @@ func get_currencies() -> void:
 					if k.name == "names" && not k.attributes:
 						current_sub_sub_item.set_metadata(0, cpp_code.get_unit(k.content.get_slice(":", 1).get_slice(",", 0)))
 		current_item.set_collapsed_recursive(true)
-
-var previous_search_text: String = ""
-func _on_line_edit_text_changed(search_text: String) -> void:
-	#Have to start from the end so children are hidden before parent
+		
+	tree.set_script(load("res://button_scripts/tree_scripts/search_in_tree.gd"))
+	tree.allow_search = false
+	tree.hide_root = true
+	tree.scroll_horizontal_enabled = false
+	tree.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	tree.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	tree.focus_mode = Control.FOCUS_NONE
+	tree.mouse_filter = Control.MOUSE_FILTER_PASS
+	tree.add_theme_font_size_override("font_size", 70)
+	tree.theme = load("res://fontsize40.tres")
+	tree.item_activated.connect(input._on_tree_item_activated)
+	call_deferred("add_child", tree)
 	
-	#This code should work, but there's a bug in Godot (probably #85032), where get_prev_visible() doesnt work correctly with warp, so we use a workaround
-	#Original code
-	#var child = tree.get_root().get_prev_in_tree(true)
-	#var child2
-	
-	#Workaround, simply goes to the end of the tree
-	var child: TreeItem = tree.get_root().get_next_in_tree()
-	var child2: TreeItem
-	while child != null:
-		if previous_search_text.length() > search_text.length():
-			child.set_visible(true)
-		child2 = child
-		child = child.get_next_in_tree()
-	child = child2
-	#Workaround
-	if search_text.is_empty():
-		return
-	while child != null:
-		if child.get_metadata(0):
-			if child.get_text(0).to_lower().find(search_text.to_lower()) == -1:
-				child.set_visible(false)
-		else:
-			var children_array: Array = child.get_children()
-			var can_delete: bool = false
-			for i in children_array:
-				can_delete = can_delete || i.is_visible()
-			if !can_delete:
-				child.set_visible(false)
-		child = child.get_prev_in_tree()
-	previous_search_text = search_text
+func _exit_tree():
+	if thread.is_alive() == false:
+		thread.wait_to_finish()
