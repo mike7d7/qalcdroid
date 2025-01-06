@@ -1,7 +1,9 @@
 extends Tree
 
 func _ready() -> void:
-	get_functions_from_xml()
+	#get_functions_from_xml()
+	$"../LineEdit".text_changed.connect(_on_line_edit_text_changed.bind())
+	pass
 
 func get_functions_from_xml() -> void:
 	var xml_doc: XMLDocument = XML.parse_file("res://variables.xml")
@@ -35,7 +37,7 @@ func get_functions_from_xml() -> void:
 		current_item.set_collapsed_recursive(true)
 
 var previous_search_text: String = ""
-@onready var tree: Node = $"../../../../VBoxContainer/TabContainer/Variables/VariableTree"
+#@onready var tree: Node = $"../../../../VBoxContainer/TabContainer/Variables/VariableTree"
 func _on_line_edit_text_changed(search_text: String):
 	#Have to start from the end so children are hidden before parent
 	
@@ -45,7 +47,7 @@ func _on_line_edit_text_changed(search_text: String):
 	#var child2
 	
 	#Workaround, simply goes to the end of the tree
-	var child: TreeItem = tree.get_root().get_next_in_tree()
+	var child: TreeItem = self.get_root().get_next_in_tree()
 	var child2: TreeItem
 	while child != null:
 		if previous_search_text.length() > search_text.length():

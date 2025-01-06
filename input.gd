@@ -66,9 +66,10 @@ func _on_functions_item_activated(item, title: String, treeitem: TreeItem) -> vo
 		treeitem.set_collapsed_recursive(!treeitem.collapsed)
 
 #code for variables
-@onready var variable_tree_node: Node = $"../../VBoxContainer/TabContainer/Variables/VariableTree"
+@onready var variable_tree_node: Node = $"../../VBoxContainer/TabContainer/Variables"
 func _on_variable_tree_item_activated() -> void:
-	var item: TreeItem = variable_tree_node.get_selected()
+	var tree: = variable_tree_node.get_child(-1)
+	var item: TreeItem = tree.get_selected()
 	if item.get_metadata(0):
 		self.insert_text_at_caret(item.get_metadata(0), -1)
 	else:

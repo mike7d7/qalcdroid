@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1177h12hvrvw"]
+
+[ext_resource type="Texture2D" uid="uid://v7o6h3f5uawn" path="res://assets/edit-clear-symbolic.svg" id="1_2yfns"]
+[ext_resource type="Texture2D" uid="uid://bvjlxishyorn" path="res://assets/system-search-symbolic.svg" id="2_3616e"]
+[ext_resource type="Theme" uid="uid://dijyvgyshdkqj" path="res://fontsize40.tres" id="3_ge2gv"]
+[ext_resource type="Script" path="res://button_scripts/variable_tree.gd" id="4_ugd5w"]
+
+[node name="Variables" type="VBoxContainer"]
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+theme_override_icons/clear = ExtResource("1_2yfns")
+placeholder_text = "Search:"
+clear_button_enabled = true
+right_icon = ExtResource("2_3616e")
+
+[node name="VariableTree" type="Tree" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("3_ge2gv")
+theme_override_font_sizes/font_size = 70
+allow_search = false
+hide_root = true
+scroll_horizontal_enabled = false
+script = ExtResource("4_ugd5w")
+
+[connection signal="text_changed" from="LineEdit" to="VariableTree" method="_on_line_edit_text_changed"]
