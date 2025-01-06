@@ -37,7 +37,7 @@ func get_functions_from_xml() -> void:
 					if k.name == "names" && not k.attributes:
 						current_sub_item.set_metadata(0, k.content.get_slice(":", 1).get_slice(",", 0))
 		current_item.set_collapsed_recursive(true)
-	tree.set_script(load("res://button_scripts/variable_tree.gd"))
+	tree.set_script(load("res://button_scripts/tree_scripts/variable_tree.gd"))
 	tree.allow_search = false
 	tree.hide_root = true
 	tree.scroll_horizontal_enabled = false
