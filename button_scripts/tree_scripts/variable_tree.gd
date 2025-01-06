@@ -1,40 +1,8 @@
 extends Tree
 
 func _ready() -> void:
-	#get_functions_from_xml()
 	$"../LineEdit".text_changed.connect(_on_line_edit_text_changed.bind())
 	pass
-
-func get_functions_from_xml() -> void:
-	var xml_doc: XMLDocument = XML.parse_file("res://variables.xml")
-	var xml_root: XMLNode = xml_doc.root
-	
-	var root: TreeItem = self.create_item()
-	root.set_text(0, "All")
-	
-	for i in xml_root.children:
-		var current_item: TreeItem = self.create_item()
-		current_item.set_text(0, i.children[0].content)
-		
-		for j in i.children:
-			if j.name == "category":
-				var current_sub_item: TreeItem = self.create_item(current_item)
-				current_sub_item.set_text(0, j.children[0].content)
-				for k in j.children:
-					if k.name == "builtin_variable" || k.name == "variable":
-						var current_sub_sub_item: TreeItem = self.create_item(current_sub_item)
-						current_sub_sub_item.set_text(0, k.children[0].content)
-						for l in k.children:
-							if l.name == "names" && not l.attributes:
-								current_sub_sub_item.set_metadata(0, l.content.get_slice(":", 1).get_slice(",", 0))
-				
-			if j.name == "builtin_variable" || j.name == "variable":
-				var current_sub_item: TreeItem = self.create_item(current_item)
-				current_sub_item.set_text(0, j.children[0].content)
-				for k in j.children:
-					if k.name == "names" && not k.attributes:
-						current_sub_item.set_metadata(0, k.content.get_slice(":", 1).get_slice(",", 0))
-		current_item.set_collapsed_recursive(true)
 
 var previous_search_text: String = ""
 #@onready var tree: Node = $"../../../../VBoxContainer/TabContainer/Variables/VariableTree"
