@@ -1,15 +1,16 @@
 extends CodeEdit
 @onready var cpp_code: Node = $"../../VBoxContainer/TabContainer/numbers/GDExample"
 @onready var popup: Node = $"../../fn_popup/ScrollContainer/VBoxContainer/GridContainer"
-@onready var tree_node: Node = $"../../VBoxContainer/TabContainer/Units/Tree"
 
 func _ready() -> void:
 	grab_focus()
 	
 
 #code for units
+@onready var units_tree_node: Node = $"../../VBoxContainer/TabContainer/Units"
 func _on_tree_item_activated() -> void:
-	var item: TreeItem = tree_node.get_selected()
+	var tree: = units_tree_node.get_child(-1)
+	var item: TreeItem = tree.get_selected()
 	if item.get_metadata(0):
 		self.insert_text_at_caret(item.get_metadata(0), -1)
 	else:
