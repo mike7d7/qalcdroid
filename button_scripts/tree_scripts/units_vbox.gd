@@ -88,8 +88,7 @@ func get_units() -> void:
 						current_sub_sub_item.set_metadata(0, cpp_code.get_unit(k.content.get_slice(":", 1).get_slice(",", 0)))
 		current_item.set_collapsed_recursive(true)
 		
-	#TODO: Check if this script can be used for all 3 trees, as it seems to only be the search function
-	tree.set_script(load("res://button_scripts/tree_scripts/variable_tree.gd"))
+	tree.set_script(load("res://button_scripts/tree_scripts/search_in_tree.gd"))
 	tree.allow_search = false
 	tree.hide_root = true
 	tree.scroll_horizontal_enabled = false
