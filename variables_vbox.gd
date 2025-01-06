@@ -38,10 +38,15 @@ func get_functions_from_xml() -> void:
 						current_sub_item.set_metadata(0, k.content.get_slice(":", 1).get_slice(",", 0))
 		current_item.set_collapsed_recursive(true)
 	tree.set_script(load("res://button_scripts/variable_tree.gd"))
-	tree.theme = load("res://fontsize40.tres")
+	tree.allow_search = false
+	tree.hide_root = true
+	tree.scroll_horizontal_enabled = false
 	tree.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	tree.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	tree.hide_root = true
+	tree.focus_mode = Control.FOCUS_NONE
+	tree.mouse_filter = Control.MOUSE_FILTER_PASS
+	tree.add_theme_font_size_override("font_size", 70)
+	tree.theme = load("res://fontsize40.tres")
 	tree.item_activated.connect(input._on_variable_tree_item_activated)
 	call_deferred("add_child", tree)
 
