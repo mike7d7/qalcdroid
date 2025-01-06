@@ -843,19 +843,6 @@ placeholder_text = "Search:"
 clear_button_enabled = true
 right_icon = ExtResource("19_8hrvw")
 
-[node name="VariableTree" type="Tree" parent="VBoxContainer/TabContainer/Variables"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-focus_mode = 0
-mouse_filter = 1
-theme = ExtResource("1_xbuye")
-theme_override_font_sizes/font_size = 70
-allow_search = false
-hide_root = true
-scroll_horizontal_enabled = false
-
 [node name="Settings" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
 unique_name_in_owner = true
 layout_mode = 2
