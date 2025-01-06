@@ -20,13 +20,13 @@
 [ext_resource type="Script" path="res://button_scripts/2_param_parenthesis.gd" id="13_utar4"]
 [ext_resource type="Theme" uid="uid://ct6wbh7pmtv76" path="res://popup_fontsize.tres" id="15_6v4ak"]
 [ext_resource type="Script" path="res://button_scripts/insert_function_shortcut.gd" id="15_a7ulm"]
-[ext_resource type="Script" path="res://button_scripts/units.gd" id="15_hi52x"]
 [ext_resource type="Script" path="res://button_scripts/ignore_first_char.gd" id="15_ot4g3"]
-[ext_resource type="Script" path="res://button_scripts/functions.gd" id="19_5ly0p"]
 [ext_resource type="Texture2D" uid="uid://bvjlxishyorn" path="res://assets/system-search-symbolic.svg" id="19_8hrvw"]
-[ext_resource type="Script" path="res://button_scripts/variable_tree.gd" id="21_aqxwa"]
+[ext_resource type="Script" path="res://button_scripts/tree_scripts/functions_vbox.gd" id="21_i2l4e"]
 [ext_resource type="FontFile" uid="uid://blonl5kirx1f0" path="res://DejaVuSans.ttf" id="23_003s0"]
+[ext_resource type="Script" path="res://button_scripts/tree_scripts/units_vbox.gd" id="23_5dpns"]
 [ext_resource type="ButtonGroup" uid="uid://ccpmcte5qugm6" path="res://approximation-button-group.tres" id="23_cutfi"]
+[ext_resource type="Script" path="res://button_scripts/tree_scripts/variables_vbox.gd" id="24_bsoas"]
 [ext_resource type="Texture2D" uid="uid://cyd0n8xx4ydb5" path="res://assets/radio-button-checked.svg" id="24_hm0ur"]
 [ext_resource type="Script" path="res://button_scripts/insert_function.gd" id="24_jwiw4"]
 [ext_resource type="Texture2D" uid="uid://6kdk2exijwwi" path="res://assets/radio-button-unchecked.svg" id="25_25ml6"]
@@ -786,6 +786,7 @@ script = ExtResource("15_ot4g3")
 
 [node name="Functions" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
 layout_mode = 2
+script = ExtResource("21_i2l4e")
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/TabContainer/Functions"]
 layout_mode = 2
@@ -795,20 +796,9 @@ placeholder_text = "Search:"
 clear_button_enabled = true
 right_icon = ExtResource("19_8hrvw")
 
-[node name="Functions" type="Tree" parent="VBoxContainer/TabContainer/Functions"]
-layout_mode = 2
-size_flags_vertical = 3
-focus_mode = 0
-mouse_filter = 1
-theme = ExtResource("1_xbuye")
-theme_override_font_sizes/font_size = 70
-allow_search = false
-hide_root = true
-scroll_horizontal_enabled = false
-script = ExtResource("19_5ly0p")
-
 [node name="Units" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
 layout_mode = 2
+script = ExtResource("23_5dpns")
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/TabContainer/Units"]
 layout_mode = 2
@@ -818,21 +808,9 @@ placeholder_text = "Search:"
 clear_button_enabled = true
 right_icon = ExtResource("19_8hrvw")
 
-[node name="Tree" type="Tree" parent="VBoxContainer/TabContainer/Units"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-focus_mode = 0
-mouse_filter = 1
-theme = ExtResource("1_xbuye")
-theme_override_font_sizes/font_size = 70
-allow_search = false
-hide_root = true
-scroll_horizontal_enabled = false
-script = ExtResource("15_hi52x")
-
 [node name="Variables" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
 layout_mode = 2
+script = ExtResource("24_bsoas")
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/TabContainer/Variables"]
 layout_mode = 2
@@ -841,19 +819,6 @@ theme_override_icons/clear = ExtResource("7_t6dja")
 placeholder_text = "Search:"
 clear_button_enabled = true
 right_icon = ExtResource("19_8hrvw")
-
-[node name="VariableTree" type="Tree" parent="VBoxContainer/TabContainer/Variables"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-focus_mode = 0
-mouse_filter = 1
-theme = ExtResource("1_xbuye")
-theme_override_font_sizes/font_size = 70
-allow_search = false
-hide_root = true
-scroll_horizontal_enabled = false
-script = ExtResource("21_aqxwa")
 
 [node name="Settings" type="ScrollContainer" parent="VBoxContainer/TabContainer"]
 unique_name_in_owner = true
@@ -1291,10 +1256,4 @@ visible = false
 [connection signal="focus_exited" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_focus_exited"]
 [connection signal="gui_input" from="VBoxContainer/input" to="VBoxContainer/input" method="_on_gui_input"]
 [connection signal="meta_clicked" from="VBoxContainer/ScrollContainer/Label" to="VBoxContainer/ScrollContainer/Label" method="_on_meta_clicked"]
-[connection signal="text_changed" from="VBoxContainer/TabContainer/Functions/LineEdit" to="VBoxContainer/TabContainer/Functions/Functions" method="_on_line_edit_text_changed"]
-[connection signal="item_activated" from="VBoxContainer/TabContainer/Functions/Functions" to="VBoxContainer/TabContainer/Functions/Functions" method="_on_item_activated"]
-[connection signal="text_changed" from="VBoxContainer/TabContainer/Units/LineEdit" to="VBoxContainer/TabContainer/Units/Tree" method="_on_line_edit_text_changed"]
-[connection signal="item_activated" from="VBoxContainer/TabContainer/Units/Tree" to="VBoxContainer/input" method="_on_tree_item_activated"]
-[connection signal="text_changed" from="VBoxContainer/TabContainer/Variables/LineEdit" to="VBoxContainer/TabContainer/Variables/VariableTree" method="_on_line_edit_text_changed"]
-[connection signal="item_activated" from="VBoxContainer/TabContainer/Variables/VariableTree" to="VBoxContainer/input" method="_on_variable_tree_item_activated"]
 [connection signal="tab_clicked" from="VBoxContainer/TabBar" to="VBoxContainer/TabBar" method="_on_tab_clicked"]
