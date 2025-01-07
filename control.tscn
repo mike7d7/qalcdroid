@@ -1195,6 +1195,7 @@ script = ExtResource("36_ae7b7")
 
 [node name="fn_popup" type="PopupPanel" parent="."]
 auto_translate_mode = 1
+disable_3d = true
 initial_position = 2
 size = Vector2i(858, 655)
 theme = ExtResource("15_6v4ak")

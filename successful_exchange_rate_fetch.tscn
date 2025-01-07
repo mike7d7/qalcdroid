@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://button_scripts/exchange_rate/close_popup.gd" id="2_akg60"]
 
 [node name="PopupPanel" type="PopupPanel"]
+disable_3d = true
 initial_position = 2
 size = Vector2i(648, 1152)
 visible = true
