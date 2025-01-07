@@ -7,7 +7,7 @@
 auto_translate_mode = 1
 disable_3d = true
 initial_position = 2
-size = Vector2i(648, 1770)
+size = Vector2i(648, 3950)
 visible = true
 theme = ExtResource("1_5xx4m")
 
@@ -15,7 +15,7 @@ theme = ExtResource("1_5xx4m")
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 644.0
-offset_bottom = 1766.0
+offset_bottom = 3946.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 custom_minimum_size = Vector2(1, 1)

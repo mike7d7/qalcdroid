@@ -6,7 +6,7 @@
 [node name="PopupPanel" type="PopupPanel"]
 disable_3d = true
 initial_position = 2
-size = Vector2i(648, 1152)
+size = Vector2i(648, 3950)
 visible = true
 theme = ExtResource("1_hdftr")
 
@@ -14,7 +14,7 @@ theme = ExtResource("1_hdftr")
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 644.0
-offset_bottom = 1148.0
+offset_bottom = 3946.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 custom_minimum_size = Vector2(1, 1)

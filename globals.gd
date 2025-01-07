@@ -26,5 +26,11 @@ func _ready() -> void:
 	angle_unit_group.get_buttons()[user_prefs.angle_unit].set_pressed_no_signal(true)
 	tab_swipe.set_pressed_no_signal(user_prefs.tab_swipe)
 	
-	get_tree().current_scene.get_node("/root/Control/error_exchange_rate").size = get_tree().current_scene.get_node("/root/Control").size
+	get_tree().current_scene.get_node("/root/Control/rates_popup").size = get_tree().current_scene.get_node("/root/Control").size
 	get_tree().current_scene.get_node("/root/Control/success_exchange_rate").size = get_tree().current_scene.get_node("/root/Control").size
+	get_tree().current_scene.get_node("/root/Control/error_exchange_rate").size = get_tree().current_scene.get_node("/root/Control").size
+	
+	get_tree().current_scene.get_node("/root/Control/rates_popup").max_size = get_tree().current_scene.get_node("/root/Control").size
+	get_tree().current_scene.get_node("/root/Control/success_exchange_rate").max_size = get_tree().current_scene.get_node("/root/Control").size
+	get_tree().current_scene.get_node("/root/Control/error_exchange_rate").max_size = get_tree().current_scene.get_node("/root/Control").size
+	

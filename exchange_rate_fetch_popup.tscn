@@ -1,29 +1,33 @@
 [gd_scene load_steps=4 format=3 uid="uid://nh8crhstsjw1"]
 
-[ext_resource type="Theme" uid="uid://ct6wbh7pmtv76" path="res://popup_fontsize.tres" id="1_2fht4"]
+[ext_resource type="Theme" uid="uid://dijyvgyshdkqj" path="res://fontsize40.tres" id="1_27iex"]
 [ext_resource type="Script" path="res://button_scripts/exchange_rate/progress_spinner.gd" id="2_dy63r"]
 [ext_resource type="Texture2D" uid="uid://b1k7d04ekph4d" path="res://assets/loading-circle.svg" id="2_t78ho"]
 
 [node name="rates_popup" type="PopupPanel"]
 disable_3d = true
 initial_position = 2
-size = Vector2i(890, 288)
+size = Vector2i(648, 2916)
 visible = true
-theme = ExtResource("1_2fht4")
+theme = ExtResource("1_27iex")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 886.0
-offset_bottom = 284.0
+offset_right = 644.0
+offset_bottom = 2912.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
+size_flags_vertical = 0
 text = "Fetching Exchange Rates"
+autowrap_mode = 3
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 6
 value = 100.0
 fill_mode = 4
 radial_fill_degrees = 60.0
