@@ -102,7 +102,7 @@ for CURRENT_ARCH in "${TARGET_ARCHS[@]}"; do
             export NM="llvm-nm"
             export STRIP="llvm-strip"
 
-            export CFLAGS="--sysroot=$ANDROID_TOOLCHAIN/sysroot -fPIC -DANDROID -D__ANDROID_API__=22 -Os"
+            export CFLAGS="--sysroot=$ANDROID_TOOLCHAIN/sysroot -fPIC -DANDROID -D__ANDROID_API__=22 -O3"
             export CPPFLAGS="$CFLAGS"
             export LDFLAGS="-static-libstdc++"
 
@@ -186,7 +186,7 @@ for CURRENT_ARCH in "${TARGET_ARCHS[@]}"; do
             export NM="llvm-nm"
             export STRIP="llvm-strip"
 
-            export CFLAGS="--sysroot=$ANDROID_TOOLCHAIN/sysroot -fPIC -DANDROID -D__ANDROID_API__=22 -Os"
+            export CFLAGS="--sysroot=$ANDROID_TOOLCHAIN/sysroot -fPIC -DANDROID -D__ANDROID_API__=22 -O3"
             export CPPFLAGS="$CFLAGS"
             export LDFLAGS="-static"
 
@@ -274,7 +274,7 @@ for CURRENT_ARCH in "${TARGET_ARCHS[@]}"; do
             export NM="llvm-nm"
             export STRIP="llvm-strip"
 
-            export CFLAGS="--sysroot=$ANDROID_TOOLCHAIN/sysroot -fPIC -DANDROID -D__ANDROID_API__=22 -Os"
+            export CFLAGS="--sysroot=$ANDROID_TOOLCHAIN/sysroot -fPIC -DANDROID -D__ANDROID_API__=22 -O3"
             export CPPFLAGS="$CFLAGS"
             export LDFLAGS="-static"
 
@@ -358,7 +358,7 @@ for CURRENT_ARCH in "${TARGET_ARCHS[@]}"; do
             export NM="llvm-nm"
             export STRIP="llvm-strip"
 
-            export CFLAGS="--sysroot=$ANDROID_TOOLCHAIN/sysroot -fPIC -DANDROID -D__ANDROID_API__=22 -Os"
+            export CFLAGS="--sysroot=$ANDROID_TOOLCHAIN/sysroot -fPIC -DANDROID -D__ANDROID_API__=22 -O3"
             export CPPFLAGS="$CFLAGS"
             export LDFLAGS="-static-libstdc++"
 
@@ -443,7 +443,7 @@ for CURRENT_ARCH in "${TARGET_ARCHS[@]}"; do
             export NM="llvm-nm"
             export STRIP="llvm-strip"
 
-            export CFLAGS="--sysroot=$ANDROID_TOOLCHAIN/sysroot -fPIC -DANDROID -D__ANDROID_API__=22 -Os"
+            export CFLAGS="--sysroot=$ANDROID_TOOLCHAIN/sysroot -fPIC -DANDROID -D__ANDROID_API__=22 -O3"
             export CPPFLAGS="-I$BUILD_DIR_ICONV/install/iconv/arm64/usr/local/include $CFLAGS"
             export LDFLAGS="-L$BUILD_DIR_XZ/install/xz/arm64/usr/local/lib/liblzma.a -static -L$BUILD_DIR_ICONV/install/iconv/arm64/usr/local/lib/libiconv.a -static"
 
@@ -531,7 +531,7 @@ for CURRENT_ARCH in "${TARGET_ARCHS[@]}"; do
             export NM="llvm-nm"
             export STRIP="llvm-strip"
 
-            export CFLAGS="--sysroot=$ANDROID_TOOLCHAIN/sysroot -fPIC -DANDROID -D__ANDROID_API__=22 -Os"
+            export CFLAGS="--sysroot=$ANDROID_TOOLCHAIN/sysroot -fPIC -DANDROID -D__ANDROID_API__=22 -O3"
 
             export CPPFLAGS="-I$BUILD_DIR_GMP/install/gmp/arm64/usr/local/include -I$BUILD_DIR_MPFR/install/mpfr/arm64/usr/local/include -I$BUILD_DIR_ICONV/install/iconv/arm64/usr/local/include -I$BUILD_DIR_XML2/install/xml2/arm64/usr/local/include/libxml2 $CFLAGS"
             export LDFLAGS="-static -L$BUILD_DIR_GMP/install/gmp/arm64/usr/local/lib -L$BUILD_DIR_MPFR/install/mpfr/arm64/usr/local/lib -L$BUILD_DIR_ICONV/install/iconv/arm64/usr/local/lib -L$BUILD_DIR_XML2/install/xml2/arm64/usr/local/lib -Wl,--allow-shlib-undefined"
