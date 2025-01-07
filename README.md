@@ -25,5 +25,5 @@ All non-implemented features **may** be implemented in the future.
 
 ## Status
 
-This project is perfectly usable as a daily driver: all functions, units
-(except currencies), and variables work as expected.
+This project is perfectly usable as a daily driver: all functions, units, 
+and variables work as expected.
