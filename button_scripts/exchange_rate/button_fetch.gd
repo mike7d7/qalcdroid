@@ -36,7 +36,7 @@ func fetch_exchange_rates_in_background() -> void:
 	
 func _http_request_completed(result, response_code, headers, body):
 	if result != HTTPRequest.RESULT_SUCCESS:
-		push_error("Image couldn't be downloaded. Try a different image.")
+		push_error("An error occurred in the HTTP request. Response code: " + response_code)
 		call_deferred("emit_signal", "fetch_complete", false)
 	
 	call_deferred("emit_signal", "fetch_complete", true)
