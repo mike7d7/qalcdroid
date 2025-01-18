@@ -1,4 +1,4 @@
-<h1 align="center">calculator2</h1>
+<h1 align="center">QalcDroid</h1>
 
 <div align="center" style="display: flex; justify-content: center; gap: 2%;">
   <img src="https://i.ibb.co/JyTJhkd/Screenshot-20241104-204148-calculator.png" width="22%" />
@@ -9,7 +9,7 @@
 
 ## About
 
-calculator2 is an Android GUI for the incredible calculator
+QalcDroid is an Android GUI for the incredible calculator
 [libqalculate](https://github.com/Qalculate/libqalculate).
 
 ## Features
