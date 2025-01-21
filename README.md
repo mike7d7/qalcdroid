@@ -28,6 +28,10 @@ All non-implemented features **may** be implemented in the future.
 This project is perfectly usable as a daily driver: all functions, units, 
 and variables work as expected.
 
+## Issues or Questions
+
+If you are experiencing an issue or have a feature request, please open up an [issue in Gitlab](https://gitlab.com/mike7d7/calculator2). When submitting a bug please try to be as specific as possible, and try to find a way to reproduce the issue.
+
 ## Acknowledgments
  - [libqalculate](https://github.com/Qalculate/libqalculate) by [hanna-kn](https://github.com/hanna-kn)
  - [Godot Engine](https://godotengine.org/)
