@@ -27,3 +27,11 @@ All non-implemented features **may** be implemented in the future.
 
 This project is perfectly usable as a daily driver: all functions, units, 
 and variables work as expected.
+
+## Acknowledgments
+ - [libqalculate](https://github.com/Qalculate/libqalculate) by [hanna-kn](https://github.com/hanna-kn)
+ - [Godot Engine](https://godotengine.org/)
+ - [BetterTabContainer](https://github.com/gducrash/BetterTabContainer/tree/4.0) by [gducrash](https://github.com/gducrash)
+ - [GodotXML](https://github.com/elenakrittik/GodotXML) by [elenakrittik](https://github.com/elenakrittik)
+ - [Cosmic Icons](http://github.com/pop-os/cosmic-icons) by [System76](http://system76.com/)
+ - [Catppuccin](https://github.com/catppuccin/catppuccin)
