@@ -7,6 +7,22 @@
   <img src="https://i.ibb.co/4d0GSMg/Screenshot-20241104-204254-calculator.png" width="22%" />
 </div>
 
+<div align="center">
+Navigation:
+</div>
+
+<div align="center">
+[About](#about) -
+[Features](#features) -
+[Status](#status) -
+[Issues](#issues-or-questions) -
+[Acknowledgements](#acknowledgements) -
+</div>
+
+<div align="center">
+[Documentation](docs/README.md)
+</div>
+
 ## About
 
 QalcDroid is an Android GUI for the incredible calculator
