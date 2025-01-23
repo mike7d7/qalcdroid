@@ -1,4 +1,6 @@
-<h1 align="center">QalcDroid</h1>
+<div align="center">
+    <h1>QalcDroid</h1>
+</div>
 
 <div align="center" style="display: flex; justify-content: center; gap: 2%;">
   <img src="https://i.ibb.co/JyTJhkd/Screenshot-20241104-204148-calculator.png" width="22%" />
