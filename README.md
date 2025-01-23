@@ -19,7 +19,7 @@ Navigation:
 [Features](#features) -
 [Status](#status) -
 [Issues](#issues-or-questions) -
-[Acknowledgements](#acknowledgements) -
+[Acknowledgements](#acknowledgements)
 
 </div>
 
