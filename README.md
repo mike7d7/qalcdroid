@@ -14,15 +14,19 @@ Navigation:
 </div>
 
 <div align="center">
+
 [About](#about) -
 [Features](#features) -
 [Status](#status) -
 [Issues](#issues-or-questions) -
 [Acknowledgements](#acknowledgements) -
+
 </div>
 
 <div align="center">
+
 [Documentation](docs/README.md)
+
 </div>
 
 ## About
