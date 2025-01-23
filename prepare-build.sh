@@ -36,4 +36,4 @@ cd ..
 
 # Build gdextension code
 scons
-scons platform=android
+scons platform=android arch=arm64
