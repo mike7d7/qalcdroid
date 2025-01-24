@@ -33,11 +33,6 @@ window/handheld/orientation=1
 window/ios/hide_home_indicator=false
 window/ios/hide_status_bar=false
 
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/BetterTabContainer/plugin.cfg")
