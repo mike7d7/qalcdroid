@@ -55,6 +55,7 @@ pkgs.mkShell {
     pkgs.mpfr
   ];
   shellHook = ''
+    echo "libqalculate share path = ${pkgs.lib.makeLibraryPath[pkgs.libqalculate]}"
     alias godot="godot4"
     export ANDROID_HOME="${androidComposition.androidsdk}/libexec/android-sdk";
     export ANDROID_NDK_ROOT="$ANDROID_HOME/ndk/23.2.8568313";
