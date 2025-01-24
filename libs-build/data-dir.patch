@@ -5,7 +5,7 @@
  }
  string getLocalDir() {
 +#ifdef __ANDROID_API__
-+  string path = "/data/data/com.example.calculator/files";
++  string path = "/data/data/com.example.qalcdroid/files";
 +  return path;
 +#endif
  	const char *homedir;
@@ -16,7 +16,7 @@
  }
  string getLocalDataDir() {
 +#ifdef __ANDROID_API__
-+  string path = "/data/data/com.example.calculator/files";
++  string path = "/data/data/com.example.qalcdroid/files";
 +  return path;
 +#endif
  	const char *homedir;
@@ -27,7 +27,7 @@
  }
  string getLocalTmpDir() {
 +#ifdef __ANDROID_API__
-+  string path = "/data/data/com.example.calculator/files";
++  string path = "/data/data/com.example.qalcdroid/files";
 +  return path;
 +#endif
  	const char *homedir;
