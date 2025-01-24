@@ -1,7 +1,7 @@
 extends Button
 
-@onready var cpp_code: Node = get_node("%TabContainer/numbers/GDExample")
-@onready var rates_popup: Node = get_node("%rates_popup")
+@onready var cpp_code: Node = get_node("/root/Control/VBoxContainer/TabContainer/numbers/GDExample")
+@onready var rates_popup: Node = get_node("/root/Control/rates_popup")
 @onready var success_popup: Node = get_node("/root/Control/success_exchange_rate")
 @onready var error_popup: Node = get_node("/root/Control/error_exchange_rate")
 

@@ -1,0 +1,258 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhq1ipjojc65i"]
+
+[ext_resource type="Theme" uid="uid://dijyvgyshdkqj" path="res://fontsize40.tres" id="1_rluar"]
+[ext_resource type="Texture2D" uid="uid://bgk42bvlenvkf" path="res://assets/pan-start-symbolic.svg" id="2_uly45"]
+[ext_resource type="Script" path="res://button_scripts/move_left.gd" id="3_nak47"]
+[ext_resource type="Texture2D" uid="uid://b2tynr2ibjxde" path="res://assets/pan-end-symbolic.svg" id="4_om8bw"]
+[ext_resource type="Script" path="res://button_scripts/move_right.gd" id="5_d660q"]
+[ext_resource type="Script" path="res://button_scripts/insert_function_shortcut.gd" id="6_8up2a"]
+[ext_resource type="Script" path="res://button_scripts/clear.gd" id="7_4fc2n"]
+[ext_resource type="Script" path="res://button_scripts/ignore_first_char.gd" id="8_e3jkx"]
+[ext_resource type="Script" path="res://button_scripts/name_then_parenthesis.gd" id="9_k7uaw"]
+[ext_resource type="Script" path="res://button_scripts/button_0.gd" id="10_tbj4d"]
+[ext_resource type="Script" path="res://button_scripts/2_param_parenthesis.gd" id="11_jsigw"]
+
+[node name="numbers2" type="GridContainer"]
+size_flags_vertical = 3
+columns = 4
+
+[node name="move_left2" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+icon = ExtResource("2_uly45")
+icon_alignment = 1
+script = ExtResource("3_nak47")
+
+[node name="move_right2" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+icon = ExtResource("4_om8bw")
+icon_alignment = 1
+script = ExtResource("5_d660q")
+
+[node name="log" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "logₓ"
+script = ExtResource("6_8up2a")
+metadata/item = "log"
+metadata/title = "Base-N Logarithm"
+
+[node name="clear2" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+theme_override_colors/font_hover_color = Color(0.823529, 0.0588235, 0.223529, 1)
+theme_override_colors/font_pressed_color = Color(0.823529, 0.0588235, 0.223529, 1)
+theme_override_colors/font_color = Color(0.823529, 0.0588235, 0.223529, 1)
+text = "C"
+script = ExtResource("7_4fc2n")
+
+[node name="factorial" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+theme_override_font_sizes/font_size = 0
+text = "x!"
+script = ExtResource("8_e3jkx")
+
+[node name="nat_log" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "ln"
+script = ExtResource("9_k7uaw")
+
+[node name="sqrt" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "√"
+script = ExtResource("9_k7uaw")
+
+[node name="base_nat_log" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "e"
+script = ExtResource("10_tbj4d")
+
+[node name="modulus" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "mod"
+script = ExtResource("11_jsigw")
+
+[node name="mean" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "x̄"
+script = ExtResource("9_k7uaw")
+
+[node name="sum5" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "Σ"
+script = ExtResource("6_8up2a")
+metadata/item = "Σ"
+metadata/title = "Summation"
+
+[node name="pi" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "π"
+script = ExtResource("10_tbj4d")
+
+[node name="sin" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "sin"
+script = ExtResource("9_k7uaw")
+
+[node name="cos" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "cos"
+script = ExtResource("9_k7uaw")
+
+[node name="tan" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "tan"
+script = ExtResource("9_k7uaw")
+
+[node name="i" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "i"
+script = ExtResource("10_tbj4d")
+
+[node name="x" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "x"
+script = ExtResource("10_tbj4d")
+
+[node name="y" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "y"
+script = ExtResource("10_tbj4d")
+
+[node name="z" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "z"
+script = ExtResource("10_tbj4d")
+
+[node name="equality" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "x="
+script = ExtResource("8_e3jkx")
+
+[node name="meter" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "m"
+script = ExtResource("10_tbj4d")
+
+[node name="kg" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "kg"
+script = ExtResource("10_tbj4d")
+
+[node name="dollar" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "$"
+script = ExtResource("10_tbj4d")
+
+[node name="conversion" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("1_rluar")
+text = "x→"
+script = ExtResource("8_e3jkx")

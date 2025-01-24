@@ -1,0 +1,473 @@
+[gd_scene load_steps=21 format=3 uid="uid://c0wtqeutvitaw"]
+
+[ext_resource type="FontFile" uid="uid://blonl5kirx1f0" path="res://DejaVuSans.ttf" id="1_n54hr"]
+[ext_resource type="Texture2D" uid="uid://cyd0n8xx4ydb5" path="res://assets/radio-button-checked.svg" id="2_63hbm"]
+[ext_resource type="Texture2D" uid="uid://6kdk2exijwwi" path="res://assets/radio-button-unchecked.svg" id="3_ymh0d"]
+[ext_resource type="Texture2D" uid="uid://kvs6qpjg8cmk" path="res://assets/toggle-on.svg" id="4_iwlb5"]
+[ext_resource type="Texture2D" uid="uid://dkx35bsujgoet" path="res://assets/toggle-off.svg" id="5_d6dow"]
+[ext_resource type="ButtonGroup" uid="uid://ccpmcte5qugm6" path="res://approximation-button-group.tres" id="6_18462"]
+[ext_resource type="Theme" uid="uid://dijyvgyshdkqj" path="res://fontsize40.tres" id="7_d7mvp"]
+[ext_resource type="Script" path="res://button_scripts/exchange_rate/button_fetch.gd" id="8_oq6pl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5idky"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.129412, 0.129412, 0.129412, 0)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr34s"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.129412, 0.129412, 0.129412, 0)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8oxf"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.129412, 0.129412, 0.129412, 0)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqfw5"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.129412, 0.129412, 0.129412, 0)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pp6cl"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.129412, 0.129412, 0.129412, 0)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="Theme" id="Theme_q0u4s"]
+default_font_size = 90
+Button/fonts/font = ExtResource("1_n54hr")
+CheckBox/icons/radio_checked = ExtResource("2_63hbm")
+CheckBox/icons/radio_unchecked = ExtResource("3_ymh0d")
+CheckBox/styles/hover = SubResource("StyleBoxFlat_5idky")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_5idky")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_5idky")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_5idky")
+CheckButton/icons/checked = ExtResource("4_iwlb5")
+CheckButton/icons/unchecked = ExtResource("5_d6dow")
+CheckButton/styles/hover = SubResource("StyleBoxFlat_cr34s")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_g8oxf")
+CheckButton/styles/normal = SubResource("StyleBoxFlat_uqfw5")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_pp6cl")
+Label/styles/normal = SubResource("StyleBoxFlat_uqfw5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltcac"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 1)
+border_width_left = 30
+border_width_top = 30
+border_width_right = 30
+border_width_bottom = 30
+border_color = Color(0.129412, 0.129412, 0.129412, 0)
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+corner_radius_bottom_left = 80
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7i6va"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgi5r"]
+content_margin_left = 40.0
+content_margin_right = 40.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6gcwd"]
+color = Color(0.501961, 0.501961, 0.501961, 1)
+grow_begin = -40.0
+grow_end = -40.0
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_xfdp8"]
+resource_name = "Fractions"
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_tjgd1"]
+
+[node name="Settings" type="ScrollContainer"]
+theme = SubResource("Theme_q0u4s")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+scroll_deadzone = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ltcac")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="invisible" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+text = "Approximation"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="Button" type="CheckBox" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+button_group = ExtResource("6_18462")
+text = "Always Exact"
+metadata/index = 0
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="Button2" type="CheckBox" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+button_group = ExtResource("6_18462")
+text = "Try Exact"
+metadata/index = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="Button3" type="CheckBox" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+button_group = ExtResource("6_18462")
+text = "Approximate"
+metadata/index = 2
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+text = "Interval Arithmetic"
+
+[node name="invisible2" type="HSeparator" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ltcac")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer2"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="invisible" type="HSeparator" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="Fractions" type="Label" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+text = "Fractions Type"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+button_group = SubResource("ButtonGroup_xfdp8")
+text = "Decimal"
+metadata/index = 0
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+button_group = SubResource("ButtonGroup_xfdp8")
+text = "Decimal Exact"
+metadata/index = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="CheckBox3" type="CheckBox" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+button_group = SubResource("ButtonGroup_xfdp8")
+text = "Fractional"
+metadata/index = 2
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="CheckBox4" type="CheckBox" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+button_group = SubResource("ButtonGroup_xfdp8")
+text = "Fract. Combined"
+metadata/index = 3
+
+[node name="invisible2" type="HSeparator" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ltcac")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer3"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="invisible" type="HSeparator" parent="VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="Angle_unit" type="Label" parent="VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+text = "Angle Unit"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+button_group = SubResource("ButtonGroup_tjgd1")
+text = "Degrees"
+metadata/index = 0
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+button_group = SubResource("ButtonGroup_tjgd1")
+text = "Radians"
+metadata/index = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="CheckBox3" type="CheckBox" parent="VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+button_group = SubResource("ButtonGroup_tjgd1")
+text = "Gradians"
+metadata/index = 2
+
+[node name="invisible2" type="HSeparator" parent="VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="Customization" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ltcac")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Customization"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="invisible" type="HSeparator" parent="VBoxContainer/Customization/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="Customization" type="Label" parent="VBoxContainer/Customization/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+text = "Customization"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Customization/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/Customization/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fgi5r")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+text = "Tab Swipe"
+
+[node name="invisible2" type="HSeparator" parent="VBoxContainer/Customization/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="Exchanges" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ltcac")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Exchanges"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="invisible" type="HSeparator" parent="VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="Exchanges" type="Label" parent="VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+text = "Exchange Rates"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="Fetch" type="Button" parent="VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("7_d7mvp")
+text = "Fetch Rates"
+script = ExtResource("8_oq6pl")
+
+[node name="invisible2" type="HSeparator" parent="VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
