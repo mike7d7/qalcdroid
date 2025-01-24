@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=59 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -18,7 +18,6 @@
 [ext_resource type="Script" path="res://button_scripts/exponent.gd" id="10_855gx"]
 [ext_resource type="Script" path="res://button_scripts/name_then_parenthesis.gd" id="12_nag7n"]
 [ext_resource type="Script" path="res://button_scripts/2_param_parenthesis.gd" id="13_utar4"]
-[ext_resource type="Theme" uid="uid://ct6wbh7pmtv76" path="res://popup_fontsize.tres" id="15_6v4ak"]
 [ext_resource type="Script" path="res://button_scripts/insert_function_shortcut.gd" id="15_a7ulm"]
 [ext_resource type="Script" path="res://button_scripts/ignore_first_char.gd" id="15_ot4g3"]
 [ext_resource type="Texture2D" uid="uid://bvjlxishyorn" path="res://assets/system-search-symbolic.svg" id="19_8hrvw"]
@@ -28,7 +27,6 @@
 [ext_resource type="ButtonGroup" uid="uid://ccpmcte5qugm6" path="res://approximation-button-group.tres" id="23_cutfi"]
 [ext_resource type="Script" path="res://button_scripts/tree_scripts/variables_vbox.gd" id="24_bsoas"]
 [ext_resource type="Texture2D" uid="uid://cyd0n8xx4ydb5" path="res://assets/radio-button-checked.svg" id="24_hm0ur"]
-[ext_resource type="Script" path="res://button_scripts/insert_function.gd" id="24_jwiw4"]
 [ext_resource type="Texture2D" uid="uid://6kdk2exijwwi" path="res://assets/radio-button-unchecked.svg" id="25_25ml6"]
 [ext_resource type="Texture2D" uid="uid://kvs6qpjg8cmk" path="res://assets/toggle-on.svg" id="26_ikp2g"]
 [ext_resource type="Texture2D" uid="uid://dkx35bsujgoet" path="res://assets/toggle-off.svg" id="27_i8hii"]
@@ -40,9 +38,10 @@
 [ext_resource type="Texture2D" uid="uid://c3klormftndvu" path="res://assets/variable.svg" id="34_x6s3r"]
 [ext_resource type="Texture2D" uid="uid://brvlxj72euhfj" path="res://assets/settings.svg" id="35_j76cm"]
 [ext_resource type="Script" path="res://button_scripts/tab_bar.gd" id="36_ae7b7"]
-[ext_resource type="PackedScene" uid="uid://nh8crhstsjw1" path="res://exchange_rate_fetch_popup.tscn" id="41_5ki2o"]
-[ext_resource type="PackedScene" uid="uid://bbfqxffrcipan" path="res://successful_exchange_rate_fetch.tscn" id="42_k1rp2"]
-[ext_resource type="PackedScene" uid="uid://ci2hd3djpmtc4" path="res://error_exchange_rate_fetch.tscn" id="43_1u2on"]
+[ext_resource type="PackedScene" uid="uid://c1dgkfgmc53l4" path="res://popup_scenes/fn_popup.tscn" id="39_qukme"]
+[ext_resource type="PackedScene" uid="uid://nh8crhstsjw1" path="res://popup_scenes/exchange_rate_fetch_popup.tscn" id="41_5ki2o"]
+[ext_resource type="PackedScene" uid="uid://bbfqxffrcipan" path="res://popup_scenes/successful_exchange_rate_fetch.tscn" id="42_k1rp2"]
+[ext_resource type="PackedScene" uid="uid://ci2hd3djpmtc4" path="res://popup_scenes/error_exchange_rate_fetch.tscn" id="43_1u2on"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_on5hf"]
 number_color = Color(1, 1, 1, 1)
@@ -182,18 +181,6 @@ resource_name = "Fractions"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qtkx"]
 bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="GDScript" id="GDScript_q47po"]
-script/source = "extends Button
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	self.pressed.connect(self._button_pressed.bind(self.get_meta(\"node\")))
-	pass # Replace with function body.
-
-func _button_pressed(node):
-	get_node(node).hide();
-"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -1193,56 +1180,7 @@ tab_4/icon = ExtResource("34_x6s3r")
 tab_5/icon = ExtResource("35_j76cm")
 script = ExtResource("36_ae7b7")
 
-[node name="fn_popup" type="PopupPanel" parent="."]
-auto_translate_mode = 1
-disable_3d = true
-initial_position = 2
-size = Vector2i(858, 655)
-theme = ExtResource("15_6v4ak")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="fn_popup"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 854.0
-offset_bottom = 651.0
-horizontal_scroll_mode = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="fn_popup/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="fn_popup/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "Function"
-clip_text = true
-metadata/metadata = ""
-
-[node name="HSeparator" type="HSeparator" parent="fn_popup/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="GridContainer" type="VBoxContainer" parent="fn_popup/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_stretch_ratio = 0.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="fn_popup/ScrollContainer/VBoxContainer/GridContainer"]
-layout_mode = 2
-
-[node name="cancel" type="Button" parent="fn_popup/ScrollContainer/VBoxContainer/GridContainer/HBoxContainer"]
-layout_direction = 2
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Cancel"
-script = SubResource("GDScript_q47po")
-metadata/node = NodePath("../../../../..")
-
-[node name="insert" type="Button" parent="fn_popup/ScrollContainer/VBoxContainer/GridContainer/HBoxContainer"]
-layout_direction = 3
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Insert
-"
-script = ExtResource("24_jwiw4")
+[node name="fn_popup" parent="." instance=ExtResource("39_qukme")]
 
 [node name="rates_popup" parent="." instance=ExtResource("41_5ki2o")]
 unique_name_in_owner = true

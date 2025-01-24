@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1dgkfgmc53l4"]
+
+[ext_resource type="Theme" uid="uid://ct6wbh7pmtv76" path="res://popup_fontsize.tres" id="1_ingge"]
+[ext_resource type="Script" path="res://button_scripts/insert_function.gd" id="2_kj4un"]
+
+[sub_resource type="GDScript" id="GDScript_q47po"]
+script/source = "extends Button
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	self.pressed.connect(self._button_pressed.bind(self.get_meta(\"node\")))
+	pass # Replace with function body.
+
+func _button_pressed(node):
+	get_node(node).hide();
+"
+
+[node name="fn_popup" type="PopupPanel"]
+auto_translate_mode = 1
+disable_3d = true
+initial_position = 2
+size = Vector2i(858, 655)
+theme = ExtResource("1_ingge")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 854.0
+offset_bottom = 651.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Function"
+clip_text = true
+metadata/metadata = ""
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="cancel" type="Button" parent="ScrollContainer/VBoxContainer/GridContainer/HBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+script = SubResource("GDScript_q47po")
+metadata/node = NodePath("../../../../..")
+
+[node name="insert" type="Button" parent="ScrollContainer/VBoxContainer/GridContainer/HBoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Insert
+"
+script = ExtResource("2_kj4un")
