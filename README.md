@@ -62,4 +62,5 @@ If you are experiencing an issue or have a feature request, please open up an [i
 - [BetterTabContainer](https://github.com/gducrash/BetterTabContainer/tree/4.0) by [gducrash](https://github.com/gducrash)
 - [GodotXML](https://github.com/elenakrittik/GodotXML) by [elenakrittik](https://github.com/elenakrittik)
 - [Cosmic Icons](http://github.com/pop-os/cosmic-icons) by [System76](http://system76.com/)
+- [Arcticons Thin Line Icons](https://www.svgrepo.com/collection/arcticons-thin-line-icons/) by [Donnnno](https://www.svgrepo.com/author/Donnnno/)
 - [Catppuccin](https://github.com/catppuccin/catppuccin)
