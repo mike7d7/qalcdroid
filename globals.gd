@@ -1,5 +1,6 @@
 extends Node
 var answer: String = '';
+var exit: bool = false;
 @onready var user_prefs: UserPreferences = UserPreferences.load_or_create()
 
 func _ready() -> void:
@@ -34,3 +35,14 @@ func _ready() -> void:
 	get_tree().current_scene.get_node("/root/Control/success_exchange_rate").max_size = get_tree().current_scene.get_node("/root/Control").size
 	get_tree().current_scene.get_node("/root/Control/error_exchange_rate").max_size = get_tree().current_scene.get_node("/root/Control").size
 	
+# Handles back button on Android, only exits on 2 consecutive back button events.
+func _notification(what):
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		if exit:
+			get_tree().quit()
+		else:
+			exit = true
+			get_tree().create_timer(1.0).timeout.connect(set_exit_false)
+			
+func set_exit_false() -> void:
+	exit = false
