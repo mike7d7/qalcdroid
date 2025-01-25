@@ -12,6 +12,7 @@
   - [Units](tree-units.md)
   - [Variables](tree-variables.md)
 - [Native Libraries](native-libraries.md)
+- [Popups](popups.md)
 
 ## GUI Design
 

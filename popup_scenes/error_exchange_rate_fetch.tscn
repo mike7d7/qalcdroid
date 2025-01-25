@@ -27,3 +27,5 @@ autowrap_mode = 3
 layout_mode = 2
 text = "Ok"
 script = ExtResource("2_ou5ul")
+
+[connection signal="popup_hide" from="." to="VBoxContainer/Button" method="set_popup_number_on_hide"]

@@ -1,6 +1,7 @@
 extends Node
 var answer: String = '';
 var exit: bool = false;
+var popup_number: int = 0;
 @onready var user_prefs: UserPreferences = UserPreferences.load_or_create()
 
 func _ready() -> void:
@@ -43,6 +44,19 @@ func _notification(what):
 		else:
 			exit = true
 			get_tree().create_timer(1.0).timeout.connect(set_exit_false)
+		# If popup_number is 0 no popup is shown, other numbers are based
+		# on the order of appearance in the editor in the main scene.
+		match self.popup_number:
+			0:
+				return
+			1:
+				get_node("/root/Control/fn_popup").hide()
+			2:
+				get_node("/root/Control/rates_popup").hide()
+			3:
+				get_node("/root/Control/success_exchange_rate").hide()
+			4:
+				get_node("/root/Control/error_exchange_rate").hide()
 			
 func set_exit_false() -> void:
 	exit = false
