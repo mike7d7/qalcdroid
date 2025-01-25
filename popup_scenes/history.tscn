@@ -1,0 +1,125 @@
+[gd_scene load_steps=3 format=3 uid="uid://c71i4jnxbut05"]
+
+[ext_resource type="Theme" uid="uid://dijyvgyshdkqj" path="res://fontsize40.tres" id="1_oarj0"]
+[ext_resource type="Script" path="res://button_scripts/exchange_rate/close_popup.gd" id="2_j2rxh"]
+
+[node name="HistoryPopup" type="PopupPanel"]
+disable_3d = true
+initial_position = 2
+size = Vector2i(648, 1152)
+visible = true
+theme = ExtResource("1_oarj0")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 644.0
+offset_bottom = 1148.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1+1"
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "2+2"
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1+1"
+
+[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "2+2"
+
+[node name="Label5" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1+1"
+
+[node name="Label6" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "2+2"
+
+[node name="Label7" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1+1"
+
+[node name="Label8" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "2+2"
+
+[node name="Label9" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1+1"
+
+[node name="Label10" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "2+2"
+
+[node name="Label11" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1+1"
+
+[node name="Label12" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "2+2"
+
+[node name="Label13" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1+1"
+
+[node name="Label14" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "2+2"
+
+[node name="Label15" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1+1"
+
+[node name="Label16" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "2+2"
+
+[node name="Label17" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1+1"
+
+[node name="Label18" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "2+2"
+
+[node name="Label19" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1+1"
+
+[node name="Label20" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "2+2"
+
+[node name="Label21" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1+1"
+
+[node name="Label22" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "2+2"
+
+[node name="Label23" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "1+1"
+
+[node name="Label24" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "2+2"
+
+[node name="ok" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ok"
+script = ExtResource("2_j2rxh")
+
+[connection signal="popup_hide" from="." to="ScrollContainer/VBoxContainer/ok" method="set_popup_number_on_hide"]

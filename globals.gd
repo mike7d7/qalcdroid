@@ -31,10 +31,13 @@ func _ready() -> void:
 	get_tree().current_scene.get_node("/root/Control/rates_popup").size = get_tree().current_scene.get_node("/root/Control").size
 	get_tree().current_scene.get_node("/root/Control/success_exchange_rate").size = get_tree().current_scene.get_node("/root/Control").size
 	get_tree().current_scene.get_node("/root/Control/error_exchange_rate").size = get_tree().current_scene.get_node("/root/Control").size
+	get_tree().current_scene.get_node("/root/Control/history_popup").size = get_tree().current_scene.get_node("/root/Control").size
 	
 	get_tree().current_scene.get_node("/root/Control/rates_popup").max_size = get_tree().current_scene.get_node("/root/Control").size
 	get_tree().current_scene.get_node("/root/Control/success_exchange_rate").max_size = get_tree().current_scene.get_node("/root/Control").size
 	get_tree().current_scene.get_node("/root/Control/error_exchange_rate").max_size = get_tree().current_scene.get_node("/root/Control").size
+	get_tree().current_scene.get_node("/root/Control/history_popup").max_size = get_tree().current_scene.get_node("/root/Control").size
+
 	
 # Handles back button on Android, only exits on 2 consecutive back button events.
 func _notification(what):
@@ -57,6 +60,8 @@ func _notification(what):
 				get_node("/root/Control/success_exchange_rate").hide()
 			4:
 				get_node("/root/Control/error_exchange_rate").hide()
+			5:
+				get_node("/root/Control/history_popup").hide()
 			
 func set_exit_false() -> void:
 	exit = false
