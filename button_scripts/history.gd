@@ -16,6 +16,8 @@ func fill_history_container() -> void:
 		entry.text = i
 		entry.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		entry.set_script(preload("res://button_scripts/history_entry_button.gd"))
+		entry.mouse_filter = Control.MOUSE_FILTER_PASS
+		entry.focus_mode = Control.FOCUS_NONE
 		get_node("/root/Control/history_popup/VBoxContainer/ScrollContainer/VBoxContainer").add_child(entry)
 		get_node("/root/Control/history_popup/VBoxContainer/ScrollContainer/VBoxContainer").move_child(entry, 0)
 		
@@ -24,5 +26,7 @@ func add_entry_to_history() -> void:
 	entry.text = Globals.user_prefs.history[-1]
 	entry.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	entry.set_script(preload("res://button_scripts/history_entry_button.gd"))
+	entry.mouse_filter = Control.MOUSE_FILTER_PASS
+	entry.focus_mode = Control.FOCUS_NONE
 	get_node("/root/Control/history_popup/VBoxContainer/ScrollContainer/VBoxContainer").add_child(entry)
 	get_node("/root/Control/history_popup/VBoxContainer/ScrollContainer/VBoxContainer").move_child(entry, 0)
