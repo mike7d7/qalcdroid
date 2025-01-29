@@ -3,6 +3,7 @@ var answer: String = '';
 var exit: bool = false;
 var popup_number: int = 0;
 @onready var user_prefs: UserPreferences = UserPreferences.load_or_create()
+@onready var history: PackedStringArray = user_prefs.history;
 
 func _ready() -> void:
 	# print(ProjectSettings.globalize_path("user://variables.xml"))

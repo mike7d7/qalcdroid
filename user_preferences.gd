@@ -7,6 +7,9 @@ class_name UserPreferences extends Resource
 @export var angle_unit: int = 1
 @export var tab_swipe: bool = true
 
+#Also save history in user preferences
+@export var history: PackedStringArray = []
+
 func save() -> void:
 	ResourceSaver.save(self, "user://user_prefs.res")
 
