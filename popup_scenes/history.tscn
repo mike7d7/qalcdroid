@@ -27,6 +27,7 @@ size_flags_vertical = 3
 
 [node name="ok" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Ok"
 script = ExtResource("2_j2rxh")
 
