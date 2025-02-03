@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cadhc63l4phn7"]
+[gd_scene load_steps=43 format=3 uid="uid://cadhc63l4phn7"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
 [ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
@@ -13,7 +13,9 @@
 [ext_resource type="Script" path="res://button_scripts/enter.gd" id="4_qdnla"]
 [ext_resource type="Script" path="res://button_scripts/answer.gd" id="4_t5poh"]
 [ext_resource type="Texture2D" uid="uid://b2tynr2ibjxde" path="res://assets/pan-end-symbolic.svg" id="5_45h5p"]
+[ext_resource type="Texture2D" uid="uid://ct7g6vdmpw42t" path="res://assets/up.svg" id="5_fxyrf"]
 [ext_resource type="PackedScene" uid="uid://dhq1ipjojc65i" path="res://tab_scenes/numbers_2.tscn" id="5_xt0je"]
+[ext_resource type="Texture2D" uid="uid://dmdn4sjftsqal" path="res://assets/down.svg" id="6_vs4rt"]
 [ext_resource type="Script" path="res://button_scripts/parenthesis.gd" id="7_ivjdx"]
 [ext_resource type="Script" path="res://button_scripts/history.gd" id="7_s1wyn"]
 [ext_resource type="Texture2D" uid="uid://v7o6h3f5uawn" path="res://assets/edit-clear-symbolic.svg" id="7_t6dja"]
@@ -141,7 +143,7 @@ size_flags_vertical = 3
 focus_mode = 0
 mouse_filter = 1
 theme = ExtResource("1_xbuye")
-icon = ExtResource("3_rf4oa")
+icon = ExtResource("5_fxyrf")
 icon_alignment = 1
 
 [node name="down" type="Button" parent="VBoxContainer/TabContainer/numbers"]
@@ -150,7 +152,7 @@ size_flags_vertical = 3
 focus_mode = 0
 mouse_filter = 1
 theme = ExtResource("1_xbuye")
-icon = ExtResource("3_rf4oa")
+icon = ExtResource("6_vs4rt")
 icon_alignment = 1
 
 [node name="placeholder2" type="Button" parent="VBoxContainer/TabContainer/numbers"]
