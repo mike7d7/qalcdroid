@@ -2,6 +2,7 @@ extends Node
 var answer: String = '';
 var exit: bool = false;
 var popup_number: int = 0;
+var entry_number: int = 0; #history entry array index (back to front), used for up and down buttons
 @onready var user_prefs: UserPreferences = UserPreferences.load_or_create()
 @onready var history: PackedStringArray = user_prefs.history;
 

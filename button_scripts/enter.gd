@@ -13,6 +13,7 @@ func _button_pressed() -> void:
 	$"../../../../ScrollContainer/Label".text = Globals.answer
 	add_to_history(input_node.text)
 	input_node.grab_focus()
+	Globals.entry_number = -1
 
 func get_unit(input: String) -> String:
 	return _unit_abbreviation(input)
