@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c0wtqeutvitaw"]
+[gd_scene load_steps=22 format=3 uid="uid://c0wtqeutvitaw"]
 
 [ext_resource type="FontFile" uid="uid://blonl5kirx1f0" path="res://DejaVuSans.ttf" id="1_n54hr"]
 [ext_resource type="Texture2D" uid="uid://cyd0n8xx4ydb5" path="res://assets/radio-button-checked.svg" id="2_63hbm"]
@@ -8,6 +8,7 @@
 [ext_resource type="ButtonGroup" uid="uid://ccpmcte5qugm6" path="res://approximation-button-group.tres" id="6_18462"]
 [ext_resource type="Theme" uid="uid://dijyvgyshdkqj" path="res://fontsize40.tres" id="7_d7mvp"]
 [ext_resource type="Script" path="res://button_scripts/exchange_rate/button_fetch.gd" id="8_oq6pl"]
+[ext_resource type="Script" path="res://button_scripts/history_delete.gd" id="9_hu4qo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5idky"]
 bg_color = Color(0.129412, 0.129412, 0.129412, 1)
@@ -117,6 +118,11 @@ resource_name = "Fractions"
 [sub_resource type="ButtonGroup" id="ButtonGroup_tjgd1"]
 
 [node name="Settings" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_q0u4s")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
@@ -468,6 +474,45 @@ text = "Fetch Rates"
 script = ExtResource("8_oq6pl")
 
 [node name="invisible2" type="HSeparator" parent="VBoxContainer/Exchanges/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="History" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ltcac")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/History"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="invisible" type="HSeparator" parent="VBoxContainer/History/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")
+
+[node name="History" type="Label" parent="VBoxContainer/History/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgi5r")
+text = "History"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/History/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_6gcwd")
+
+[node name="Delete" type="Button" parent="VBoxContainer/History/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("7_d7mvp")
+text = "Delete All History"
+script = ExtResource("9_hu4qo")
+
+[node name="invisible2" type="HSeparator" parent="VBoxContainer/History/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxLine_7i6va")

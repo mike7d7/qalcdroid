@@ -33,3 +33,5 @@ fill_mode = 4
 radial_fill_degrees = 60.0
 texture_progress = ExtResource("2_t78ho")
 script = ExtResource("2_dy63r")
+
+[connection signal="popup_hide" from="." to="VBoxContainer/TextureProgressBar" method="set_popup_number_on_hide"]

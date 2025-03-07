@@ -10,3 +10,4 @@ func _button_pressed() -> void:
 	input_node.text = ''
 	label.text = '0'
 	input_node.grab_focus()
+	Globals.entry_number = 0

@@ -17,6 +17,7 @@ func _ready() -> void:
 
 func _button_pressed() -> void:
 	rates_popup.show()
+	Globals.popup_number = 2
 	fetch_exchange_rates_in_background()
 	
 	var result: bool = await Signal(fetch_complete)
@@ -24,8 +25,10 @@ func _button_pressed() -> void:
 	rates_popup.hide()
 	if result && reload:
 		success_popup.show()
+		Globals.popup_number = 3
 	else:
 		error_popup.show()
+		Globals.popup_number = 4
 
 func fetch_exchange_rates_in_background() -> void:
 	var error = http_request.request("https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml")

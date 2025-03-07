@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://c71i4jnxbut05"]
+
+[ext_resource type="Theme" uid="uid://dijyvgyshdkqj" path="res://fontsize40.tres" id="1_oarj0"]
+[ext_resource type="Script" path="res://button_scripts/exchange_rate/close_popup.gd" id="2_j2rxh"]
+
+[node name="HistoryPopup" type="PopupPanel"]
+disable_3d = true
+initial_position = 2
+size = Vector2i(648, 1152)
+visible = true
+theme = ExtResource("1_oarj0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+scroll_deadzone = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ok" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Ok"
+script = ExtResource("2_j2rxh")
+
+[connection signal="popup_hide" from="." to="VBoxContainer/ok" method="set_popup_number_on_hide"]
