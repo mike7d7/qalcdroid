@@ -24,3 +24,4 @@ func _button_pressed() -> void:
 	expression += ")"
 	$"../../../../../../VBoxContainer/input".insert_text_at_caret(expression, -1)
 	$"../../../../../../fn_popup".hide();
+	Globals.popup_number = 0

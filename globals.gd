@@ -1,7 +1,10 @@
 extends Node
 var answer: String = '';
 var exit: bool = false;
+var popup_number: int = 0;
+var entry_number: int = 0; #history entry array index (back to front), used for up and down buttons
 @onready var user_prefs: UserPreferences = UserPreferences.load_or_create()
+@onready var history: PackedStringArray = user_prefs.history;
 
 func _ready() -> void:
 	# print(ProjectSettings.globalize_path("user://variables.xml"))
@@ -30,10 +33,13 @@ func _ready() -> void:
 	get_tree().current_scene.get_node("/root/Control/rates_popup").size = get_tree().current_scene.get_node("/root/Control").size
 	get_tree().current_scene.get_node("/root/Control/success_exchange_rate").size = get_tree().current_scene.get_node("/root/Control").size
 	get_tree().current_scene.get_node("/root/Control/error_exchange_rate").size = get_tree().current_scene.get_node("/root/Control").size
+	get_tree().current_scene.get_node("/root/Control/history_popup").size = get_tree().current_scene.get_node("/root/Control").size
 	
 	get_tree().current_scene.get_node("/root/Control/rates_popup").max_size = get_tree().current_scene.get_node("/root/Control").size
 	get_tree().current_scene.get_node("/root/Control/success_exchange_rate").max_size = get_tree().current_scene.get_node("/root/Control").size
 	get_tree().current_scene.get_node("/root/Control/error_exchange_rate").max_size = get_tree().current_scene.get_node("/root/Control").size
+	get_tree().current_scene.get_node("/root/Control/history_popup").max_size = get_tree().current_scene.get_node("/root/Control").size
+
 	
 # Handles back button on Android, only exits on 2 consecutive back button events.
 func _notification(what):
@@ -43,6 +49,21 @@ func _notification(what):
 		else:
 			exit = true
 			get_tree().create_timer(1.0).timeout.connect(set_exit_false)
+		# If popup_number is 0 no popup is shown, other numbers are based
+		# on the order of appearance in the editor in the main scene.
+		match self.popup_number:
+			0:
+				return
+			1:
+				get_node("/root/Control/fn_popup").hide()
+			2:
+				get_node("/root/Control/rates_popup").hide()
+			3:
+				get_node("/root/Control/success_exchange_rate").hide()
+			4:
+				get_node("/root/Control/error_exchange_rate").hide()
+			5:
+				get_node("/root/Control/history_popup").hide()
 			
 func set_exit_false() -> void:
 	exit = false

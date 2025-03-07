@@ -67,6 +67,7 @@ func _on_functions_item_activated() -> void:
 		$"../../fn_popup/ScrollContainer/VBoxContainer/Label".set_meta("metadata", item_string)
 		$"../../fn_popup".size = $"../../../Control".size
 		$"../../fn_popup".show()
+		Globals.popup_number = 1
 	else:
 		treeitem.set_collapsed_recursive(!treeitem.collapsed)
 
@@ -117,6 +118,7 @@ func _on_functions_item_activated_grid(item, title: String, treeitem: TreeItem) 
 		$"../../fn_popup/ScrollContainer/VBoxContainer/Label".set_meta("metadata", item)
 		$"../../fn_popup".size = $"../../../Control".size
 		$"../../fn_popup".show()
+		Globals.popup_number = 1
 	else:
 		treeitem.set_collapsed_recursive(!treeitem.collapsed)
 

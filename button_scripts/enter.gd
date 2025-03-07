@@ -11,7 +11,9 @@ func _ready() -> void:
 func _button_pressed() -> void:
 	Globals.answer = '[url]' + _calculate_and_print(input_node.text) + '[/url]'
 	$"../../../../ScrollContainer/Label".text = Globals.answer
+	add_to_history(input_node.text)
 	input_node.grab_focus()
+	Globals.entry_number = -1
 
 func get_unit(input: String) -> String:
 	return _unit_abbreviation(input)
@@ -77,6 +79,11 @@ func change_tab_swipe(input: bool) -> void:
 	user_prefs.tab_swipe = input
 	user_prefs.save()
 
+func add_to_history(input: String) -> void:
+	if input:
+		user_prefs.history.append(input)
+		get_node("../history").add_entry_to_history()
+		user_prefs.save()
 
 func load_settings() -> void:
 	self.change_precision(user_prefs.precision)
