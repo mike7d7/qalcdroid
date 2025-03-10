@@ -64,3 +64,4 @@ If you are experiencing an issue or have a feature request, please open up an [i
 - [Cosmic Icons](http://github.com/pop-os/cosmic-icons) by [System76](http://system76.com/)
 - [Arcticons Thin Line Icons](https://www.svgrepo.com/collection/arcticons-thin-line-icons/) by [Donnnno](https://www.svgrepo.com/author/Donnnno/)
 - [Catppuccin](https://github.com/catppuccin/catppuccin)
+- [CoolerControl](https://gitlab.com/coolercontrol/coolercontrol) (Inspiration for readme)
