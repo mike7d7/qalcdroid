@@ -34,7 +34,7 @@ in
 
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
-    godot_4
+    godot
     scons
     libqalculate
     jdk17

@@ -1,32 +1,32 @@
 [gd_scene load_steps=45 format=3 uid="uid://cadhc63l4phn7"]
 
-[ext_resource type="Script" path="res://input.gd" id="1_cdgn3"]
-[ext_resource type="Script" path="res://button_scripts/button_0.gd" id="1_totml"]
+[ext_resource type="Script" uid="uid://8uhpvdjhfd68" path="res://input.gd" id="1_cdgn3"]
+[ext_resource type="Script" uid="uid://0fy63j4uhbg" path="res://button_scripts/button_0.gd" id="1_totml"]
 [ext_resource type="Theme" uid="uid://dijyvgyshdkqj" path="res://fontsize40.tres" id="1_xbuye"]
-[ext_resource type="Script" path="res://button_scripts/result_label.gd" id="2_5bv7m"]
-[ext_resource type="Script" path="res://addons/BetterTabContainer/BetterTabContainer.gd" id="2_iopcd"]
-[ext_resource type="Script" path="res://button_scripts/clear.gd" id="2_ltflc"]
-[ext_resource type="Script" path="res://button_scripts/delete.gd" id="3_1veor"]
-[ext_resource type="Script" path="res://button_scripts/move_left.gd" id="3_1343i"]
+[ext_resource type="Script" uid="uid://yp4uu0xysc00" path="res://button_scripts/result_label.gd" id="2_5bv7m"]
+[ext_resource type="Script" uid="uid://cxtfepdg0uqig" path="res://addons/BetterTabContainer/BetterTabContainer.gd" id="2_iopcd"]
+[ext_resource type="Script" uid="uid://nvj50sng061h" path="res://button_scripts/clear.gd" id="2_ltflc"]
+[ext_resource type="Script" uid="uid://61nmnx75fqub" path="res://button_scripts/delete.gd" id="3_1veor"]
+[ext_resource type="Script" uid="uid://ty31tqtbiabu" path="res://button_scripts/move_left.gd" id="3_1343i"]
 [ext_resource type="Texture2D" uid="uid://bgk42bvlenvkf" path="res://assets/pan-start-symbolic.svg" id="3_rf4oa"]
-[ext_resource type="Script" path="res://button_scripts/move_right.gd" id="4_mgs5p"]
-[ext_resource type="Script" path="res://button_scripts/enter.gd" id="4_qdnla"]
-[ext_resource type="Script" path="res://button_scripts/answer.gd" id="4_t5poh"]
+[ext_resource type="Script" uid="uid://bs63h2ukb5p3" path="res://button_scripts/move_right.gd" id="4_mgs5p"]
+[ext_resource type="Script" uid="uid://cj76p7exeow5f" path="res://button_scripts/enter.gd" id="4_qdnla"]
+[ext_resource type="Script" uid="uid://lmpcs1ufg5y3" path="res://button_scripts/answer.gd" id="4_t5poh"]
 [ext_resource type="Texture2D" uid="uid://b2tynr2ibjxde" path="res://assets/pan-end-symbolic.svg" id="5_45h5p"]
 [ext_resource type="Texture2D" uid="uid://ct7g6vdmpw42t" path="res://assets/up.svg" id="5_fxyrf"]
 [ext_resource type="PackedScene" uid="uid://dhq1ipjojc65i" path="res://tab_scenes/numbers_2.tscn" id="5_xt0je"]
-[ext_resource type="Script" path="res://button_scripts/move_up.gd" id="6_f7fx4"]
+[ext_resource type="Script" uid="uid://caef1i3d4ik1x" path="res://button_scripts/move_up.gd" id="6_f7fx4"]
 [ext_resource type="Texture2D" uid="uid://dmdn4sjftsqal" path="res://assets/down.svg" id="6_vs4rt"]
-[ext_resource type="Script" path="res://button_scripts/absolute_value.gd" id="7_ivjdx"]
-[ext_resource type="Script" path="res://button_scripts/history.gd" id="7_s1wyn"]
+[ext_resource type="Script" uid="uid://c3kpnwfdftcff" path="res://button_scripts/absolute_value.gd" id="7_ivjdx"]
+[ext_resource type="Script" uid="uid://dcoy8r7lihwro" path="res://button_scripts/history.gd" id="7_s1wyn"]
 [ext_resource type="Texture2D" uid="uid://v7o6h3f5uawn" path="res://assets/edit-clear-symbolic.svg" id="7_t6dja"]
-[ext_resource type="Script" path="res://button_scripts/move_down.gd" id="8_nitcu"]
-[ext_resource type="Script" path="res://button_scripts/exponent.gd" id="10_855gx"]
+[ext_resource type="Script" uid="uid://cyx614a7cdxct" path="res://button_scripts/move_down.gd" id="8_nitcu"]
+[ext_resource type="Script" uid="uid://c4hr0u170vgo0" path="res://button_scripts/exponent.gd" id="10_855gx"]
 [ext_resource type="PackedScene" uid="uid://c0wtqeutvitaw" path="res://tab_scenes/settings.tscn" id="11_fv7st"]
 [ext_resource type="Texture2D" uid="uid://bvjlxishyorn" path="res://assets/system-search-symbolic.svg" id="19_8hrvw"]
-[ext_resource type="Script" path="res://button_scripts/tree_scripts/functions_vbox.gd" id="21_i2l4e"]
-[ext_resource type="Script" path="res://button_scripts/tree_scripts/units_vbox.gd" id="23_5dpns"]
-[ext_resource type="Script" path="res://button_scripts/tree_scripts/variables_vbox.gd" id="24_bsoas"]
+[ext_resource type="Script" uid="uid://y8bndni07gr3" path="res://button_scripts/tree_scripts/functions_vbox.gd" id="21_i2l4e"]
+[ext_resource type="Script" uid="uid://dck58o1enof23" path="res://button_scripts/tree_scripts/units_vbox.gd" id="23_5dpns"]
+[ext_resource type="Script" uid="uid://dhgeg5oe05wur" path="res://button_scripts/tree_scripts/variables_vbox.gd" id="24_bsoas"]
 [ext_resource type="Texture2D" uid="uid://besjaaqhm22j8" path="res://assets/history.svg" id="29_gjnpd"]
 [ext_resource type="Texture2D" uid="uid://bnihwboli7y8m" path="res://assets/numbers.svg" id="30_84j1t"]
 [ext_resource type="Texture2D" uid="uid://ko16gghkmr44" path="res://assets/numbers2.svg" id="31_oo1l3"]
@@ -35,7 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://c3klormftndvu" path="res://assets/variable.svg" id="34_x6s3r"]
 [ext_resource type="Texture2D" uid="uid://brvlxj72euhfj" path="res://assets/settings.svg" id="35_j76cm"]
 [ext_resource type="PackedScene" uid="uid://c71i4jnxbut05" path="res://popup_scenes/history.tscn" id="35_ky60x"]
-[ext_resource type="Script" path="res://button_scripts/tab_bar.gd" id="36_ae7b7"]
+[ext_resource type="Script" uid="uid://dnq6bmj5jquli" path="res://button_scripts/tab_bar.gd" id="36_ae7b7"]
 [ext_resource type="PackedScene" uid="uid://c1dgkfgmc53l4" path="res://popup_scenes/fn_popup.tscn" id="39_qukme"]
 [ext_resource type="PackedScene" uid="uid://nh8crhstsjw1" path="res://popup_scenes/exchange_rate_fetch_popup.tscn" id="41_5ki2o"]
 [ext_resource type="PackedScene" uid="uid://bbfqxffrcipan" path="res://popup_scenes/successful_exchange_rate_fetch.tscn" id="42_k1rp2"]
@@ -166,8 +166,8 @@ focus_mode = 0
 mouse_filter = 1
 theme = ExtResource("1_xbuye")
 theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
-theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 theme_override_colors/font_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 text = "("
 script = ExtResource("1_totml")
 
@@ -178,8 +178,8 @@ focus_mode = 0
 mouse_filter = 1
 theme = ExtResource("1_xbuye")
 theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
-theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 theme_override_colors/font_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 text = ")"
 script = ExtResource("1_totml")
 
@@ -220,8 +220,8 @@ focus_mode = 0
 mouse_filter = 1
 theme = ExtResource("1_xbuye")
 theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
-theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 theme_override_colors/font_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 text = "|x|"
 script = ExtResource("7_ivjdx")
 
@@ -232,8 +232,8 @@ focus_mode = 0
 mouse_filter = 1
 theme = ExtResource("1_xbuye")
 theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
-theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 theme_override_colors/font_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 text = "xʸ"
 script = ExtResource("10_855gx")
 
@@ -244,8 +244,8 @@ focus_mode = 0
 mouse_filter = 1
 theme = ExtResource("1_xbuye")
 theme_override_colors/font_hover_color = Color(0.823529, 0.0588235, 0.223529, 1)
-theme_override_colors/font_pressed_color = Color(0.823529, 0.0588235, 0.223529, 1)
 theme_override_colors/font_color = Color(0.823529, 0.0588235, 0.223529, 1)
+theme_override_colors/font_pressed_color = Color(0.823529, 0.0588235, 0.223529, 1)
 text = "C"
 script = ExtResource("2_ltflc")
 
@@ -288,8 +288,8 @@ focus_mode = 0
 mouse_filter = 1
 theme = ExtResource("1_xbuye")
 theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
-theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 theme_override_colors/font_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 text = "/"
 script = ExtResource("1_totml")
 
@@ -299,9 +299,9 @@ size_flags_vertical = 3
 focus_mode = 0
 mouse_filter = 1
 theme = ExtResource("1_xbuye")
-theme_override_colors/icon_normal_color = Color(0.823529, 0.0588235, 0.223529, 1)
-theme_override_colors/icon_pressed_color = Color(0.823529, 0.0588235, 0.223529, 1)
 theme_override_colors/icon_hover_color = Color(0.823529, 0.0588235, 0.223529, 1)
+theme_override_colors/icon_pressed_color = Color(0.823529, 0.0588235, 0.223529, 1)
+theme_override_colors/icon_normal_color = Color(0.823529, 0.0588235, 0.223529, 1)
 theme_override_font_sizes/font_size = 0
 icon = ExtResource("7_t6dja")
 icon_alignment = 1
@@ -345,8 +345,8 @@ focus_mode = 0
 mouse_filter = 1
 theme = ExtResource("1_xbuye")
 theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
-theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 theme_override_colors/font_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 text = "*"
 script = ExtResource("1_totml")
 
@@ -397,8 +397,8 @@ focus_mode = 0
 mouse_filter = 1
 theme = ExtResource("1_xbuye")
 theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
-theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 theme_override_colors/font_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 text = "-"
 script = ExtResource("1_totml")
 
@@ -449,8 +449,8 @@ focus_mode = 0
 mouse_filter = 1
 theme = ExtResource("1_xbuye")
 theme_override_colors/font_hover_color = Color(0.117647, 0.4, 0.960784, 1)
-theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 theme_override_colors/font_color = Color(0.117647, 0.4, 0.960784, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.4, 0.960784, 1)
 text = "+"
 script = ExtResource("1_totml")
 
