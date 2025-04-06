@@ -24,7 +24,7 @@ let
     abiVersions = [ "armeabi-v7a" "arm64-v8a" ];
     cmakeVersions = [ "3.10.2" ];
     includeNDK = true;
-    ndkVersions = ["23.2.8568313"];
+    ndkVersion = "23.2.8568313";
     useGoogleAPIs = false;
     useGoogleTVAddOns = false;
   };
